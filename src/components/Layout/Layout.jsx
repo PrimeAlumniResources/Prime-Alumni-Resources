@@ -4,11 +4,9 @@ import NavBar from "../NavBar/NavBar";
 
 function Layout() {
     return (
-        <div className="">
-            <div>
-                <NavBar />
-            </div>
-            <div >
+        <div>
+            <NavBar />
+            <div className='ml-64'>
                 <Outlet />
             </div>
         </div>
