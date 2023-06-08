@@ -12,6 +12,7 @@ function UserPage() {
       <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" />
     </div>
+    
   );
 }
 

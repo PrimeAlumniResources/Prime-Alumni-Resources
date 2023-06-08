@@ -14,6 +14,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Layout from '../Layout/Layout';
+import ProfilePage from '../profilePage/ProfilePage';
 
 import './App.css';
 
@@ -42,6 +43,16 @@ function App() {
             path="/login"
             element={user.id ? <Navigate to="/user" /> : <LoginPage />}
           />
+
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute user={user}>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
+
           <Route
             path="/user"
             element={
