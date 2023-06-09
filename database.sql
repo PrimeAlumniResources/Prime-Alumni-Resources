@@ -51,9 +51,9 @@ CREATE TABLE "resource" (
 );
 
 CREATE TABLE "tech" (
-    "id" SERIAL PRIMARY KEY
-    "name" VARCHAR (255);
-    "is_current" BOOLEAN default FALSE;
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR (255),
+    "is_current" BOOLEAN default FALSE,
 );
 
 CREATE TABLE "user_tech" (
