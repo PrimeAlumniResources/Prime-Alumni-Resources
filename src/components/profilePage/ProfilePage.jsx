@@ -17,10 +17,10 @@ function ProfilePage() {
    const addProfile = (e) => {
     event.preventDefault();
 
-    dispatchEvent({
-        type: 'SAGA/ADD_PROFILE',
-        payload: ?????
-    });
+    // dispatchEvent({
+    //     type: 'SAGA/ADD_PROFILE',
+    //     payload: ?????
+    // });
 
     setUserName('');
     setBio('');
