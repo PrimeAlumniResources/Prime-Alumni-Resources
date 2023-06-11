@@ -28,9 +28,9 @@ else {
     pool = new pg.Pool({
         host: 'localhost',
         port: 3000,
-        database: 'prime_alum_db',   // 	💥 Change this to the name of your database!
-        user: 'postgres',
-        password: 'Gambino20'
+        database: 'pirme_alumni_resources',   // 	💥 Change this to the name of your database!
+        user: 'postgres', //this should have been removed
+        password: 'Gambino20' //this should have been removed
     });
 }
 
