@@ -27,8 +27,10 @@ if (process.env.DATABASE_URL) {
 else {
     pool = new pg.Pool({
         host: 'localhost',
-        port: 5432,
-        database: 'prime_alumni_resources',   // 	💥 Change this to the name of your database!
+        port: 3000,
+        database: 'prime_alum_db',   // 	💥 Change this to the name of your database!
+        user: 'postgres',
+        password: 'Gambino20'
     });
 }
 
