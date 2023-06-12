@@ -1,10 +1,10 @@
-// const currentStacks = (state = [], action) => {
+// const knownStacks = (state = [], action) => {
 //     switch (action.type) {
-//       case 'SET_CURRENT_STACK':
+//       case 'SET_KNOWN_STACK':
 //         return [ ...state, action.payload ]
 //       default:
 //         return state;
 //     }
 //   };
 
-// export default currentStacks;
+// export default knownStacks;

@@ -1,10 +1,10 @@
 import { put, takeLatest } from "redux-saga/effects"
 import axios from "axios"
 
-function* postProfile() {
+function* updateProfile() {
 
     try {
-        const results = yield axios.post('/api/profile',action.payload)
+        const results = yield axios.put('/api/profile',action.payload)
         yield put({type:'FETCH_PROFILE'})
     } catch (error) {
         console.log('error in the postProfile saga function-->',error);
@@ -23,6 +23,6 @@ function* fetchProfile() {
 
 export default function* profileSaga () {
 
-    yield takeLatest('POST_PROFILE',postProfile )
+    yield takeLatest('PUT_PROFILE_INFO',updateProfile )
     yield takeLatest('FETCH_PROFILE',fetchProfile)
 }
