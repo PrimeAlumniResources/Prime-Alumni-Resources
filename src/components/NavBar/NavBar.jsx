@@ -71,7 +71,6 @@ function NavBar() {
                 <span className="flex-1 ml-3 whitespace-nowrap">Jobs</span>
               </a>
             </li>
-            
             </Link>
 
             {/* CAREER & FAQ */}
