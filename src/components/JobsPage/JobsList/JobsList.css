@@ -1,0 +1,7 @@
+.job-posts-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px red solid;
+  width: 80%;
+}

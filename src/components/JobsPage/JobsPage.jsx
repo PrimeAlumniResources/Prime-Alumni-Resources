@@ -1,6 +1,7 @@
 import './JobsPage.css';
 import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import JobsList from './JobsList/JobsList';
 
 export default function JobsPage() {
   // MODAL
@@ -51,60 +52,66 @@ export default function JobsPage() {
   }
 
   return (
-    <div className='flex'>
-      <div className='text-5xl'>Job Postings</div>
+    <div>
+      <div className='flex'>
+        <div className='text-5xl'>Job Postings</div>
 
-      <button 
-      onClick={toggleModal}
-      className="btn-modal">
-        Add Jobs
-      </button>
+        <button 
+        onClick={toggleModal}
+        className="btn-modal">
+          Add Jobs
+        </button>
 
-            {modal && (
-        <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
+        {modal && (
+          <div className="modal">
+            <div onClick={toggleModal} className="overlay"></div>
 
-          <div className="modal-content">
-            <div className='modal-title'>Add Job</div>
+            <div className="modal-content">
+              <div className='modal-title'>Add Job</div>
 
-            <button className="close-modal" onClick={toggleModal}>
-              X
-            </button>
-            
-            <div>Position(Company Name?)</div>
-            <input 
-              type="text"
-              value={positionInput}
-              onChange={event => setPositionInput(event.target.value)} />
-
-            <div>Title</div>
-            <select 
-                value={titleInput}
-                onChange={(event) => setTitleInput(event.target.value)}>
-                <option value="" disabled>Select your option</option>
-                <option value="Software Engineer">Software Engineer</option>
-              </select>
-
-            <div>Link</div>
-              <div className="modal-drop">
-                <input 
-                type="text"
-                value={linkInput}
-                onChange={event => setLinkInput(event.target.value)} />
-              </div>
-            
-            <div>
-              <button
-              onClick={handleClick}>
-                Add
+              <button className="close-modal" onClick={toggleModal}>
+                X
               </button>
-            </div>
-            
-          </div>
-        </div>
-      )}
+              
+              <div>Position</div>
+                <select 
+                  value={titleInput}
+                  onChange={(event) => setTitleInput(event.target.value)}>
+                  <option value="" disabled>Select your option</option>
+                  <option value="Software Engineer">Software Engineer</option>
+                </select>
 
+              <div>Company</div>
+                <input 
+                  type="text"
+                  value={positionInput}
+                  onChange={event => setPositionInput(event.target.value)} />
+
+              <div>Link</div>
+                <div className="modal-drop">
+                  <input 
+                  type="text"
+                  value={linkInput}
+                  onChange={event => setLinkInput(event.target.value)} />
+                </div>
+              
+              <div>
+                <button
+                  onClick={handleClick}>
+                  Add
+                </button>
+              </div>
+              
+            </div>
+          </div>
+        )}
+
+          <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+      </div>
+
+      <JobsList/>
       
-    </div>
+    </div> 
+
   );
 }
