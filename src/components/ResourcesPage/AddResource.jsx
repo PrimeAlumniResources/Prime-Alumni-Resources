@@ -79,10 +79,10 @@ function AddResource() {
                                         </div>
 
                                         <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
-                                            <InputLabel id="demo-simple-select-filled-label">TAG</InputLabel>
+                                            <InputLabel id="tag">TAG</InputLabel>
                                             <Select
-                                                labelId="demo-simple-select-filled-label"
-                                                id="demo-simple-select-filled"
+                                                labelId="tag"
+                                                id="tag"
                                                 value={tag}
                                                 onChange={handleChange}
                                             >
