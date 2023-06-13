@@ -21,14 +21,23 @@ export default function JobsPage() {
 
   const [jobsTitleInput, setJobsTitleInput] = useState('');
   const [jobsDescriptionInput, setJobsDescriptionInput] = useState('');
+  const [jobTagInput, setJobTabInput] = useState('');
 
-  const addJobs = (event) => {
-    event.preventDefault();
-
+  const addJobs = () => {
     dispatch({ 
       type: 'SAGA/ADD_JOBS', 
-      payload: jobsInput 
+      payload: {
+        title: jobsTitleInput,
+        description: jobsDescriptionInput,
+        tag: jobTagInput
+      }
     });
+  }
+
+  const handleClick = () => {
+    addJobs();
+    toggleModal();
+    console.log('it;s working');
   }
 
   return (
@@ -67,20 +76,20 @@ export default function JobsPage() {
               onChange={event => setJobsDescriptionInput(event.target.value)}/>
 
             <div>Tag</div>
-            <div class="modal-drop">
-              <select name="Tag">
-                <option value="" disabled selected>Select your option</option>
+            <div className="modal-drop">
+              <select 
+                value={jobTagInput}
+                onChange={(event) => setJobTabInput(event.target.value)}>
+                <option value="" disabled>Select your option</option>
                 <option value="hurr">Durr</option>
               </select>
             </div>
             
             <div>
               <button
-              onClick={event => {
-                toggleModal;
-                addJobs;
-              }}>
-                Add</button>
+              onClick={handleClick}>
+                Add
+              </button>
             </div>
             
           </div>
