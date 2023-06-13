@@ -1,43 +1,48 @@
+import { useState } from "react"
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
 function AddResource() {
+
+    const [title, setTitle] = useState('')
+    const [link, setLink] = useState('')
+    const [description, setDescription] = useState('')
+    const [tag, setTag] = useState('')
+    
+    const handleChange = (event) => {
+        setTag(event.target.value);
+    };
+
+
     return (
         <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-            {/* <!--
-    Background backdrop, show/hide based on modal state.
-
-    Entering: "ease-out duration-300"
-      From: "opacity-0"
-      To: "opacity-100"
-    Leaving: "ease-in duration-200"
-      From: "opacity-100"
-      To: "opacity-0"
-  --> */}
+        
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
             <div className="fixed inset-0 z-10 overflow-y-auto">
                 <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                    {/* <!--
-        Modal panel, show/hide based on modal state.
-
-        Entering: "ease-out duration-300"
-          From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          To: "opacity-100 translate-y-0 sm:scale-100"
-        Leaving: "ease-in duration-200"
-          From: "opacity-100 translate-y-0 sm:scale-100"
-          To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-      --> */}
+      
                     <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                         <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                             <div className="sm:flex sm:items-start">
 
                                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                    <h3 className="text-base font-semibold leading-6 text-gray-900" id="modal-title">Add Article</h3>
+                                    <h3 className="text-base font-semibold leading-6 text-gray-900" id="modal-title">Add Resource</h3>
                                     <div className="mt-2">
 
                                         <div className="col-span-full">
                                             <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">Title</label>
                                             <div className="mt-2">
                                                 <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                                    <input type="text" className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Article Title" />
+                                                    <input
+                                                        type="text"
+                                                        className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                                        placeholder="Resource Title"
+                                                        value={title}
+                                                        onChange={e => setTitle(e.target.value)}
+                                                    />
                                                 </div>
                                             </div>
                                         </div>
@@ -46,7 +51,13 @@ function AddResource() {
                                             <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">Link</label>
                                             <div className="mt-2">
                                                 <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                                    <input type="text" className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Article Link" />
+                                                    <input
+                                                        type="text"
+                                                        className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                                        placeholder="Resource Link"
+                                                        value={link}
+                                                        onChange={e => setLink(e.target.value)}
+                                                    />
                                                 </div>
                                             </div>
                                         </div>
@@ -55,18 +66,34 @@ function AddResource() {
                                         <div className="col-span-full">
                                             <label htmlFor="about" className="block text-sm font-medium leading-6 text-gray-900">Description</label>
                                             <div className="mt-2">
-                                                <textarea id="about" name="about" rows="3" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                                <textarea
+                                                    id="about"
+                                                    name="about"
+                                                    rows="3"
+                                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                                    value={description}
+                                                    onChange={e => setDescription(e.target.value)}
+                                                >
+                                                </textarea>
                                             </div>
                                         </div>
 
-                                        <label htmlFor="tags">Select Tag</label>
-                                        <select name="tags" id="tags">
-                                            <option value="select">Select</option>
-                                            <option value="HTML">HTML</option>
-                                            <option value="CSS">CSS</option>
-                                            <option value="Javascript">Javascript</option>
-                                            <option value="React">React</option>
-                                        </select>
+                                        <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
+                                            <InputLabel id="demo-simple-select-filled-label">TAG</InputLabel>
+                                            <Select
+                                                labelId="demo-simple-select-filled-label"
+                                                id="demo-simple-select-filled"
+                                                value={tag}
+                                                onChange={handleChange}
+                                            >
+                                                <MenuItem value="">
+                                                    <em>None</em>
+                                                </MenuItem>
+                                                <MenuItem value={'HTML'}>HTML</MenuItem>
+                                                <MenuItem value={'CSS'}>CSS</MenuItem>
+                                                <MenuItem value={'JavaScript'}>JavaScript</MenuItem>
+                                            </Select>
+                                        </FormControl>
 
 
 

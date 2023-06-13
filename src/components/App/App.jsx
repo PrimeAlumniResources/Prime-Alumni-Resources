@@ -15,6 +15,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Layout from '../Layout/Layout';
 import ResourcesPage from '../ResourcesPage/ResourcesPage';
+import AddResource from '../ResourcesPage/AddResource';
 import './App.css';
 
 function App() {
