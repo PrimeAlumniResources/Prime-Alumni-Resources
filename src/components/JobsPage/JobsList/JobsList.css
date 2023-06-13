@@ -4,4 +4,5 @@
   flex-direction: column;
   border: 1px red solid;
   width: 80%;
+  height: 100vh;
 }

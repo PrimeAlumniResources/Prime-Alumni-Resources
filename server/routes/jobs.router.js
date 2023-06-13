@@ -7,9 +7,10 @@ const router = express.Router();
 router.post('/', rejectUnauthenticated, (req, res) => {
   const user = req.body;
 
-  const title = req.body.title;
+
+  const company = req.body.company;
   const link = req.body.link;
-  const position = req.body.position;
+  const position = req.body.position;  
   const created_at = req.body.timestamp;
   const userId = req.user.id;
 
@@ -17,12 +18,12 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
   const sqlText = `
   INSERT INTO "job"
-  ("title", "link", "position", "created_at", "user_id")
+  ("company", "link", "position", "created_at", "user_id")
   VALUES
   ($1, $2, $3, $4, $5);
   `;
   
-  const sqlValues = [title, link, position, created_at, userId]
+  const sqlValues = [company, link, position, created_at, userId]
 
   pool
     .query(sqlText, sqlValues)

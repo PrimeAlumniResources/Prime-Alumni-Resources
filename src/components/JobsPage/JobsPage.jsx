@@ -21,7 +21,7 @@ export default function JobsPage() {
   const dispatch = useDispatch();
 
   const [positionInput, setPositionInput] = useState('');
-  const [titleInput, setTitleInput] = useState('');
+  const [companyInput, setCompanyInput] = useState('');
   const [linkInput, setLinkInput] = useState('');
 
   const addJobs = () => {
@@ -38,7 +38,7 @@ export default function JobsPage() {
       type: 'POST_JOBS', 
       payload: {
         position: positionInput,
-        title: titleInput,
+        company: companyInput,
         link: linkInput,
         timestamp: timestamp.toISOString()
       }
@@ -75,8 +75,8 @@ export default function JobsPage() {
               
               <div>Position</div>
                 <select 
-                  value={titleInput}
-                  onChange={(event) => setTitleInput(event.target.value)}>
+                  value={positionInput}
+                  onChange={(event) => setPositionInput(event.target.value)}>
                   <option value="" disabled>Select your option</option>
                   <option value="Software Engineer">Software Engineer</option>
                 </select>
@@ -84,8 +84,8 @@ export default function JobsPage() {
               <div>Company</div>
                 <input 
                   type="text"
-                  value={positionInput}
-                  onChange={event => setPositionInput(event.target.value)} />
+                  value={companyInput}
+                  onChange={event => setCompanyInput(event.target.value)} />
 
               <div>Link</div>
                 <div className="modal-drop">
@@ -110,7 +110,7 @@ export default function JobsPage() {
       </div>
 
       <JobsList/>
-      
+
     </div> 
 
   );
