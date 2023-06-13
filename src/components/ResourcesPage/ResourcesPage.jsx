@@ -27,7 +27,15 @@ function ResourcesPage() {
     return (
         <div>
             <h1>Welcome to your resources!</h1>
-            <aside className='aside'></aside>
+            <aside className='aside'>
+            <h1>TAGS</h1>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Javascript</li>
+                    <li>React.js</li>
+                </ul>
+            </aside>
             <Button onClick={handleOpen}>ADD +</Button>
             <Modal
                 open={open}

@@ -92,6 +92,7 @@ function AddResource() {
                                                 <MenuItem value={'HTML'}>HTML</MenuItem>
                                                 <MenuItem value={'CSS'}>CSS</MenuItem>
                                                 <MenuItem value={'JavaScript'}>JavaScript</MenuItem>
+                                                <MenuItem value={'React.js'}>React.js</MenuItem>
                                             </Select>
                                         </FormControl>
 
