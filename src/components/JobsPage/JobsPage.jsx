@@ -21,15 +21,21 @@ export default function JobsPage() {
 
   const [jobsTitleInput, setJobsTitleInput] = useState('');
   const [jobsDescriptionInput, setJobsDescriptionInput] = useState('');
-  const [jobTagInput, setJobTabInput] = useState('');
+  const [jobsTagInput, setJobsTabInput] = useState('');
 
   const addJobs = () => {
+  //   console.log('Payload:', {
+  //     title: jobsTitleInput,
+  //     description: jobsDescriptionInput,
+  //     tag: jobsTagInput
+  // }); WORKS
+
     dispatch({ 
-      type: 'SAGA/ADD_JOBS', 
+      type: 'POST_JOBS', 
       payload: {
         title: jobsTitleInput,
         description: jobsDescriptionInput,
-        tag: jobTagInput
+        tag: jobsTagInput
       }
     });
   }
@@ -37,7 +43,7 @@ export default function JobsPage() {
   const handleClick = () => {
     addJobs();
     toggleModal();
-    console.log('it;s working');
+    // console.log('it;s working'); WORKS
   }
 
   return (
@@ -78,8 +84,8 @@ export default function JobsPage() {
             <div>Tag</div>
             <div className="modal-drop">
               <select 
-                value={jobTagInput}
-                onChange={(event) => setJobTabInput(event.target.value)}>
+                value={jobsTagInput}
+                onChange={(event) => setJobsTabInput(event.target.value)}>
                 <option value="" disabled>Select your option</option>
                 <option value="hurr">Durr</option>
               </select>
