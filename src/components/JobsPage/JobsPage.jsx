@@ -19,23 +19,27 @@ export default function JobsPage() {
   // ADD JOBS
   const dispatch = useDispatch();
 
-  const [jobsTitleInput, setJobsTitleInput] = useState('');
-  const [jobsDescriptionInput, setJobsDescriptionInput] = useState('');
-  const [jobsTagInput, setJobsTabInput] = useState('');
+  const [positionInput, setPositionInput] = useState('');
+  const [titleInput, setTitleInput] = useState('');
+  const [linkInput, setLinkInput] = useState('');
 
   const addJobs = () => {
+    const timestamp = new Date(); // Get the current timestamp
+
   //   console.log('Payload:', {
-  //     title: jobsTitleInput,
-  //     description: jobsDescriptionInput,
-  //     tag: jobsTagInput
+  //     position: positionInput,
+  //     title: titleInput,
+  //     link: linkInput,
+  //     timestamp: timestamp.toISOString()
   // }); WORKS
 
     dispatch({ 
       type: 'POST_JOBS', 
       payload: {
-        title: jobsTitleInput,
-        description: jobsDescriptionInput,
-        tag: jobsTagInput
+        position: positionInput,
+        title: titleInput,
+        link: linkInput,
+        timestamp: timestamp.toISOString()
       }
     });
   }
@@ -67,29 +71,27 @@ export default function JobsPage() {
               X
             </button>
             
-            <div>Title</div>
+            <div>Position(Company Name?)</div>
             <input 
               type="text"
-              value={jobsTitleInput}
-              onChange={event => setJobsTitleInput(event.target.value)} />
+              value={positionInput}
+              onChange={event => setPositionInput(event.target.value)} />
 
-            <div>Description</div>
-            <textarea 
-              className="modal-textarea" 
-              name="subject" 
-              placeholder="Company, Location, Pay, Description, etc..."
-              value={jobsDescriptionInput}
-              onChange={event => setJobsDescriptionInput(event.target.value)}/>
-
-            <div>Tag</div>
-            <div className="modal-drop">
-              <select 
-                value={jobsTagInput}
-                onChange={(event) => setJobsTabInput(event.target.value)}>
+            <div>Title</div>
+            <select 
+                value={titleInput}
+                onChange={(event) => setTitleInput(event.target.value)}>
                 <option value="" disabled>Select your option</option>
-                <option value="hurr">Durr</option>
+                <option value="Software Engineer">Software Engineer</option>
               </select>
-            </div>
+
+            <div>Link</div>
+              <div className="modal-drop">
+                <input 
+                type="text"
+                value={linkInput}
+                onChange={event => setLinkInput(event.target.value)} />
+              </div>
             
             <div>
               <button
