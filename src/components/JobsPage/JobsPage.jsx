@@ -89,7 +89,15 @@ export default function JobsPage() {
                     value={positionInput}
                     onChange={(event) => setPositionInput(event.target.value)}>
                     <option value="" disabled>Select your option</option>
-                    <option value="Software Engineer">Software Engineer</option>
+                    <option value="Software Engineer">Full Stack Engineer</option>
+                    <option value="Software Engineer">Front End Developer</option>
+                    <option value="Software Engineer">Back End Developer</option>
+                    <option value="Software Engineer">Data Engineer</option>
+                    <option value="Software Engineer">Security Engineer</option>
+                    <option value="Software Engineer">QA Engineer</option>
+                    <option value="Software Engineer">DevOps Engineer</option>
+                    <option value="Software Engineer">Cloud Architect</option>
+                    <option value="Software Engineer">Other</option>
                   </select>
 
                 <div>Company</div>

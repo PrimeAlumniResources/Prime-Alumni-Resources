@@ -23,16 +23,12 @@ export default function JobItem({ job }) {
 
       <div className='job-post-mid'>
 
-        <div className='font-bold'>
-          {position}
+        <div className='font-bold hover:underline text-blue-600'>
+          <a href={link}>{position}</a>
         </div>
 
         <div>
           {company}
-        </div>
-
-        <div className='hover:underline'>
-          <a href={link} target="_blank">{link}</a>
         </div>
 
         <div className='timestamp-title'>
