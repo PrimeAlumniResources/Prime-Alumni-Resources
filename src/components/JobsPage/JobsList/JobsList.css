@@ -1,10 +1,13 @@
 .job-posts-container {
-  margin-top: 20px;
+  overflow: scroll;
+  margin-top: 6%;
   display: flex;
   flex-direction: column;
-  border: 1px red solid;
+  border: 1px rgb(183, 183, 183) solid;
   width: 60%;
+  height: 140vh;
   align-items: center;
-  margin-left: 20px;
+  margin-left: 13%;
   border-radius: 10px;
+  background-color: rgb(255, 255, 255);
 }

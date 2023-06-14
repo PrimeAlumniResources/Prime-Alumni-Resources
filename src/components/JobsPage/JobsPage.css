@@ -2,12 +2,6 @@ body.active-modal {
   overflow-y: hidden;
 }
 
-.btn-modal {
-  padding: 10px 20px;
-  display: block;
-  font-size: 18px;
-}
-
 .modal,
 .overlay {
   width: 100vw;
@@ -49,4 +43,44 @@ body.active-modal {
   top: 10px;
   right: 10px;
   padding: 5px 7px;
+}
+
+.job-page-container {
+  background-color: rgb(244, 244, 244);
+}
+
+.top-container {
+  background-color: white;
+  width: 100%;
+  border-bottom: 1px solid rgb(183, 183, 183);
+}
+
+.top-title {
+  margin-left: 11%;
+}
+
+.top-btn {
+  margin-left: 49%;
+}
+
+.tag-container {
+  overflow: scroll;
+  margin-top: 70px;
+  margin-left: 61%;
+  margin-right: 1%;
+  width: 150px;
+  height: 49vh;
+  border: 1px rgb(183, 183, 183) solid;
+  border-radius: 10px;
+  text-align: center;
+  background-color: white;
+}
+
+.filter-options {
+  width: 120px;
+  border-radius: 15px;
+  background: #f0f0f0;
+  border: 1px solid #dbdbdb;
+  text-transform: capitalize;
+  color: #242424;
 }

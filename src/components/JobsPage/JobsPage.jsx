@@ -57,64 +57,110 @@ export default function JobsPage() {
   }
 
   return (
-    <div>
-      <div className='flex'>
-        <div className='text-5xl ml-6'>Job Postings</div>
+    <div className='job-page-container'>
+      <div>
+        <div className='flex'>
 
-        <button 
-        onClick={toggleModal}
-        className="btn-modal">
-          Add Jobs
-        </button>
+          <div className='top-container fixed flex'>
+            <div className='top-title text-2l mb-3 mt-3'>Job Postings</div>
 
-        {modal && (
-          <div className="modal">
-            <div onClick={toggleModal} className="overlay"></div>
+            <button 
+            onClick={toggleModal}
+            className='top-btn'
+            >
+              Add Jobs
+            </button>
+          </div>
+          
 
-            <div className="modal-content">
-              <div className='modal-title'>Add Job</div>
+          {modal && (
+            <div className="modal">
+              <div onClick={toggleModal} className="overlay"></div>
 
-              <button className="close-modal" onClick={toggleModal}>
-                X
-              </button>
-              
-              <div>Position</div>
-                <select 
-                  value={positionInput}
-                  onChange={(event) => setPositionInput(event.target.value)}>
-                  <option value="" disabled>Select your option</option>
-                  <option value="Software Engineer">Software Engineer</option>
-                </select>
+              <div className="modal-content">
+                <div className='modal-title'>Add Job</div>
 
-              <div>Company</div>
-                <input 
-                  type="text"
-                  value={companyInput}
-                  onChange={event => setCompanyInput(event.target.value)} />
-
-              <div>Link</div>
-                <div className="modal-drop">
-                  <input 
-                  type="text"
-                  value={linkInput}
-                  onChange={event => setLinkInput(event.target.value)} />
-                </div>
-              
-              <div>
-                <button
-                  onClick={handleClick}>
-                  Add
+                <button className="close-modal" onClick={toggleModal}>
+                  X
                 </button>
+                
+                <div>Position</div>
+                  <select 
+                    value={positionInput}
+                    onChange={(event) => setPositionInput(event.target.value)}>
+                    <option value="" disabled>Select your option</option>
+                    <option value="Software Engineer">Software Engineer</option>
+                  </select>
+
+                <div>Company</div>
+                  <input 
+                    type="text"
+                    value={companyInput}
+                    onChange={event => setCompanyInput(event.target.value)} />
+
+                <div>Link</div>
+                  <div className="modal-drop">
+                    <input 
+                    type="text"
+                    value={linkInput}
+                    onChange={event => setLinkInput(event.target.value)} />
+                  </div>
+                
+                <div>
+                  <button
+                    onClick={handleClick}>
+                    Add
+                  </button>
+                </div>
+                
               </div>
-              
+            </div>
+          )}
+
+            <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+        </div>
+
+        <div className='flex'>
+
+          <JobsList/>
+
+          <div className='tag-container fixed'>
+            <div className='mt-3 mb-3 font-bold'>Tags</div>
+
+            <div className='mb-4'>
+              <button className='filter-options'>Javascript</button>
+            </div>
+            <div className='mb-4'>
+              <button className='filter-options'>Java</button>
+            </div>
+            <div className='mb-4'>
+              <button className='filter-options'>PHP</button>
+            </div>
+            <div className='mb-4'>
+              <button className='filter-options'>C#</button>
+            </div>
+            <div className='mb-4'>
+              <button className='filter-options'>Python</button>
+            </div>
+            <div className='mb-4'>
+              <button className='filter-options'>Typescript</button>
+            </div>
+            <div className='mb-4'>
+              <button className='filter-options'>C</button>
+            </div>
+            <div className='mb-4'>
+              <button className='filter-options'>Ruby</button>
+            </div>
+            <div className='mb-4'>
+              <button className='filter-options'>MongoDB</button>
             </div>
           </div>
-        )}
 
-          <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+        </div>
+        
       </div>
 
-      <JobsList/>
+      
 
     </div> 
 

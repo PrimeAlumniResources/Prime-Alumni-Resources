@@ -18,12 +18,12 @@ export default function JobItem({ job }) {
     <div className="job-post-container">
 
       <div className='job-post-left'>
-        (Picture Here)
+        (Company Picture Here?)
       </div>
 
       <div className='job-post-mid'>
 
-        <div>
+        <div className='font-bold'>
           {position}
         </div>
 
@@ -31,7 +31,7 @@ export default function JobItem({ job }) {
           {company}
         </div>
 
-        <div>
+        <div className='hover:underline'>
           <a href={link} target="_blank">{link}</a>
         </div>
 

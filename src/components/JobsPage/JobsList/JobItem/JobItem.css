@@ -1,10 +1,11 @@
 .job-post-container {
-  border: 1px blue solid;
+  border-bottom: 1px grey solid;
   height: 200px;
-  width: 80%;
-  border-radius: 10px;
-  margin-bottom: 5px;
+  width: 90%;
+  margin-bottom: 10px;
+  margin-top: 10px;
   display: flex;
+  background-color: white;
 }
 
 .job-post-left {
