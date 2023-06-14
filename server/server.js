@@ -12,6 +12,8 @@ const userRouter = require('./routes/user.router');
 
 const profileRouter = require('./routes/profile.router')
 
+const techRouter = require('./routes/tech.router')
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,6 +29,8 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 
 app.use('/api/profile', profileRouter)
+
+app.use('/api/tech' ,techRouter)
 
 // Serve static files
 app.use(express.static('build'));

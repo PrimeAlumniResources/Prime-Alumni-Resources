@@ -6,6 +6,9 @@ function RegisterForm() {
   const [lastname, setLastName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const [campus,setCampus] = useState('');
+
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
@@ -18,7 +21,8 @@ function RegisterForm() {
         username: username,
         password: password,
         firstname: firstname,
-        lastname: lastname
+        lastname: lastname,
+        campus: campus
       },
     });
   }; // end registerUser
@@ -67,6 +71,19 @@ function RegisterForm() {
           />
         </label>
       </div>
+
+      <div>
+        <label htmlFor="campus">
+          campus:
+          <input
+            name="campus"
+            value={campus}
+            required
+            onChange={(event) => setCampus(event.target.value)}
+          />
+        </label>
+      </div>
+
       <div>
         <label htmlFor="password">
           Password:

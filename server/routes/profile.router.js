@@ -10,20 +10,33 @@ router.put('/', rejectUnauthenticated, (req,res) => {
     
     const pronouns = req.body.pronouns
     const bio = req.body.bio
-    const tech= req.body.tech
-    const socials= req.body.socials
-    const jobTitle = req.body.jobTitle
+    const firstName = req.body.firstName
+    const github= req.body.github
+    const lastName = req.body.lastName
+    const currentWork = req.body.currentWork
+    const linkedIn = req.body.linkedIn
+    const portfolio = req.body.portfolio
+    const position = req.body.position
+    const startDate = req.body.startDate
+    const uploadedFile = req.body.uploadedFile
+    const username = req.body.username
 
     const sqlText = `
-    UPDATE user
-    SET "pronouns" = $1,
-        "bio" = $2
-        "tech" = $3
-        "socials" = $4
-        "job_title" = $5
-        WHERE id= $6
+    UPDATE "user"
+    SET "username" = $1,
+        "bio" = $2,
+        "first_name" = $3,
+        "last_name" = $4,
+        "pronouns" = $5,
+        "position" = $6,
+        "start_date" = $7,
+        "portfolio_url" = $8,
+        "uploaded_file" = $9,
+        "linked_in" = $10,
+        "github" = $11
+        WHERE id= $12
     `
-    const sqlValues = [pronouns,bio,tech,socials,jobTitle,user]
+    const sqlValues = [username,bio,firstName,lastName,pronouns,position,startDate,portfolio,,uploadedFile,linkedIn,github,user]
     console.log('these are the sqlValues-->',sqlValues);
     pool.query(sqlText,sqlValues)
     .then((results)=> {

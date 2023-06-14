@@ -1,11 +1,10 @@
 import { NavLink } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
-
-
+import { useDispatch } from "react-redux";
 
 function NavBar() {
-  
+  const dispatch = useDispatch()
   const navigate = useNavigate();
 
   const toProfile = () => {
@@ -22,6 +21,9 @@ function NavBar() {
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
           <ul className="space-y-2 font-medium">
+          <NavLink to='/user'
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
             <li>
               <a
                 href="#"
@@ -34,6 +36,7 @@ function NavBar() {
                 <span className="ml-3">Home</span>
               </a>
             </li>
+            </NavLink>
             <li>
               <NavLink to='/profile'
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -100,7 +103,7 @@ function NavBar() {
                 <span className="flex-1 ml-3 whitespace-nowrap">Settings</span>
               </a>
             </li>
-            <li>
+            <li onClick={() => dispatch({ type: 'LOGOUT' })}>
               <a
                 href="#"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -109,7 +112,7 @@ function NavBar() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                 </svg>
 
-                <span className="flex-1 ml-3 whitespace-nowrap">Log Out</span>
+                <span  className="flex-1 ml-3 whitespace-nowrap">Log Out</span>
               </a>
             </li>
           </ul>

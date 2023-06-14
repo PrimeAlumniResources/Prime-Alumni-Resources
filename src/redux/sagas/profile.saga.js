@@ -1,7 +1,7 @@
 import { put, takeLatest } from "redux-saga/effects"
 import axios from "axios"
 
-function* updateProfile() {
+function* updateProfile(action) {
 
     try {
         const results = yield axios.put('/api/profile',action.payload)

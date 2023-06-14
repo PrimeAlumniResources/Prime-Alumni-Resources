@@ -22,18 +22,42 @@ router.post('/register', (req, res, next) => {
   const password = encryptLib.encryptPassword(req.body.password);
   const firstname = req.body.firstname;
   const lastname = req.body.lastname;
-
+  const campus = req.body.campus 
   const queryText = `INSERT INTO "user" (username, password, first_name, last_name)
     VALUES ($1, $2, $3, $4) RETURNING id`;
+
+    const  campusQueryText = `
+    INSERT INTO "campus" (name) 
+    VALUES ($1)
+    `;
+      const queryCampusValues = [campus]
+
   pool
     .query(queryText, [username, password, firstname, lastname])
-    .then(() => res.sendStatus(201))
+    .then(() => 
+ 
+  pool.query(campusQueryText,queryCampusValues).
+  then(() => res.sendStatus(201))
+   )
     .catch((err) => {
       console.log('User registration failed: ', err);
       res.sendStatus(500);
     });
-});
 
+  // const  campusQueryText = `
+  // INSERT INTO "campus" (name) 
+  // VALUES ($1)
+  // `;
+  //   const queryCampusValues = [campus]
+  // pool.query(campusQueryText,queryCampusValues).
+  // then(() => res.sendStatus(201)).
+  // catch ((error) => {
+  //   console.log('error in user router campus post route-->',error);
+  //   res.sendStatus(500);
+  // })
+
+});
+  
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route
 // this middleware will run our POST if successful

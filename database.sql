@@ -11,8 +11,10 @@ CREATE TABLE "user" (
     "last_name" VARCHAR (80) NOT NULL,
     "pronouns" VARCHAR (10),
     "bio" TEXT,
-    "job_title" VARCHAR(256),
-    "ccohort_id" INTEGER
+    "position" VARCHAR(256),
+    "start_date" VARCHAR(256),
+    "cohort_id" INTEGER,
+    "portfolio_url" VARCHAR(256)
 );
 
 CREATE TABLE "user_company" (
@@ -50,11 +52,25 @@ CREATE TABLE "resource" (
     FOREIGN KEY (user_id) REFERENCES "user"(id)
 );
 
-CREATE TABLE "tech" (
+-- CREATE TABLE "tech" (
+--     "id" SERIAL PRIMARY KEY,
+--     "name" VARCHAR (255),
+--     "is_current" BOOLEAN default FALSE,
+-- );
+
+CREATE TABLE "known_stack" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR (255),
     "is_current" BOOLEAN default FALSE,
+    "user_id" INT REFERENCES "user"(id)
 );
+
+CREATE TABLE "current_stack" (
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR (255),
+    "user_id" INT REFERENCES "user"(id)
+);
+
 
 CREATE TABLE "user_tech" (
     "id" SERIAL PRIMARY KEY,

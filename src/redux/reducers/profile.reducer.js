@@ -29,9 +29,9 @@ const profile = ( state = {}, action) => {
         break ;
         case 'MODIFY_POSITION' : return {...state,position:action.payload}
         break ;
-        case 'SET_CURRENT_STACK':  return [ ...state, action.payload ]
-        break ;
-        case 'SET_KNOWN_STACK': return [ ...state, action.payload ]
+        // case 'SET_CURRENT_STACK':  return [...state]  
+        // break ;
+        // case 'SET_KNOWN_STACK': return [ ...state]
         default: return state;
     } 
 }
