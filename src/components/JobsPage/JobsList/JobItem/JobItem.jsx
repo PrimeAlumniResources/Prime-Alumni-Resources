@@ -5,8 +5,8 @@ import './JobItem.css';
 export default function JobItem({job}) {
 
   return (
-    <div className="job-post-container">
-      
+    <div className="poo">
+
       
     </div>
   );

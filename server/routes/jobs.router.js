@@ -4,6 +4,7 @@ const {rejectUnauthenticated} = require("../modules/authentication-middleware");
 
 const router = express.Router();
 
+// POST ROUTE
 router.post('/', rejectUnauthenticated, (req, res) => {
   const user = req.body;
 
@@ -34,6 +35,27 @@ router.post('/', rejectUnauthenticated, (req, res) => {
       console.log("error posting to db", dbErr);
       res.sendStatus(500);
     });
-})
+});
+
+// GET ROUTE
+router.get("/", rejectUnauthenticated, (req, res) => {
+
+  const sqlText = `
+  SELECT 
+  company, link, position, created_at
+  FROM "job"
+  ORDER BY id
+  `;
+
+  pool
+    .query(sqlText)
+    .then((dbRes) => {
+      res.send(dbRes.rows);
+      console.log('DBRES:', dbRes.rows);
+    })
+    .catch((dbErr) => {
+      console.log("GET dbRes fail:", dbErr);
+    });
+});
 
 module.exports = router
