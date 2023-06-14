@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useDispatch } from "react-redux";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -6,15 +7,29 @@ import Select from '@mui/material/Select';
 
 function AddResource() {
 
+    const dispatch = useDispatch()
+
     const [title, setTitle] = useState('')
     const [link, setLink] = useState('')
     const [description, setDescription] = useState('')
     const [tag, setTag] = useState('')
+    const dataPackage = {
+        title: title,
+        link: link,
+        description: description,
+        tag: tag
+    }
     
     const handleChange = (event) => {
         setTag(event.target.value);
     };
 
+    const saveResource = () => {
+        dispatch({
+            type: 'SAGA/ADD_RESOURCE',
+            payload: dataPackage
+        })
+    }
 
     return (
         <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -37,6 +52,7 @@ function AddResource() {
                                             <div className="mt-2">
                                                 <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                                                     <input
+                                                        required
                                                         type="text"
                                                         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                                         placeholder="Resource Title"
@@ -52,6 +68,7 @@ function AddResource() {
                                             <div className="mt-2">
                                                 <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                                                     <input
+                                                        required
                                                         type="text"
                                                         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                                         placeholder="Resource Link"
@@ -96,14 +113,12 @@ function AddResource() {
                                             </Select>
                                         </FormControl>
 
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                            <button type="button" className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto">ADD</button>
+                            <button onClick={saveResource} type="button" className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto">ADD</button>
                         </div>
                     </div>
                 </div>
