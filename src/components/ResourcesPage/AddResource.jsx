@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-function AddResource() {
+function AddResource(props) {
 
     const dispatch = useDispatch()
 
@@ -29,6 +29,7 @@ function AddResource() {
             type: 'SAGA/ADD_RESOURCE',
             payload: dataPackage
         })
+        props.handleClose()
     }
 
     return (

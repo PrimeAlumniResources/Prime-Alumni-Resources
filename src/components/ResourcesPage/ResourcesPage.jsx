@@ -44,7 +44,7 @@ function ResourcesPage() {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <AddResource />
+                    <AddResource handleClose={handleClose} />
                 </Box>
             </Modal>
         </div>
