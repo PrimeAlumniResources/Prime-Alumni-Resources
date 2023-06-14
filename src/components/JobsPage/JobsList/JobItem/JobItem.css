@@ -1,4 +1,33 @@
-.poo {
+.job-post-container {
   border: 1px blue solid;
-  height: 50px;
+  height: 200px;
+  width: 80%;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  display: flex;
+}
+
+.job-post-left {
+  flex: 1;
+  text-align: center;
+}
+
+.job-post-mid {
+  flex-direction: column;
+  flex: 2;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.timestamp-title {
+  margin-top: 20px;
+  color: rgb(181, 181, 181);
+}
+
+.timestamp {
+  margin-left: 10px;
+}
+
+.job-post-right {
+  flex: 1;
 }

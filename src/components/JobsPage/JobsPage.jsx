@@ -1,9 +1,13 @@
 import './JobsPage.css';
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import JobsList from './JobsList/JobsList';
 
 export default function JobsPage() {
+  useEffect(() => {
+    dispatch({ type: 'GET_JOBS' });
+  }, []);
+
   // MODAL
   const [modal, setModal] = useState(false);
 
@@ -55,7 +59,7 @@ export default function JobsPage() {
   return (
     <div>
       <div className='flex'>
-        <div className='text-5xl'>Job Postings</div>
+        <div className='text-5xl ml-6'>Job Postings</div>
 
         <button 
         onClick={toggleModal}
