@@ -44,14 +44,14 @@ router.get("/", rejectUnauthenticated, (req, res) => {
   SELECT 
   company, link, position, created_at
   FROM "job"
-  ORDER BY id
+  ORDER BY id;
   `;
 
   pool
     .query(sqlText)
     .then((dbRes) => {
       res.send(dbRes.rows);
-      console.log('DBRES:', dbRes.rows);
+      // console.log('DBRES:', dbRes.rows); WORKS
     })
     .catch((dbErr) => {
       console.log("GET dbRes fail:", dbErr);

@@ -15,7 +15,12 @@ function* getJobs() {
   try {
     const response = yield axios.get("/api/jobs");
     const jobs = response.data
-    // console.log("RESPONSE:", jobs); COME BACK LATER
+    // console.log("RESPONSE:", jobs); WORKS
+
+    yield put({
+      type: 'FETCH_JOBS',
+      payload: jobs
+    });
   } catch (err) {
     console.log("user get jobs request failed", err);
   }
