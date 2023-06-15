@@ -5,6 +5,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* addResource(action) {
   try {
     yield axios.post('/resourceRoute', action.payload)
+    yield put({type: 'SAGA/GET_RESOURCE'})
   } catch (error) {
     console.log('From SAGA, adding resource error', error);
   }

@@ -12,9 +12,11 @@ function ResourcesPage() {
 
     useEffect(() => {
         dispatch({
-          type: 'SAGA/GET_RESOURCE'
+            type: 'SAGA/GET_RESOURCE'
         });
-      }, []);
+    }, []);
+
+    const resources = useSelector(store => store.resources);
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -37,7 +39,7 @@ function ResourcesPage() {
         <div>
             <h1>Welcome to your resources!</h1>
             <aside className='aside'>
-            <h1>TAGS</h1>
+                <h1>TAGS</h1>
                 <ul>
                     <li>HTML</li>
                     <li>CSS</li>
@@ -46,6 +48,17 @@ function ResourcesPage() {
                 </ul>
             </aside>
             <Button onClick={handleOpen}>ADD +</Button>
+            {
+                resources.map(resource => {
+                    return (
+                        <div className='resources' key={resource.id}>
+                        <h1>Title: {resource.title}</h1>
+                        <h2>Link: {resource.link} Tag: {resource.tag}</h2>
+                        <p>Description: {resource.description}</p>
+                        </div>
+                    )
+                })
+            }
             <Modal
                 open={open}
                 onClose={handleClose}
