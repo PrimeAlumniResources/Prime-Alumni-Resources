@@ -34,6 +34,24 @@ router.put('/', rejectUnauthenticated, (req,res) => {
     })
 })
 
+router.get('/all', rejectUnauthenticated, (req, res) => {
+    const sqlText = `SELECT "user".id, first_name || ' ' || last_name as profile_name, pronouns, 
+    job_title, cohort.name as cohort_name, campus.name as campus_name
+    FROM "user" 
+    JOIN "cohort" on cohort.id="user".ccohort_id 
+    JOIN campus on cohort.campus_id=campus.id;
+    `
+
+    pool.query(sqlText)
+    .then((results)=> {
+        console.log(results.rows)
+        res.send(results.rows);
+    }).catch (error => {
+        console.log('error in all profile server get route:', error)
+        res.sendStatus(500);
+    })
+})
+
 router.get('/', rejectUnauthenticated, (req, res) => {
     const userId = req.user.id
 
