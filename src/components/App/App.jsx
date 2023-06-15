@@ -14,6 +14,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Layout from '../Layout/Layout';
+import AlumniSearchPage from '../AlumniSearchPage/AlumniSearchPage';
 
 import './App.css';
 
@@ -42,6 +43,10 @@ function App() {
             path="/login"
             element={user.id ? <Navigate to="/user" /> : <LoginPage />}
           />
+          {/* <Route
+            path="/alumni-search"
+            element={user.id ? <Navigate to="/alumni-search" /> : <LoginPage />}
+          /> */}
           <Route
             path="/user"
             element={
@@ -50,7 +55,17 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/alumni-search"
+            element={
+              <ProtectedRoute user={user}>
+                <AlumniSearchPage />
+              </ProtectedRoute>
+            }
+          />
         </Route>
+
+        
         
       </Routes>
   );
