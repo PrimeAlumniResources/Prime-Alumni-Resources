@@ -14,7 +14,11 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Layout from '../Layout/Layout';
+
+import JobsPage from '../JobsPage/JobsPage';
+
 import AlumniSearchPage from '../AlumniSearchPage/AlumniSearchPage';
+
 
 import './App.css';
 
@@ -29,24 +33,31 @@ function App() {
 
   return (
       <Routes>
+
         <Route element={<Layout />}>
           <Route path ="/" element={<Navigate to="/home" />} />
           <Route
             path="/home"
             element={user.id ? <Navigate to="/user" /> : <LandingPage />}
           />
+
           <Route
             path="/registration"
             element={user.id ? <Navigate to="/user" /> : <RegisterPage />}
           />
+
           <Route
             path="/login"
             element={user.id ? <Navigate to="/user" /> : <LoginPage />}
           />
+
+
+
           {/* <Route
             path="/alumni-search"
             element={user.id ? <Navigate to="/alumni-search" /> : <LoginPage />}
           /> */}
+
           <Route
             path="/user"
             element={
@@ -55,6 +66,19 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+
+          {/* ESTABLISH ROUTE */}
+          <Route
+            path="/jobs"
+            element={
+              <ProtectedRoute user={user}>
+                <JobsPage />
+              </ProtectedRoute>
+            }
+          />
+          </Route>
+
           <Route
             path="/alumni-search"
             element={

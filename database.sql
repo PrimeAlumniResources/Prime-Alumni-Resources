@@ -108,7 +108,7 @@ CREATE TABLE "campus" (
     "name" VARCHAR (255) NOT NULL,
 	"city" VARCHAR (255) NOT NULL,
 	"state" VARCHAR (255) NOT NULL
-);
+);d
 
 
 
