@@ -26,6 +26,10 @@ function ProfilePage() {
     const currentStacks = useSelector((store) => store.currentStacks)
 
     const profile = useSelector(store => store.profile)
+
+    const cohort = useSelector(store => store.cohort);
+
+    const campus = useSelector(store => store.campus);
     
     const user = useSelector((store) => store.user);
 
@@ -217,6 +221,57 @@ function ProfilePage() {
         })
     }
 
+    const handleCohortName = (event) => {
+        dispatch({
+            type: 'MODIFY_COHORT_NAME',
+            payload: event.target.value,
+        })
+    }
+
+    const handleCohortStartDate = (event) => {
+        dispatch({
+            type: 'MODIFY_COHORT_START_DATE',
+            payload: event.target.value,
+        })
+    }
+
+    const handleCohortEndDate = (event) => {
+        dispatch({
+            type: 'MODIFY_COHORT_END_DATE',
+            payload: event.target.value,
+        })
+    }
+
+    const handleCohortType = (event) => {
+        dispatch({
+            type: 'MODIFY_COHORT_TYPE',
+            payload: event.target.value,
+        })
+    }
+
+
+    const handleCampusName = (event) => {
+        dispatch({
+            type: 'MODIFY_CAMPUS_NAME',
+            payload: event.target.value,
+        })
+    }
+
+    const handleCampusCity = (event) => {
+        dispatch({
+            type: 'MODIFY_CAMPUS_CITY',
+            payload: event.target.value,
+        })
+    }
+
+
+    const handleCampusState = (event) => {
+        dispatch({
+            type: 'MODIFY_CAMPUS_STATE',
+            payload: event.target.value,
+        })
+    }
+
     const sendProfileInfo = () => {
 
         // if (profile.username != '' && user.firstName != '' && profile.lastName != '' && profile.cohort != '' && profile.currentWork != '' && profile.position != '' && profile.startDate != '' && profile.linkedIn != '' && profile.github != '' && profile.portfolio != '' && profile.bio != '' && profile.uploadedFile != '') {
@@ -236,6 +291,7 @@ function ProfilePage() {
             // })
         // }
     }
+
     return (
         <div className=" h-5/6">
             <div className="h-full  ">
@@ -397,7 +453,7 @@ function ProfilePage() {
 
 
 
-                    {/*----------------TECH STACK----------------------  */}
+                    {/*----------------SOCIAl STACK----------------------  */}
 
                     <label className="block mb-2 ml-7 text-sm font-medium text-gray-900 dark:text-black">LinkedIn</label>
                     <div className="flex justify-between mb-2 ">
@@ -437,6 +493,9 @@ function ProfilePage() {
                             />
                         </div>
                         {/* -------------PORTFOLIO INPUT-------------- */}
+
+                    </div>
+
 
                     </div>
                     {/*----------------TECH STACK----------------------  */}
@@ -513,8 +572,104 @@ function ProfilePage() {
 
                 </div>
             </div>
-        </div>
+        
     )
 }
 
 export default ProfilePage;
+
+
+
+
+                         {/*----------------CAMPUS STACK----------------------  */}
+
+                    //      <label className="block mb-2 ml-7 text-sm font-medium text-gray-900 dark:text-black">Campus Name</label>
+                    // <div className="flex justify-between mb-2 ">
+
+                    //     <input
+                    //         type="text"
+                    //         id="default-input"
+                    //         className=" ml-7  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-100 h-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    //         value={campus.name}
+                    //         onChange={handleCampusName}
+                    //     />
+
+
+
+                    //     {/* -------------CAMPUS CITY INPUT-------------- */}
+                    //     <div className=" -mt-7 mb-2">
+                    //         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Campus City</label>
+                    //         <input
+                    //             type="text"
+                    //             id="default-input"
+                    //             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-200 h-10  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    //             value={campus.city}
+                    //             onChange={handleCampusCity}
+                    //         />
+                    //     </div>
+                    //     {/* -------------CAMPUS CITY INPUT-------------- */}
+
+                    //     {/* -------------CAMPUS STATE INPUT-------------- */}
+                    //     <div className="-mt-8 mr-5 relative">
+                    //         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Campus State</label>
+                    //         <input
+                    //             type="text"
+                    //             id="default-input"
+                    //             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-200 h-10  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    //             value={campus.states}
+                    //             onChange={handleCampusState}
+                    //         />
+                    //     </div>
+                    //     {/* -------------CAMPUS STATE INPUT-------------- */}
+
+                    // </div>
+
+                    //          {/* -------------COHORT INPUT-------------- */}
+                    // <label className="block mb-2 ml-7 text-sm font-medium text-gray-900 dark:text-black">Cohort Name</label>
+                    // <div className="flex justify-between mb-2 ">
+
+                    //     <input
+                    //         type="text"
+                    //         id="default-input"
+                    //         className=" ml-7  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-100 h-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    //         value={cohort.name}
+                    //         onChange={handleCohortName}
+                    //     />
+
+
+
+                 
+                    //     <div className=" -mt-7 mb-2">
+                    //         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Start Date</label>
+                    //         <input
+                    //             type="text"
+                    //             id="default-input"
+                    //             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-200 h-10  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    //             value={cohort.startDate}
+                    //             onChange={handleCohortStartDate}
+                    //         />
+                    //     </div>
+                
+
+                    //     <div className="-mt-8 mr-5 relative">
+                    //         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">End Date</label>
+                    //         <input
+                    //             type="text"
+                    //             id="default-input"
+                    //             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-200 h-10  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    //             value={cohort.endDate}
+                    //             onChange={handleCohortEndDate}
+                    //         />
+                    //     </div>
+
+                    //     <div className="-mt-8 mr-5 relative">
+                    //         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Type</label>
+                    //         <input
+                    //             type="text"
+                    //             id="default-input"
+                    //             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-200 h-10  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    //             value={cohort.type}
+                    //             onChange={handleCohortType}
+                    //         />
+                    //     </div>
+                        // -------------COHORT INPUT--------------

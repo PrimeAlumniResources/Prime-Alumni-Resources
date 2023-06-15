@@ -14,6 +14,8 @@ const profileRouter = require('./routes/profile.router')
 
 const techRouter = require('./routes/tech.router')
 
+const cohort = require('./routes/cohort.router')
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,6 +33,8 @@ app.use('/api/user', userRouter);
 app.use('/api/profile', profileRouter)
 
 app.use('/api/tech' ,techRouter)
+
+app.use('/api/cohorts',cohort)
 
 // Serve static files
 app.use(express.static('build'));
