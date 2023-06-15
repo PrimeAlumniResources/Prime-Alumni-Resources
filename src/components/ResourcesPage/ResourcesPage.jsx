@@ -38,6 +38,7 @@ function ResourcesPage() {
     return (
         <div>
             <h1>Welcome to your resources!</h1>
+            <center>
             <aside className='aside'>
                 <h1>TAGS</h1>
                 <ul>
@@ -47,6 +48,7 @@ function ResourcesPage() {
                     <li>React.js</li>
                 </ul>
             </aside>
+            </center>
             <Button onClick={handleOpen}>ADD +</Button>
             {
                 resources.map(resource => {
