@@ -14,7 +14,11 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Layout from '../Layout/Layout';
+
 import JobsPage from '../JobsPage/JobsPage';
+
+import AlumniSearchPage from '../AlumniSearchPage/AlumniSearchPage';
+
 
 import './App.css';
 
@@ -47,6 +51,13 @@ function App() {
             element={user.id ? <Navigate to="/user" /> : <LoginPage />}
           />
 
+
+
+          {/* <Route
+            path="/alumni-search"
+            element={user.id ? <Navigate to="/alumni-search" /> : <LoginPage />}
+          /> */}
+
           <Route
             path="/user"
             element={
@@ -55,6 +66,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+
 
           {/* ESTABLISH ROUTE */}
           <Route
@@ -66,6 +78,18 @@ function App() {
             }
           />
           </Route>
+
+          <Route
+            path="/alumni-search"
+            element={
+              <ProtectedRoute user={user}>
+                <AlumniSearchPage />
+              </ProtectedRoute>
+            }
+          />
+        </Route>
+
+        
         
       </Routes>
   );

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -26,7 +26,7 @@ function NavBar() {
 
             {/* PROFILE */}
             <li>
-              <a
+              <NavLink to="/profile"
                 href="#"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
@@ -37,7 +37,7 @@ function NavBar() {
                 <span className="flex-1 ml-3 whitespace-nowrap">Profile</span>
                 <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">
                 </span>
-              </a>
+              </NavLink>
             </li>
 
             {/* RESOURCES */}
@@ -87,7 +87,7 @@ function NavBar() {
               </a>
             </li>
             <li>
-              <a
+              <NavLink to="alumni-search"
                 href="#"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
@@ -96,7 +96,7 @@ function NavBar() {
                 </svg>
 
                 <span className="flex-1 ml-3 whitespace-nowrap">Alumni Search</span>
-              </a>
+              </NavLink>
             </li>
             <li>
               <a
