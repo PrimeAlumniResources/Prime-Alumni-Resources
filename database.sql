@@ -44,7 +44,8 @@ CREATE TABLE "job" (
 CREATE TABLE "resource" (
     "id" SERIAL PRIMARY KEY,
     "title" VARCHAR (512) NOT NULL,
-    "link" VARCHAR (512),
+    "link" VARCHAR (1000),
+    "description" VARCHAR(1000),
     "tag" VARCHAR (128),
     "user_id" INTEGER,
     FOREIGN KEY (user_id) REFERENCES "user"(id)
