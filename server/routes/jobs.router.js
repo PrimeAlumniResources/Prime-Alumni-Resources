@@ -44,7 +44,7 @@ router.get("/", rejectUnauthenticated, (req, res) => {
   SELECT 
   company, link, position, created_at
   FROM "job"
-  ORDER BY id;
+  ORDER BY id DESC;
   `;
 
   pool
