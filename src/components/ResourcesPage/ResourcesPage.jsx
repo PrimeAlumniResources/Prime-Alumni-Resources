@@ -1,11 +1,20 @@
 import './ResourcesPage.css'
 import AddResource from './AddResource';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
+import { useSelector, useDispatch } from 'react-redux';
 
 function ResourcesPage() {
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch({
+          type: 'SAGA/GET_RESOURCE'
+        });
+      }, []);
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);

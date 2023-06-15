@@ -7,7 +7,17 @@ const {
 
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-  // GET route code here
+    const sqlQuery = `SELECT * FROM "resource";`
+
+    pool.query(sqlQuery)
+    .then((dbRes) => {
+      res.send(dbRes.rows);
+    })
+    .catch((dbErr) => {
+      console.log('GET/ resource from database fail:', dbErr);
+      res.sendStatus(500);
+    })
+   
 });
 
 
@@ -32,7 +42,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
    res.sendStatus(201);
  })
  .catch((dbErr) => {
-   console.log('POST /database fail:', dbErr);
+   console.log('POST/ resource to database fail:', dbErr);
    res.sendStatus(500);
  })
 
