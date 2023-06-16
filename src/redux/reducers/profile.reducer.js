@@ -5,27 +5,27 @@ const profile = ( state = {}, action) => {
         break;
         case 'MODIFY_USERNAME' : return {...state,username:action.payload}
         break;
-        case 'MODIFY_FIRST_NAME' : return {...state,firstName:action.payload}
+        case 'MODIFY_FIRST_NAME' : return {...state,first_name:action.payload}
         break;
-        case 'MODIFY_LAST_NAME' : return {...state,lastName:action.payload}
+        case 'MODIFY_LAST_NAME' : return {...state,last_name:action.payload}
         break;
         case 'MODIFY_PRONOUNS' : return {...state,pronouns:action.payload}
         break;
         case 'MODIFY_COHORT' : return {...state,cohort:action.payload}
         break;
-        case 'MODIFY_CURRENT_WORK' : return {...state,currentWork:action.payload}
+        case 'MODIFY_CURRENT_WORK' : return {...state,current_work:action.payload}
         break; 
         case 'MODIFY_BIO' : return {...state,bio:action.payload}
         break;
-        case 'MODIFY_UPLOADED_FILE' : return {...state, uploadedFile: action.payload}
+        case 'MODIFY_UPLOADED_FILE' : return {...state, uploaded_file: action.payload}
         break;
-        case 'MODIFY_LINKED_IN' : return {...state, linkedIn: action.payload}
+        case 'MODIFY_LINKED_IN' : return {...state, linked_in: action.payload}
         break ;
         case 'MODIFY_GITHUB' : return {...state, github:action.payload}
         break;
         case 'MODIFY_PORTFOLIO' : return {...state, portfolio:action.payload}
         break ;
-        case 'MODIFY_START_DATE' : return {...state, startDate:action.payload}
+        case 'MODIFY_START_DATE' : return {...state, start_date:action.payload}
         break ;
         case 'MODIFY_POSITION' : return {...state,position:action.payload}
         break ;

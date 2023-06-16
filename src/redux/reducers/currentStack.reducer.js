@@ -3,6 +3,8 @@ const currentStacks = (state = [], action) => {
     case 'SET_CURRENT_STACK':
       return [...state, action.payload]
       break;
+      case 'SET_CURRENT_TECHS': return action.payload;
+      break;
     case 'DELETE_CURRENT_TECH': let copyOfState = [...state]
       const index = copyOfState.indexOf(action.payload);
       const x = copyOfState.splice(index, 1);

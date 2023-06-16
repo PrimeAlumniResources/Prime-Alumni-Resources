@@ -1,6 +1,6 @@
 
 import { useDispatch,useSelector } from "react-redux";
-import knownStacks from "../../redux/reducers/knownStack.reducer";
+
 
 function TechKnown (props) {
 
@@ -28,7 +28,7 @@ function TechKnown (props) {
 
      const stack= props.stack
     return (
-        <div key={stack.id} id="alert-3" className="flex p-4 mt-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+        <div key={stack} id="alert-3" className="flex p-4 mt-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
 
         <div className="ml-3 text-sm font-medium">
             {stack} <a href="#" className="font-semibold underline hover:no-underline"></a>

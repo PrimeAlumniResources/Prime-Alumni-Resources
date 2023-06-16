@@ -53,15 +53,35 @@ router.get('/current', rejectUnauthenticated, (req, res) => {
 
     const sqlText = `
             
-    SELECT * FROM "current_stack"
-    WHERE id= $1;
+    SELECT name FROM "current_stack"
+    WHERE user_id= $1;
     `
     const sqlValue = [userId]
     pool.query(sqlText, sqlValue)
     .then((results) => {
-        res.sendStatus(200)
+        res.send(results.rows)
     }).catch((error) => {
-        console.log('error in profile server get route:', error);
+        console.log('error in current server get route:', error);
+        res.sendStatus(500)
+    })
+})
+
+router.get('/known', rejectUnauthenticated, (req, res) => {
+    const userId = req.user.id
+
+    const sqlText = `
+            
+    SELECT name FROM "known_stack"
+    WHERE user_id= $1;
+    `
+    const sqlValue = [userId]
+    console.log('this is user.id',sqlValue);
+    pool.query(sqlText, sqlValue)
+    .then((results) => {
+        console.log('this is results.rows in get known',results.rows);
+        res.send(results.rows)
+    }).catch((error) => {
+        console.log('error in known server get route:', error);
         res.sendStatus(500)
     })
 })

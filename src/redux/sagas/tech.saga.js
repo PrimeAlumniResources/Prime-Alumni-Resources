@@ -43,11 +43,22 @@ function* postKnown (action ) {
      
  }
 
- function* fetchTech() {
+ function* fetchCurrent() {
     try {
         const results = yield axios.get('/api/tech/current')
-        console.log('this is the results of the fetch tech saga-->',results.data);
+        console.log('this is the results of the fetch current saga-->',results.data);
         yield put ({type:'SET_CURRENT_TECHS', payload: results.data})
+    } catch (error) {
+        console.log('error inside fetch current saga-->',error);
+    }
+}
+
+
+function* fetchKnown() {
+    try {
+        const results = yield axios.get('/api/tech/known')
+        console.log('this is the results of the fetch known saga-->',results.data);
+        yield put ({type:'SET_KNOWN_TECHS', payload: results.data})
     } catch (error) {
         console.log('error inside fetch tech saga-->',error);
     }
@@ -58,5 +69,6 @@ export default function* techSaga () {
     yield takeLatest('DELETE_KNOWN_TECH',deleteKnown)
     yield takeLatest('UPDATE_CURRENT_TECH',postCurrent)
     yield takeLatest('UPDATE_KNOWN_TECH',postKnown)
-    yield takeLatest('FETCH_CURRENT_TECH',fetchTech)
+    yield takeLatest('FETCH_CURRENT_TECH',fetchCurrent)
+    yield takeLatest('FETCH_KNOWN_TECH',fetchKnown)
 }

@@ -14,6 +14,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Layout from '../Layout/Layout';
+import EditProfilePage from '../profilePage/EditProfilePage';
 import ProfilePage from '../profilePage/ProfilePage';
 
 import './App.css';
@@ -45,6 +46,15 @@ function App() {
           />
 
           <Route
+            path="/editprofile"
+            element={
+              <ProtectedRoute user={user}>
+                <EditProfilePage />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route
             path="/profile"
             element={
               <ProtectedRoute user={user}>
@@ -52,7 +62,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-          
           
 
           <Route
