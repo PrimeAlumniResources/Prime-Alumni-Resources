@@ -18,9 +18,14 @@ function ResourcesPage() {
 
     const resources = useSelector(store => store.resources);
 
+    const [filter, setFilter] = useState('')
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const tagFilter = (e) => {
+        setFilter(e.target.innerHTML)
+    }
 
     const style = {
         position: 'absolute',
@@ -28,11 +33,11 @@ function ResourcesPage() {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: 550,
-        height: 550,
-        bgcolor: 'background.paper',
-        border: '2px solid #000',
+        height: 590,
+        bgcolor: 'white',
         boxShadow: 24,
         p: 4,
+        borderRadius: '25px'
     };
 
     return (
@@ -41,24 +46,40 @@ function ResourcesPage() {
             <center>
             <aside className='aside'>
                 <h1>TAGS</h1>
+                <h2 onClick={() => {setFilter('')}}>Show All</h2>
                 <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>Javascript</li>
-                    <li>React.js</li>
+                    <li onClick={(e) => tagFilter(e)}>HTML</li>
+                    <li onClick={(e) => tagFilter(e)}>CSS</li>
+                    <li onClick={(e) => tagFilter(e)}>JavaScript</li>
+                    <li onClick={(e) => tagFilter(e)}>React.js</li>
                 </ul>
             </aside>
             </center>
             <Button onClick={handleOpen}>ADD +</Button>
-            {
+            {   
                 resources.map(resource => {
-                    return (
+                    if(filter === resource.tag){
+                         return (
                         <div className='resources' key={resource.id}>
-                        <h1>Title: {resource.title}</h1>
-                        <h2>Link: {resource.link} Tag: {resource.tag}</h2>
-                        <p>Description: {resource.description}</p>
+                        <a href={resource.link} target='_blank'>
+                        <h1>{resource.title}</h1>
+                        <p>{resource.description}</p>
+                        <p>Related to {resource.tag}</p>
+                        </a>
                         </div>
-                    )
+                        )
+                    }else if(filter === '') {
+                        return (
+                        <div className='resources' key={resource.id}>
+                        <a href={resource.link} target='_blank'>
+                        <h1>{resource.title}</h1>
+                        <p>{resource.description}</p>
+                        <p>Related to {resource.tag}</p>
+                        </a>
+                        </div>
+                        )
+                    }
+                   
                 })
             }
             <Modal

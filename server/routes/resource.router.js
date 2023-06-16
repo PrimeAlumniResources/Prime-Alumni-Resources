@@ -7,7 +7,7 @@ const {
 
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-    const sqlQuery = `SELECT * FROM "resource";`
+    const sqlQuery = `SELECT * FROM "resource" ORDER BY "id" DESC;`
 
     pool.query(sqlQuery)
     .then((dbRes) => {
