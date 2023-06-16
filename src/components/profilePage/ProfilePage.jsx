@@ -2,9 +2,9 @@
 function ProfilePage () {
     
     return (
-        <div>
-            in profile page
-        </div>
+      <div>
+        hi
+      </div>
     )
 }
 
