@@ -1,5 +1,6 @@
 import './ResourcesPage.css'
 import AddResource from './AddResource';
+import ResourceItem from './ResourceItem';
 import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -66,27 +67,10 @@ function ResourcesPage() {
             {   
                 resources.map(resource => {
                     if(filter === resource.tag){
-                         return (
-                        <div className='resources' key={resource.id}>
-                        <a href={resource.link} target='_blank'>
-                        <h1>{resource.title}</h1>
-                        <p>{resource.description}</p>
-                        <p>Related to {resource.tag}</p>
-                        </a>
-                        </div>
-                        )
+                         return (<ResourceItem resource={resource} />)
                     }else if(filter === '') {
-                        return (
-                        <div className='resources' key={resource.id}>
-                        <a href={resource.link} target='_blank'>
-                        <h1>{resource.title}</h1>
-                        <p>{resource.description}</p>
-                        <p>Related to {resource.tag}</p>
-                        </a>
-                        </div>
-                        )
+                        return (<ResourceItem resource={resource} />)
                     }
-                   
                 })
             }
             <Modal
