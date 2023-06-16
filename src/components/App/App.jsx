@@ -51,8 +51,6 @@ function App() {
             element={user.id ? <Navigate to="/user" /> : <LoginPage />}
           />
 
-
-
           {/* <Route
             path="/alumni-search"
             element={user.id ? <Navigate to="/alumni-search" /> : <LoginPage />}
@@ -87,10 +85,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-        </Route>
 
-        
-        
       </Routes>
   );
 }
