@@ -14,9 +14,13 @@ function ResourcesPage() {
         dispatch({
             type: 'SAGA/GET_RESOURCE'
         });
+        dispatch({
+            type: 'SAGA/GET_RESOURCE_TAGS'
+        });
     }, []);
 
     const resources = useSelector(store => store.resources);
+    const resourcesTags = useSelector(store => store.resourceTags);
 
     const [filter, setFilter] = useState('')
     const [open, setOpen] = useState(false);
@@ -48,10 +52,13 @@ function ResourcesPage() {
                 <h1>TAGS</h1>
                 <h2 onClick={() => {setFilter('')}}>Show All</h2>
                 <ul>
-                    <li onClick={(e) => tagFilter(e)}>HTML</li>
-                    <li onClick={(e) => tagFilter(e)}>CSS</li>
-                    <li onClick={(e) => tagFilter(e)}>JavaScript</li>
-                    <li onClick={(e) => tagFilter(e)}>React.js</li>
+                {
+                    resourcesTags.map(tag => {
+                        return (
+                            <li key={tag.id} onClick={(e) => tagFilter(e)}>{tag.tag}</li>
+                        )
+                    })
+                }
                 </ul>
             </aside>
             </center>

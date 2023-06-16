@@ -20,6 +20,20 @@ router.get('/', rejectUnauthenticated, (req, res) => {
    
 });
 
+router.get('/resourceTags', rejectUnauthenticated, (req, res) => {
+  const sqlQuery = `SELECT "tag" FROM "resource" GROUP BY "tag";`
+
+  pool.query(sqlQuery)
+  .then((dbRes) => {
+    res.send(dbRes.rows);
+  })
+  .catch((dbErr) => {
+    console.log('GET/ tags from resource from database fail:', dbErr);
+    res.sendStatus(500);
+  })
+ 
+});
+
 
 router.post('/', rejectUnauthenticated, (req, res) => {
   console.log(req.body, req.user.id);
