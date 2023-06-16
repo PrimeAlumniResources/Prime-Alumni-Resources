@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
 
+import TechCurrent from "../Tech/TechCurrent";
+import TechKnown from "../Tech/TechKnown";
 function ProfilePage() {
 
 
@@ -21,7 +23,7 @@ function ProfilePage() {
 
     const [uploadedFile, setUploadedFile] = useState();
 
-    const knownStacks = useSelector((store) => store.knownStacks)
+    const KnownStack = useSelector((store) => store.KnownStack)
 
     const currentStacks = useSelector((store) => store.currentStacks)
 
@@ -102,23 +104,50 @@ function ProfilePage() {
 
     const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
+    const handleDeleteKnownPress = () => {
+
+        // dispatch({
+        //     type: 'DELETE_CURRENT_TECH',
+        //     payload: {
+        //         name:currentStack[0]
+        //     }
+        // })
+    }
+
+  
+
     const handleKeyPress = () => {
         if (event.key === 'Enter') {
             console.log('this is the current stack', currentStack);
+
+                 dispatch({
+                    type: 'UPDATE_CURRENT_TECH',
+                    payload: {
+                        name:currentStack[0]
+                    }
+                })
 
             dispatch({
                 type: 'SET_CURRENT_STACK',
                 payload: currentStack
             })
+            
             setCurrentStack('')
+
         }
     }
 
     const handleKnownKeyPress = () => {
         console.log('this is the known stack', knownStack);
         if (event.key === 'Enter') {
-
             
+            dispatch({
+                type: 'UPDATE_KNOWN_TECH',
+                payload: {
+                    name:knownStack[0]
+                }
+            })
+
             dispatch({
                 type: 'SET_KNOWN_STACK',
                 payload: knownStack
@@ -221,74 +250,34 @@ function ProfilePage() {
         })
     }
 
-    const handleCohortName = (event) => {
-        dispatch({
-            type: 'MODIFY_COHORT_NAME',
-            payload: event.target.value,
-        })
-    }
-
-    const handleCohortStartDate = (event) => {
-        dispatch({
-            type: 'MODIFY_COHORT_START_DATE',
-            payload: event.target.value,
-        })
-    }
-
-    const handleCohortEndDate = (event) => {
-        dispatch({
-            type: 'MODIFY_COHORT_END_DATE',
-            payload: event.target.value,
-        })
-    }
-
-    const handleCohortType = (event) => {
-        dispatch({
-            type: 'MODIFY_COHORT_TYPE',
-            payload: event.target.value,
-        })
-    }
-
-
-    const handleCampusName = (event) => {
-        dispatch({
-            type: 'MODIFY_CAMPUS_NAME',
-            payload: event.target.value,
-        })
-    }
-
-    const handleCampusCity = (event) => {
-        dispatch({
-            type: 'MODIFY_CAMPUS_CITY',
-            payload: event.target.value,
-        })
-    }
-
-
-    const handleCampusState = (event) => {
-        dispatch({
-            type: 'MODIFY_CAMPUS_STATE',
-            payload: event.target.value,
-        })
-    }
+ 
 
     const sendProfileInfo = () => {
 
         // if (profile.username != '' && user.firstName != '' && profile.lastName != '' && profile.cohort != '' && profile.currentWork != '' && profile.position != '' && profile.startDate != '' && profile.linkedIn != '' && profile.github != '' && profile.portfolio != '' && profile.bio != '' && profile.uploadedFile != '') {
-            dispatch({
-                type: 'PUT_PROFILE_INFO',
-                payload:profile
-            })
-
             // dispatch({
-            //     type: 'UPDATE_CURRENT_TECH',
-            //     payload: currentStack
+            //     type: 'PUT_PROFILE_INFO',
+            //     payload:profile
             // })
-
-            // dispatch({
-            //     type: 'UPDATE_KNOWN_TECH',
-            //     payload: knownStack
-            // })
+        
+            //     dispatch({
+            //         type: 'UPDATE_CURRENT_TECH',
+            //         payload: {
+            //             name:each
+            //         }
+            //     })
+            // } // for (let each of currentStack) {
+           
+            
+            // for(let each of knownStack){
+            //     dispatch({
+            //         type: 'UPDATE_KNOWN_TECH',
+            //         payload: {
+            //             name:each
+            //         }
+            //     })
+            // }
+           
         // }
     }
 
@@ -515,16 +504,9 @@ function ProfilePage() {
                                 {
                                     currentStacks?.map((stack) => {
                                         return (
-                                            <div key={stack.id} id="alert-3" className="flex p-4 mt-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-
-                                                <div className="ml-3 text-sm font-medium">
-                                                    {stack} <a href="#" className="font-semibold underline hover:no-underline"></a>
-                                                </div>
-                                                <button type="button" className="ml-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-3" aria-label="Close">
-                                                    <span className="sr-only">Close</span>
-                                                    <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-                                                </button>
-                                            </div>
+                                            <TechCurrent
+                                            stack={stack}
+                                            />
                                         )
                                     })
                                 }
@@ -541,18 +523,11 @@ function ProfilePage() {
                                     onKeyPress={handleKnownKeyPress}
                                 />
                                 {
-                                    knownStacks?.map(stack => {
+                                    KnownStack?.map((stack )=> {
                                         return (
-                                            <div key={stack.id} id="alert-3" className="flex p-4 mt-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-
-                                                <div className="ml-3 text-sm font-medium">
-                                                    {stack} <a href="#" className="font-semibold underline hover:no-underline"></a>
-                                                </div>
-                                                <button type="button" className="ml-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-3" aria-label="Close">
-                                                    <span className="sr-only">Close</span>
-                                                    <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-                                                </button>
-                                            </div>
+                                                <TechKnown
+                                                stack={stack}
+                                                />
                                         )
                                     })
                                 }

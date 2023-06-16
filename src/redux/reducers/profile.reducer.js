@@ -1,7 +1,7 @@
 
 const profile = ( state = {}, action) => {
     switch (action.type) {
-        case 'SET_PROFILE' : return [...state]
+        case 'SET_PROFILE' : return action.payload
         break;
         case 'MODIFY_USERNAME' : return {...state,username:action.payload}
         break;

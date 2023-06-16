@@ -36,7 +36,7 @@ router.put('/', rejectUnauthenticated, (req,res) => {
         "github" = $11
         WHERE id= $12
     `
-    const sqlValues = [username,bio,firstName,lastName,pronouns,position,startDate,portfolio,,uploadedFile,linkedIn,github,user]
+    const sqlValues = [username,bio,firstName,lastName,pronouns,position,startDate,portfolio,uploadedFile,linkedIn,github,user]
     console.log('these are the sqlValues-->',sqlValues);
     pool.query(sqlText,sqlValues)
     .then((results)=> {
@@ -51,10 +51,9 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     const userId = req.user.id
 
     const sqlText = `
-    SELECT 
-    pronouns, bio, tech, socials, job_title
-    FROM user
-    WHERE id = $1
+            
+    SELECT * FROM "user"
+    WHERE id= $1;
     `
     const sqlValue = [userId]
     pool.query(sqlText, sqlValue)
