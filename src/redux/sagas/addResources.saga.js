@@ -6,6 +6,7 @@ function* addResource(action) {
   try {
     yield axios.post('/resourceRoute', action.payload)
     yield put({type: 'SAGA/GET_RESOURCE'})
+    yield put({type: 'SAGA/GET_RESOURCE_TAGS'})
   } catch (error) {
     console.log('From SAGA, adding resource error', error);
   }

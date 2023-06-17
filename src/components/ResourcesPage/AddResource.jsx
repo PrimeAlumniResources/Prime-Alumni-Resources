@@ -1,11 +1,14 @@
 import { useState } from "react"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+
 function AddResource(props) {
+
+    const resourcesTags = useSelector(store => store.resourceTags);
 
     const dispatch = useDispatch()
 
@@ -13,13 +16,16 @@ function AddResource(props) {
     const [link, setLink] = useState('')
     const [description, setDescription] = useState('')
     const [tag, setTag] = useState('')
+    const [newTag, setNewTag] = useState('')
     const dataPackage = {
         title: title,
         link: link,
         description: description,
-        tag: tag
+        tag: tag,
+        newTag: newTag
     }
-    
+    console.log(dataPackage);
+
     const handleChange = (event) => {
         setTag(event.target.value);
     };
@@ -34,12 +40,12 @@ function AddResource(props) {
 
     return (
         <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        
+
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
             <div className="fixed inset-0 z-10 overflow-y-auto">
                 <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-      
+
                     <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                         <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                             <div className="sm:flex sm:items-start">
@@ -96,6 +102,8 @@ function AddResource(props) {
                                             </div>
                                         </div>
 
+
+
                                         <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
                                             <InputLabel id="tag">TAG</InputLabel>
                                             <Select
@@ -107,13 +115,35 @@ function AddResource(props) {
                                                 <MenuItem value="">
                                                     <em>None</em>
                                                 </MenuItem>
-                                                <MenuItem value={'HTML'}>HTML</MenuItem>
-                                                <MenuItem value={'CSS'}>CSS</MenuItem>
-                                                <MenuItem value={'JavaScript'}>JavaScript</MenuItem>
-                                                <MenuItem value={'React.js'}>React.js</MenuItem>
+                                                {
+                                                    resourcesTags.map(tag => {
+                                                        return (
+                                                            <MenuItem key={tag.id} value={tag.tag}>{tag.tag}</MenuItem>
+                                                        )
+                                                    })
+                                                }
+                                                <MenuItem value={'other'}>Other</MenuItem>
+
                                             </Select>
                                         </FormControl>
-
+                                        {
+                                            tag === 'other' &&
+                                            <div className="col-span-full">
+                                            <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">Title</label>
+                                            <div className="mt-2">
+                                                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                                    <input
+                                                        required
+                                                        type="text"
+                                                        className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                                        placeholder="Enter New Tag"
+                                                        value={newTag}
+                                                        onChange={e => setNewTag(e.target.value)}
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        }
                                     </div>
                                 </div>
                             </div>
