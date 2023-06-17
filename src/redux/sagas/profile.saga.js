@@ -22,7 +22,7 @@ function* fetchProfile() {
 }
 
 export default function* profileSaga () {
-
+    
     yield takeLatest('PUT_PROFILE_INFO',updateProfile )
     yield takeLatest('FETCH_PROFILE',fetchProfile)
 }

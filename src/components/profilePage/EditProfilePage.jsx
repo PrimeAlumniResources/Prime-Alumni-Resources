@@ -42,24 +42,29 @@ function editProfilePage() {
 
     const onDrop = (acceptedFiles) => {
         // Set the first accepted file as the uploaded file
-        const reader = new FileReader();
+        // const reader = new FileReader();
 
-        reader.onload = (event) => {
-          const image = event.target.result;
-          setUploadedImageUrl(image);
-        };
+        // reader.onload = (event) => {
+        //   const image = event.target.result;
+        //   setUploadedImageUrl(image);
+        // };
     
-        reader.readAsDataURL(acceptedFiles[0]);
+        // reader.readAsDataURL(acceptedFiles[0]);
+        const image = URL.createObjectURL(acceptedFiles[0])
+        setUploadedImageUrl(image)
         console.log('this is the uploaded file', uploadedFile);
 
-        dispatch({
-            type: 'MODIFY_UPLOADED_FILE',
-            payload:uploadedImageUrl
-        })
+      
         displayImage()
     };
 
-  
+    useEffect(() => {
+     console.log('changed');
+       dispatch({
+            type: 'MODIFY_UPLOADED_FILE',
+            payload:uploadedImageUrl
+        })
+    }, [uploadedImageUrl]);
 
     useEffect(() => {
         dispatch({
@@ -103,10 +108,10 @@ function editProfilePage() {
 
     console.log('this is profile.uploaded_file', profile.uploaded_file);
     const displayImage = () => {
-
+        
         if (profile.uploaded_file != undefined) {
             return (
-                <img className=" w-72 h-56 mt-20  rounded-lg  hover:blur-none" src={profile.uploaded_file} alt="image description"></img>
+                <img className=" w-72 h-56 mt-20  rounded-lg  hover:blur-none" src={ profile.uploaded_file} alt="image description"></img>
             )
         } else {
             return (
