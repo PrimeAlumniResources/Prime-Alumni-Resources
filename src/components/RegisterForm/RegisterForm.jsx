@@ -8,7 +8,7 @@ function RegisterForm() {
   const [lastname, setLastName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  
+
   const [cohort, setCohort] = useState('');
 
   const errors = useSelector((store) => store.errors);
@@ -20,49 +20,53 @@ function RegisterForm() {
     dispatch({
       type: 'FETCH_COHORTS'
     })
-    
+
   }, [])
 
   const cohorts = useSelector(store => store.cohort)
 
+//--FOR LOOP AND ARRAY USED TO MAKE SURE THE COHORT VALUES DONT SHOW MORE THAN ONCE---
+
   let cohortsArray = []
 
-  for ( let each of cohorts) {
-    if (cohortsArray.length===0){
-    for (let cohort of each) {
-      console.log(cohort.name);
-      
-      cohortsArray.push(cohort.name)
-    }
-  }
-  }
-  const [finalCohort,setFinalCohort] = useState()
-let finalCohortObject = []
-const handleCohort = (event) => {
-  event.preventDefault();
-  console.log('hi');
   for (let each of cohorts) {
-    console.log('this is eacg',each);
-    for (let coho of each) {
-      console.log('this is coho-->',coho);
-      console.log('this is cohort name',cohort);
-      if (coho.name=== cohort) {
-       finalCohortObject.push(coho)
-      } else {
-        console.log('this is cohoooooo--->',coho.name,cohort);
+    if (cohortsArray.length === 0) {
+      for (let cohort of each) {
+        console.log(cohort.name);
+        cohortsArray.push(cohort.name)
       }
-      
     }
   }
-  console.log('this is final in handle-->',finalCohort);
-  registerUser()
-}
-  console.log('this is cohortarray-->',cohortsArray);
-console.log('this is cohort change',cohort);
+
+//----------FUNCTIONS USED TO HANDLE COHORT SUBMISSION----------
+
+  const [finalCohort, setFinalCohort] = useState()
+  let finalCohortObject = []
+  const handleCohort = (event) => {
+    event.preventDefault();
+    console.log('hi');
+    for (let each of cohorts) {
+
+      for (let coho of each) {
+
+        if (coho.name === cohort) {
+          finalCohortObject.push(coho)
+        } else {
+          console.log('this is cohoooooo--->', coho.name, cohort);
+        }
+
+      }
+    }
+    console.log('this is final in handle-->', finalCohort);
+    registerUser()
+  }
+
+//------------------------------REGISTRATION FUNCTION--------------------------
+
   const registerUser = (event) => {
     // event.preventDefault();
-   
-    console.log('this is the final cohort--->',finalCohortObject[0].id);
+
+    console.log('this is the final cohort--->', finalCohortObject[0].id);
     dispatch({
       type: 'REGISTER',
       payload: {
@@ -120,35 +124,24 @@ console.log('this is cohort change',cohort);
         </label>
       </div>
 
-     <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-              <select onChange={(event) => setCohort(event.target.value)}  id="countries" class=" w-40 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> 
-              <option  selected>Choose a cohort</option>
-      {
+      <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
+      <select onChange={(event) => setCohort(event.target.value)} id="countries" class=" w-40 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option selected>Choose a cohort</option>
+        {
 
-        cohortsArray?.map(coho => {
-          return (
-            
-                
-                <option  value={coho}>{coho}</option>
-                
-              
-            
-          )
-        })
-        
-      }
-       </select> 
-      {/* <div>
-        <label htmlFor="campus">
-          campus:
-          <input
-            name="cohort"
-            value={cohort}
-            required
-            onChange={(event) => setCohort(event.target.value)}
-          />
-        </label>
-      </div> */}
+          cohortsArray?.map(coho => {
+            return (
+
+
+              <option value={coho}>{coho}</option>
+
+
+
+            )
+          })
+
+        }
+      </select>
 
       <div>
         <label htmlFor="password">

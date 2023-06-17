@@ -5,6 +5,9 @@ const currentStacks = (state = [], action) => {
       break;
       case 'SET_CURRENT_TECHS': return action.payload;
       break;
+      
+  {/* -----USED TO DELETE PARTICULAR ARRAY IN CURRENT STACK----- */}
+
     case 'DELETE_CURRENT_TECH': let copyOfState = [...state]
       const index = copyOfState.indexOf(action.payload);
       const x = copyOfState.splice(index, 1);

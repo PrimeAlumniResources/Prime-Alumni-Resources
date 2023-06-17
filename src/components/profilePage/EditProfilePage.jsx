@@ -13,6 +13,7 @@ import TechKnown from "../Tech/TechKnown";
 
 function editProfilePage() {
 
+    {/* ------------------ALL THE CONST NEEDED FOR THIS PAGE--------------------- */ }
 
     const dispatch = useDispatch()
     const Dropzone = useDropzone()
@@ -36,35 +37,33 @@ function editProfilePage() {
 
     const user = useSelector((store) => store.user);
 
-    console.log('this is current stacks', currentStacks);
+    const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
     const [uploadedImageUrl, setUploadedImageUrl] = useState('');
 
-    const onDrop = (acceptedFiles) => {
-        // Set the first accepted file as the uploaded file
-        // const reader = new FileReader();
+    {/* --------------FUNCTION USED TO RETRIEVE FILE UPLOADED ON IMAGE INPUT--------------------- */ }
 
-        // reader.onload = (event) => {
-        //   const image = event.target.result;
-        //   setUploadedImageUrl(image);
-        // };
-    
-        // reader.readAsDataURL(acceptedFiles[0]);
+    const onDrop = (acceptedFiles) => {
+
+
         const image = URL.createObjectURL(acceptedFiles[0])
         setUploadedImageUrl(image)
         console.log('this is the uploaded file', uploadedFile);
 
-      
+
         displayImage()
     };
 
+    {/* --------------------------USE EFFECTS FOR NECCESARY DATA--------------------- */ }
+
     useEffect(() => {
-     console.log('changed');
-       dispatch({
+        console.log('changed');
+        dispatch({
             type: 'MODIFY_UPLOADED_FILE',
-            payload:uploadedImageUrl
+            payload: uploadedImageUrl
         })
     }, [uploadedImageUrl]);
+
 
     useEffect(() => {
         dispatch({
@@ -72,7 +71,6 @@ function editProfilePage() {
         })
     }, []);
 
-  
 
     useEffect(() => {
         dispatch({
@@ -80,38 +78,22 @@ function editProfilePage() {
         })
     }, []);
 
+
     useEffect(() => {
         dispatch({
             type: 'FETCH_CURRENT_TECH',
         })
     }, []);
 
-    console.log('file--->', uploadedFile);
-
-    const addProfile = (e) => {
-        event.preventDefault();
-
-        // dispatchEvent({
-        //     type: 'SAGA/ADD_PROFILE',
-        //     payload: ?????
-        // });
-
-        setUserName('');
-        setBio('');
-        setTech('');
-        setSocials('');
-        setJobTitle('');
-    }
 
 
+    {/* --------------------------DISPLAY IMAGES CONDITIONAL RENDER--------------------- */ }
 
-
-    console.log('this is profile.uploaded_file', profile.uploaded_file);
     const displayImage = () => {
-        
+
         if (profile.uploaded_file != undefined) {
             return (
-                <img className=" w-72 h-56 mt-20  rounded-lg  hover:blur-none" src={ profile.uploaded_file} alt="image description"></img>
+                <img className=" w-72 h-56 mt-20  rounded-lg  hover:blur-none" src={profile.uploaded_file} alt="image description"></img>
             )
         } else {
             return (
@@ -127,11 +109,9 @@ function editProfilePage() {
         }
     }
 
-    const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
 
-
-
+    {/* --------------------------HANDLE KEY FUNCTIONS FOR INPUTS--------------------- */ }
 
     const handleKeyPress = () => {
         if (event.key === 'Enter') {
@@ -258,6 +238,7 @@ function editProfilePage() {
     }
 
 
+    {/* ----------------------FUNCTION TO SEND DATA WHEN SUBMIT IS CLICKED--------------------- */ }
 
     const sendProfileInfo = () => {
 
@@ -265,8 +246,6 @@ function editProfilePage() {
             type: 'PUT_PROFILE_INFO',
             payload: profile
         })
-
-
     }
 
     return (
@@ -340,15 +319,6 @@ function editProfilePage() {
                         {/* <img src={URL.createObjectURL(uploadedFile)} alt="" /> */}
                         <div {...getRootProps()} className=" -mt-2 mr-4">
                             {displayImage()}
-                            {/* <label for="dropzone-file" class="flex flex-col items-center justify-center w-full mt-20 h-10/12 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                            <svg aria-hidden="true" class="w-10 h-32 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                        </div>
-                        <input onClick={setTrue} {...getInputProps()}   id="dropzone-file" type="file" class="hidden" />
-                    </label> */}
-
                         </div>
 
                         {/*----------------IMAGE----------------------  */}
@@ -402,7 +372,7 @@ function editProfilePage() {
                             <div className=" inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <label className="mr-2 -ml-2 block mb-2 text-sm font-medium text-gray-900 dark:text-black">Start Date</label>
 
-                                {/* <svg aria-hidden="true" class=" mb-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg> */}
+
                             </div>
                             <input
                                 name="start"
@@ -415,8 +385,6 @@ function editProfilePage() {
                         {/* -------------START DATE INPUT-------------- */}
 
                     </div>
-
-
 
 
                     {/*----------------SOCIAl STACK----------------------  */}
@@ -512,6 +480,9 @@ function editProfilePage() {
                         </div>
 
                     </div>
+
+                    {/* --------------------------SUBMIT BUTTON--------------------- */} 
+
                     <div className=" flex justify-end mr-3">
                         <button onClick={sendProfileInfo} className=" justify-end  inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
                             <span className=" px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
@@ -520,7 +491,8 @@ function editProfilePage() {
                         </button>
                     </div>
 
-
+                    {/* --------------------------SUBMIT BUTTON--------------------- */} 
+                    
                 </div>
 
             </div>

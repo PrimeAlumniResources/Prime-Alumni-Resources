@@ -4,6 +4,9 @@ const KnownStack = (state = [], action) => {
         break;
       case 'SET_KNOWN_TECHS':return action.payload;
         break;
+        
+       {/* -----USED TO DELETE PARTICULAR ARRAY IN CURRENT STACK----- */}
+
       case 'DELETE_KNOWN_TECH': let copyOfState = [...state]
           const index = copyOfState.indexOf(action.payload);
           const x = copyOfState.splice(index, 1);

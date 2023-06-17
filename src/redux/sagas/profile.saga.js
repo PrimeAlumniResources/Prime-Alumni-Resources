@@ -1,6 +1,9 @@
 import { put, takeLatest } from "redux-saga/effects"
 import axios from "axios"
 
+
+ //----------------------UPDATE USER INFO SAGA-----------------------------
+
 function* updateProfile(action) {
 
     try {
@@ -10,6 +13,8 @@ function* updateProfile(action) {
         console.log('error in the postProfile saga function-->',error);
     }
 }
+
+ //----------------------FETCH USER INFO SAGA-----------------------------
 
 function* fetchProfile() {
     try {

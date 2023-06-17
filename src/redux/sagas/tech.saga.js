@@ -1,6 +1,8 @@
 import { put, take, takeLatest } from "redux-saga/effects"
 import axios from "axios"
 
+//-----------------------------POST CURRENT STACK SAGA--------------------------------------
+
 function* postCurrent ( action ) {
     console.log('this is action.payload in currentKnown',action.payload);
    try {
@@ -11,6 +13,7 @@ function* postCurrent ( action ) {
     }
 }
 
+//-----------------------------POST KNOWN STACK SAGA--------------------------------------
 
 function* postKnown (action ) {
     console.log('this is action.payload in updateKnown',action.payload);
@@ -23,6 +26,8 @@ function* postKnown (action ) {
      
  }
 
+//-----------------------------DELETE CURRENT STACK SAGA--------------------------------------
+
  function* deleteCurrent (action ) {
     console.log('this is action.payload in deleteCurrent',action.payload.name);
     try {
@@ -33,6 +38,8 @@ function* postKnown (action ) {
      }
      
  }
+
+//-----------------------------DELETE KNOWN STACK SAGA--------------------------------------
 
  function* deleteKnown (action ) {
     console.log('this is action.payload in deleteKnown',action.payload.name);
@@ -45,6 +52,8 @@ function* postKnown (action ) {
      
  }
 
+ //-----------------------------FETCH CURRENT STACK SAGA--------------------------------------
+
  function* fetchCurrent() {
     try {
         const results = yield axios.get('/api/tech/current')
@@ -55,6 +64,7 @@ function* postKnown (action ) {
     }
 }
 
+ //-----------------------------FETCH KNOWN STACK SAGA--------------------------------------
 
 function* fetchKnown() {
     try {

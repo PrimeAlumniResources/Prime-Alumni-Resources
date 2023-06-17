@@ -3,6 +3,8 @@ import { put, takeLatest } from "redux-saga/effects"
 
 import axios from "axios"
 
+//-----------------------------FETCH COHORT SAGA--------------------------------------
+
 function* FetchCohort () {
     try {
         
@@ -13,6 +15,8 @@ function* FetchCohort () {
         console.log('error in the fetch cohort sage function-->',error);
     }
 }
+
+//-----------------------------FETCH USER COHORT SAGA--------------------------------------
 
 function* fetchMyCohort () {
     try {
