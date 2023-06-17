@@ -40,7 +40,10 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   const title = req.body.title
   const link = req.body.link
   const description = req.body.description
-  const tag = req.body.tag
+  let tag = req.body.tag
+  if (tag === 'other'){
+   tag = req.body.newTag
+  }else {tag = req.body.tag}
   const userId = req.user.id
   console.log(title, link, description, tag, userId);
  
