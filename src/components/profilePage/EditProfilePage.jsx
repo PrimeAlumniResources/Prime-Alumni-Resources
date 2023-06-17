@@ -37,7 +37,7 @@ function editProfilePage() {
 
     const user = useSelector((store) => store.user);
 
-    const { getRootProps, getInputProps } = useDropzone({ onDrop });
+   
 
     const [uploadedImageUrl, setUploadedImageUrl] = useState('');
 
@@ -64,7 +64,7 @@ function editProfilePage() {
         })
     }, [uploadedImageUrl]);
 
-
+    const { getRootProps, getInputProps } = useDropzone({ onDrop });
     useEffect(() => {
         dispatch({
             type: 'FETCH_PROFILE',
