@@ -9,6 +9,9 @@ export default function JobsPage() {
     dispatch({ type: 'GET_JOBS' });
   }, []);
 
+  // FILTER
+  const [selectedTag, setSelectedTag] = useState('');
+
   // MODAL
   const [modal, setModal] = useState(false);
 
@@ -100,7 +103,8 @@ export default function JobsPage() {
                     value={positionInput}
                     onChange={(event) => setPositionInput(event.target.value)}>
                     <option value="" disabled>Select your option</option>
-                    <option value="Software Engineer">Full Stack Engineer</option>
+                    <option value="Software Engineer">Software Engineer</option>
+                    <option value="Full Stack Engineer">Full Stack Engineer</option>
                     <option value="Front End Developer">Front End Developer</option>
                     <option value="Back End Developer">Back End Developer</option>
                     <option value="Data Engineer">Data Engineer</option>
@@ -141,38 +145,44 @@ export default function JobsPage() {
 
         <div className='flex'>
 
-          <JobsList/>
+          <JobsList selectedTag={selectedTag}/>
 
           {/* TAG MENU */}
           <div className='tag-container fixed'>
             <div className='mt-3 mb-3 font-bold'>Tags</div>
 
             <div className='mb-4'>
-              <button className='filter-options'>Full Stack</button>
+              <button className='filter-options' onClick={() => setSelectedTag('')}>All</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Front End</button>
+              <button className='filter-options' onClick={() => setSelectedTag('Software Engineer')}>Software Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Back End</button>
+              <button className='filter-options' onClick={() => setSelectedTag('Full Stack Engineer')}>Full Stack Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Data</button>
+              <button className='filter-options' onClick={() => setSelectedTag('Front End Developer')}>Front End Developer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>QA</button>
+              <button className='filter-options' onClick={() => setSelectedTag('Back End Developer')}>Back End Developer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>DevOps</button>
+              <button className='filter-options' onClick={() => setSelectedTag('Data Engineer')}>Data Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Cloud</button>
+              <button className='filter-options' onClick={() => setSelectedTag('QA Engineer')}>QA Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Security</button>
+              <button className='filter-options' onClick={() => setSelectedTag('DevOps Engineer')}>DevOps Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Mobile</button>
+              <button className='filter-options' onClick={() => setSelectedTag('Cloud Architect')}>Cloud Architect</button>
+            </div>
+            <div className='mb-4'>
+              <button className='filter-options' onClick={() => setSelectedTag('Security Engineer')}>Security Engineer</button>
+            </div>
+            <div className='mb-4'>
+              <button className='filter-options' onClick={() => setSelectedTag('Mobile Developer')}>Mobile Developer</button>
             </div>
           </div>
 
