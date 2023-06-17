@@ -68,9 +68,9 @@ function ResourcesPage() {
             {   
                 resources.map(resource => {
                     if(filter === resource.tag){
-                         return (<ResourceItem resource={resource} />)
+                         return (<ResourceItem key={resource.id} resource={resource} />)
                     }else if(filter === '') {
-                        return (<ResourceItem resource={resource} />)
+                        return (<ResourceItem key={resource.id} resource={resource} />)
                     }
                 })
             }
