@@ -5,6 +5,7 @@ function* postCurrent ( action ) {
     console.log('this is action.payload in currentKnown',action.payload);
    try {
         const response = yield axios.post('/api/tech/current',action.payload)
+        yield put({type:'FETCH_CURRENT_TECH'})
     } catch (error) {
         console.log('error in the updateCurrent Tech saga function',error);
     }
@@ -15,6 +16,7 @@ function* postKnown (action ) {
     console.log('this is action.payload in updateKnown',action.payload);
     try {
          const response = yield axios.post('/api/tech/known',action.payload)
+         yield put({type:'FETCH_KNOWN_TECH'})
      } catch (error) {
          console.log('error in the updateCurrent Tech saga function',error);
      }

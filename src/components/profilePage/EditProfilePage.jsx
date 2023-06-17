@@ -16,7 +16,7 @@ function editProfilePage() {
 
     const dispatch = useDispatch()
     const Dropzone = useDropzone()
-  
+
     const [isTrue, SetTruth] = useState(false)
     const [currentStack, setCurrentStack] = useState([])
 
@@ -33,52 +33,53 @@ function editProfilePage() {
     const cohort = useSelector(store => store.cohort);
 
     const campus = useSelector(store => store.campus);
-    
+
     const user = useSelector((store) => store.user);
 
     console.log('this is current stacks', currentStacks);
 
+    const [uploadedImageUrl, setUploadedImageUrl] = useState('');
+
     const onDrop = (acceptedFiles) => {
         // Set the first accepted file as the uploaded file
-        setUploadedFile(acceptedFiles[0]);
-        console.log('this is the uploaded file', uploadedFile);
-        setTrue()
+        const reader = new FileReader();
 
+        reader.onload = (event) => {
+          const image = event.target.result;
+          setUploadedImageUrl(image);
+        };
+    
+        reader.readAsDataURL(acceptedFiles[0]);
+        console.log('this is the uploaded file', uploadedFile);
+
+        dispatch({
+            type: 'MODIFY_UPLOADED_FILE',
+            payload:uploadedImageUrl
+        })
+        displayImage()
     };
 
-    useEffect(() => {
-        // This effect runs whenever `myImage` changes
-        if (uploadedFile) {
-            // Perform any necessary actions when the image changes
-
-            dispatch({
-                type: 'MODIFY_UPLOADED_FILE',
-                payload: URL.createObjectURL(uploadedFile)
-            })
-
-            console.log('Image changed:', uploadedFile);
-            SetTruth(true)
-            displayImage()
-        }
-    }, [uploadedFile]);
+  
 
     useEffect(() => {
-            dispatch({
-                type: 'FETCH_PROFILE',
-            })
+        dispatch({
+            type: 'FETCH_PROFILE',
+        })
     }, []);
+
+  
 
     useEffect(() => {
         dispatch({
             type: 'FETCH_KNOWN_TECH',
         })
-}, []);
+    }, []);
 
-useEffect(() => {
-    dispatch({
-        type: 'FETCH_CURRENT_TECH',
-    })
-}, []);
+    useEffect(() => {
+        dispatch({
+            type: 'FETCH_CURRENT_TECH',
+        })
+    }, []);
 
     console.log('file--->', uploadedFile);
 
@@ -98,9 +99,9 @@ useEffect(() => {
     }
 
 
- 
 
-    console.log('this is profile.uploadedFile', profile.uploadedFile);
+
+    console.log('this is profile.uploaded_file', profile.uploaded_file);
     const displayImage = () => {
 
         if (profile.uploaded_file != undefined) {
@@ -125,24 +126,18 @@ useEffect(() => {
 
 
 
-  
+
 
     const handleKeyPress = () => {
         if (event.key === 'Enter') {
             console.log('this is the current stack', currentStack);
 
-                 dispatch({
-                    type: 'UPDATE_CURRENT_TECH',
-                    payload: {
-                        name:currentStack
-                    }
-                })
-
             dispatch({
-                type: 'SET_CURRENT_STACK',
-                payload: currentStack
+                type: 'UPDATE_CURRENT_TECH',
+                payload: {
+                    name: currentStack
+                }
             })
-            
             setCurrentStack('')
 
         }
@@ -151,18 +146,14 @@ useEffect(() => {
     const handleKnownKeyPress = () => {
         console.log('this is the known stack', knownStack);
         if (event.key === 'Enter') {
-            
+
             dispatch({
                 type: 'UPDATE_KNOWN_TECH',
                 payload: {
-                    name:knownStack
+                    name: knownStack
                 }
             })
 
-            dispatch({
-                type: 'SET_KNOWN_STACK',
-                payload: knownStack
-            })
             setKnownStack('')
         }
 
@@ -261,16 +252,16 @@ useEffect(() => {
         })
     }
 
- 
+
 
     const sendProfileInfo = () => {
 
-            dispatch({
-                type: 'PUT_PROFILE_INFO',
-                payload:profile
-            })
+        dispatch({
+            type: 'PUT_PROFILE_INFO',
+            payload: profile
+        })
 
-      
+
     }
 
     return (
@@ -467,69 +458,69 @@ useEffect(() => {
                     </div>
 
 
-                    </div>
-                    {/*----------------TECH STACK----------------------  */}
+                </div>
+                {/*----------------TECH STACK----------------------  */}
 
-                    <div>
-                        <div className="flex justify-center">
-                            <div className="mr-60 inline">
-                                <label className="ml-10 block mb-2 text-sm font-medium text-gray-900 dark:text-black">Current Stack</label>
-                                <input
-                                    type="text"
-                                    id="default-input"
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-200 h-10  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    value={currentStack}
-                                    onChange={(event) => setCurrentStack(event.target.value)}
-                                    onKeyPress={handleKeyPress}
-                                />
-                                {
-                                    currentStacks?.map((stack) => {
-                                        return (
-                                            <TechCurrent
+                <div>
+                    <div className="flex justify-center">
+                        <div className="mr-60 inline">
+                            <label className="ml-10 block mb-2 text-sm font-medium text-gray-900 dark:text-black">Current Stack</label>
+                            <input
+                                type="text"
+                                id="default-input"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-200 h-10  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                value={currentStack}
+                                onChange={(event) => setCurrentStack(event.target.value)}
+                                onKeyPress={handleKeyPress}
+                            />
+                            {
+                                currentStacks?.map((stack) => {
+                                    return (
+                                        <TechCurrent
                                             stack={stack.name}
-                                            />
-                                        )
-                                    })
-                                }
-                            </div>
-
-                            <div className=" inline">
-                                <label className="ml-10 block mb-2 text-sm font-medium text-gray-900 dark:text-black">Known Stack</label>
-                                <input
-                                    type="text"
-                                    id="default-input"
-                                    value={knownStack}
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-200 h-10  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    onChange={(event) => setKnownStack(event.target.value)}
-                                    onKeyPress={handleKnownKeyPress}
-                                />
-                                {
-                                    KnownStack?.map((stack) => {
-                                        console.log('this is stack',knownStack);
-                                        return (
-                                                <TechKnown
-                                                stack={stack.name}
-                                                />
-                                        )
-                                    })
-                                }
-                            </div>
-
-                        </div>
-                        <div className=" flex justify-end mr-3">
-                            <button onClick={sendProfileInfo} className=" justify-end  inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
-                                <span className=" px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                    Submit
-                                </span>
-                            </button>
+                                        />
+                                    )
+                                })
+                            }
                         </div>
 
+                        <div className=" inline">
+                            <label className="ml-10 block mb-2 text-sm font-medium text-gray-900 dark:text-black">Known Stack</label>
+                            <input
+                                type="text"
+                                id="default-input"
+                                value={knownStack}
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-200 h-10  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                onChange={(event) => setKnownStack(event.target.value)}
+                                onKeyPress={handleKnownKeyPress}
+                            />
+                            {
+                                KnownStack?.map((stack) => {
+                                    console.log('this is stack', knownStack);
+                                    return (
+                                        <TechKnown
+                                            stack={stack.name}
+                                        />
+                                    )
+                                })
+                            }
+                        </div>
 
                     </div>
+                    <div className=" flex justify-end mr-3">
+                        <button onClick={sendProfileInfo} className=" justify-end  inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
+                            <span className=" px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Submit
+                            </span>
+                        </button>
+                    </div>
+
 
                 </div>
+
             </div>
-        
+        </div>
+
     )
 }
 

@@ -23,7 +23,7 @@ const profile = ( state = {}, action) => {
         break ;
         case 'MODIFY_GITHUB' : return {...state, github:action.payload}
         break;
-        case 'MODIFY_PORTFOLIO' : return {...state, portfolio:action.payload}
+        case 'MODIFY_PORTFOLIO' : return {...state, portfolio_url:action.payload}
         break ;
         case 'MODIFY_START_DATE' : return {...state, start_date:action.payload}
         break ;
