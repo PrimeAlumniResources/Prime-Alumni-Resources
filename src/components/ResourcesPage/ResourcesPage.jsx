@@ -47,8 +47,9 @@ function ResourcesPage() {
 
     return (
         <div>
-            <h1>Welcome to your resources!</h1>
+            
             <center>
+            <h1>Welcome to your resources!</h1>
             <aside className='aside'>
                 <h1>TAGS</h1>
                 <h2 onClick={() => {setFilter('')}}>Show All</h2>
@@ -63,7 +64,7 @@ function ResourcesPage() {
                 </ul>
             </aside>
             </center>
-            <Button onClick={handleOpen}>ADD +</Button>
+            <Button onClick={handleOpen}>ADD RESOURCE +</Button>
             {   
                 resources.map(resource => {
                     if(filter === resource.tag){
