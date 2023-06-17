@@ -14,3 +14,30 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 75%;
 }
+
+.resources:hover {
+    opacity: 0.5;
+}
+
+.tag-container {
+    margin-top: 70px;
+    width: 150px;
+    height: auto;
+    border: 1px rgb(183, 183, 183) solid;
+    border-radius: 10px;
+    text-align: center;
+    background-color: white;
+}
+
+.filter-options {
+    width: 120px;
+    border-radius: 15px;
+    background: #f0f0f0;
+    border: 1px solid #dbdbdb;
+    text-transform: capitalize;
+    color: #242424;
+}
+
+.filter-options:hover {
+    opacity: 0.5;
+}

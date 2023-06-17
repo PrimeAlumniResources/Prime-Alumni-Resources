@@ -24,7 +24,6 @@ function AddResource(props) {
         tag: tag,
         newTag: newTag
     }
-    console.log(dataPackage);
 
     const handleChange = (event) => {
         setTag(event.target.value);

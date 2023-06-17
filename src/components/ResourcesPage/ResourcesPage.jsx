@@ -47,29 +47,36 @@ function ResourcesPage() {
 
     return (
         <div>
-            
+
             <center>
-            <h1>Welcome to your resources!</h1>
-            <aside className='aside'>
-                <h1>TAGS</h1>
-                <h2 onClick={() => {setFilter('')}}>Show All</h2>
-                <ul>
-                {
-                    resourcesTags.map(tag => {
-                        return (
-                            <li key={tag.id} onClick={(e) => tagFilter(e)}>{tag.tag}</li>
-                        )
-                    })
-                }
-                </ul>
-            </aside>
+                <h1>Welcome to all resources!</h1>
+                <aside className='aside'>
+                    
+                    <div className='tag-container fixed'>
+                        <div className='mt-3 mb-3 font-bold'>Tags</div>
+
+                        <div className='mb-4'>
+                            <button onClick={() => { setFilter('') }} className='filter-options'>Show All</button>
+                        </div>
+
+                        {
+                            resourcesTags.map(tag => {
+                                return (
+                                    <div key={tag.id} className='mb-4'>
+                                        <button onClick={(e) => tagFilter(e)} className='filter-options'>{tag.tag}</button>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </aside>
             </center>
             <Button onClick={handleOpen}>ADD RESOURCE +</Button>
-            {   
+            {
                 resources.map(resource => {
-                    if(filter === resource.tag){
-                         return (<ResourceItem key={resource.id} resource={resource} />)
-                    }else if(filter === '') {
+                    if (filter === resource.tag) {
+                        return (<ResourceItem key={resource.id} resource={resource} />)
+                    } else if (filter === '') {
                         return (<ResourceItem key={resource.id} resource={resource} />)
                     }
                 })
