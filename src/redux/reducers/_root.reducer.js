@@ -18,14 +18,11 @@ import campus from './campus.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user,
-
   profile, // will have an id and username if someone is logged in
-  jobs
-
+  jobs,
   profile,
   allProfiles,
   campus 
-
 });
 
 export default rootReducer;

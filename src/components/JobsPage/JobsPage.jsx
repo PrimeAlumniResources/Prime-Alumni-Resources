@@ -2,6 +2,7 @@ import './JobsPage.css';
 import { React, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import JobsList from './JobsList/JobsList';
+import searchIcon from './images/search.png';
 
 export default function JobsPage() {
   useEffect(() => {
@@ -56,20 +57,30 @@ export default function JobsPage() {
     // console.log('it;s working'); WORKS
   }
 
+
+
   return (
     <div className='job-page-container'>
       <div>
         <div className='flex'>
 
-          <div className='top-container fixed flex'>
-            <div className='top-title text-2l mb-3 mt-3'>Job Postings</div>
+          <div className='top-container fixed'>
+
+            <input 
+              // value={searchInput}
+              // onChange={event => setSearchInput(event.target.value)}
+              className="search-bar" 
+              type="text" 
+              placeholder="Search"/>
+
 
             <button 
             onClick={toggleModal}
-            className='top-btn'
+            className='add-btn'
             >
               Add Jobs
             </button>
+
           </div>
           
 
@@ -132,35 +143,36 @@ export default function JobsPage() {
 
           <JobsList/>
 
+          {/* TAG MENU */}
           <div className='tag-container fixed'>
             <div className='mt-3 mb-3 font-bold'>Tags</div>
 
             <div className='mb-4'>
-              <button className='filter-options'>Javascript</button>
+              <button className='filter-options'>Full Stack</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Java</button>
+              <button className='filter-options'>Front End</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>PHP</button>
+              <button className='filter-options'>Back End</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>C#</button>
+              <button className='filter-options'>Data</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Python</button>
+              <button className='filter-options'>QA</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Typescript</button>
+              <button className='filter-options'>DevOps</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>C</button>
+              <button className='filter-options'>Cloud</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Ruby</button>
+              <button className='filter-options'>Security</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>MongoDB</button>
+              <button className='filter-options'>Mobile</button>
             </div>
           </div>
 
