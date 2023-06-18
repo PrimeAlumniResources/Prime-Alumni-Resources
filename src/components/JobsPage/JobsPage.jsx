@@ -2,12 +2,15 @@ import './JobsPage.css';
 import { React, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import JobsList from './JobsList/JobsList';
-import searchIcon from './images/search.png';
 
 export default function JobsPage() {
   useEffect(() => {
     dispatch({ type: 'GET_JOBS' });
   }, []);
+
+  // SEARCH
+  const [search, setSearch] = useState('');
+  // console.log(search);
 
   // FILTER
   const [selectedTag, setSelectedTag] = useState('');
@@ -29,6 +32,7 @@ export default function JobsPage() {
   const dispatch = useDispatch();
 
   const [positionInput, setPositionInput] = useState('');
+  const [positionInput2, setPositionInput2] = useState('');
   const [companyInput, setCompanyInput] = useState('');
   const [linkInput, setLinkInput] = useState('');
 
@@ -45,7 +49,7 @@ export default function JobsPage() {
     dispatch({ 
       type: 'POST_JOBS', 
       payload: {
-        position: positionInput,
+        position: positionInput || positionInput2,
         company: companyInput,
         link: linkInput,
         timestamp: timestamp.toISOString()
@@ -70,8 +74,8 @@ export default function JobsPage() {
           <div className='top-container fixed'>
 
             <input 
-              // value={searchInput}
-              // onChange={event => setSearchInput(event.target.value)}
+              value={search}
+              onChange={e => setSearch(e.target.value)}
               className="search-bar" 
               type="text" 
               placeholder="Search"/>
@@ -100,6 +104,7 @@ export default function JobsPage() {
                 
                 <div>Position</div>
                   <select 
+                    className='select-container'
                     value={positionInput}
                     onChange={(event) => setPositionInput(event.target.value)}>
                     <option value="" disabled>Select your option</option>
@@ -108,12 +113,18 @@ export default function JobsPage() {
                     <option value="Front End Developer">Front End Developer</option>
                     <option value="Back End Developer">Back End Developer</option>
                     <option value="Data Engineer">Data Engineer</option>
-                    <option value="Security Engineer">Security Engineer</option>
                     <option value="QA Engineer">QA Engineer</option>
                     <option value="DevOps Engineer">DevOps Engineer</option>
                     <option value="Cloud Architect">Cloud Architect</option>
-                    <option value="Other">Other</option>
+                    <option value="Security Engineer">Security Engineer</option>
+                    <option value="Mobile Developer">Mobile Developer</option>
                   </select>
+                
+                <div>or</div>
+                  <input 
+                    type="text"
+                    value={positionInput2}
+                    onChange={event => setPositionInput2(event.target.value)} />
 
                 <div>Company</div>
                   <input 
@@ -145,7 +156,7 @@ export default function JobsPage() {
 
         <div className='flex'>
 
-          <JobsList selectedTag={selectedTag}/>
+          <JobsList selectedTag={selectedTag} search={search}/>
 
           {/* TAG MENU */}
           <div className='tag-container fixed'>
