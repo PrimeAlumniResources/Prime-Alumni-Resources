@@ -76,7 +76,6 @@ CREATE TABLE "instructor_cohort" (
     "cohort_id" INTEGER,
     FOREIGN KEY (cohort_id) REFERENCES "cohort" (id)
 );
-
 CREATE TABLE "known_stack" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR (255),
@@ -88,13 +87,11 @@ CREATE TABLE "current_stack" (
     "name" VARCHAR (255),
     "user_id" INT REFERENCES "user"(id)
 );
-
 -- DUMMY DATA --
 INSERT INTO "campus" (name, city, state)
 	VALUES ('Prime Minneapolis', 'Minneapolis', 'MN');
 
-
-INSERT INTO "cohort" (name,start_date,end_Date,type,campus_id )
+INSERT INTO "cohort" (name,start_date, end_date, type, campus_id)
  VALUES ('Amethyst','2023-01-20','2023-05-07','UX','1'),
  		('Citrine','2023-03-20','2023-07-07','Full Stack','1'),
  		('Aquamarine','2023-02-20','2023-06-07','Full Stack','1');
