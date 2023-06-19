@@ -5,6 +5,11 @@ import RegisterForm from '../RegisterForm/RegisterForm';
 
 function RegisterPage() {
   const navigate = useNavigate();
+ 
+
+
+
+  
 
   return (
     <div>

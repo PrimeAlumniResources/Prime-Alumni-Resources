@@ -19,7 +19,7 @@ Before you get started, make sure you have the following software installed on y
 
 ## Create database and table
 
-Create a new database called `prime_app` and create a `user` table:
+Create a new database called `prime_alumni_resources` and create a `user` table:
 
 ```SQL
 CREATE TABLE "user" (

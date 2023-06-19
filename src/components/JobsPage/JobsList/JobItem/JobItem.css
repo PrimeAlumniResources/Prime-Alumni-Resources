@@ -1,0 +1,33 @@
+.job-post-container {
+  border-bottom: 1px grey solid;
+  height: 130px;
+  width: 90%;
+  margin-top: 10px;
+  display: flex;
+  background-color: white;
+}
+
+.job-post-left {
+  flex: 1;
+  text-align: center;
+}
+
+.job-post-mid {
+  flex-direction: column;
+  flex: 2;
+  margin-left: 20px;
+}
+
+.timestamp-title {
+  margin-top: 20px;
+  color: rgb(181, 181, 181);
+}
+
+.timestamp {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.job-post-right {
+  flex: 1;
+}
