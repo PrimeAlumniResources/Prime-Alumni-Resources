@@ -14,12 +14,17 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Layout from '../Layout/Layout';
+
+import ResourcesPage from '../ResourcesPage/ResourcesPage';
+
+
 import EditProfilePage from '../profilePage/EditProfilePage';
 import ProfilePage from '../profilePage/ProfilePage';
 
 import JobsPage from '../JobsPage/JobsPage';
 
 import AlumniSearchPage from '../AlumniSearchPage/AlumniSearchPage';
+
 
 
 import './App.css';
@@ -34,6 +39,7 @@ function App() {
   }, [dispatch]);
 
   return (
+
       <Routes>
 
         <Route element={<Layout />}>
@@ -106,7 +112,17 @@ function App() {
             }
           />
 
+ <Route
+          path="/resource"
+          element={
+            <ProtectedRoute user={user}>
+              <ResourcesPage />
+            </ProtectedRoute>
+          }
+        />
+
       </Routes>
+
   );
 }
 

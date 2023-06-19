@@ -11,6 +11,10 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 
 const profileRouter = require('./routes/profile.router');
+const resourceRoute = require('./routes/resource.router');
+
+
+
 
 const jobsRouter = require('./routes/jobs.router');
 
@@ -20,6 +24,7 @@ const campusRouter = require('./routes/campus.router')
 const techRouter = require('./routes/tech.router')
 
 const cohort = require('./routes/cohort.router')
+
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -36,11 +41,15 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 
 app.use('/api/profile', profileRouter);
+app.use('/resourceRoute', resourceRoute);
+
+
 
 app.use('/api/jobs', jobsRouter);
 
 app.use('/api/campus', campusRouter)
-app.use('/api/profile', profileRouter)
+
+
 
 app.use('/api/tech' ,techRouter)
 

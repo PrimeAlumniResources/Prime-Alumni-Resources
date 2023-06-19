@@ -2,6 +2,8 @@ import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
 import profile from './profile.reducer';
+import resources from './resource.reducer';
+import resourceTags from './resourceTags.reducer';
 
 import jobs from './jobs.reducer';
 
@@ -47,11 +49,14 @@ import KnownStack from './knownStack.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user,
-  profile ,// will have an id and username if someone is logged in
+  profile, // will have an id and username if someone is logged in
+  resources,
+  resourceTags,
   currentStacks,
   cohort,
   campus,
   KnownStack,
+
 
 });
 

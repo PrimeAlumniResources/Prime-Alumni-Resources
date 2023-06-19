@@ -46,7 +46,8 @@ CREATE TABLE "job" (
 CREATE TABLE "resource" (
     "id" SERIAL PRIMARY KEY,
     "title" VARCHAR (512) NOT NULL,
-    "link" VARCHAR (512),
+    "link" VARCHAR (1000),
+    "description" VARCHAR(1000),
     "tag" VARCHAR (128),
     "user_id" INTEGER,
     FOREIGN KEY (user_id) REFERENCES "user"(id)
@@ -62,6 +63,7 @@ CREATE TABLE "known_stack" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR (255),
     "is_current" BOOLEAN default FALSE,
+    "is_current" BOOLEAN default FALSE,
     "user_id" INT REFERENCES "user"(id)
 );
 
@@ -69,6 +71,7 @@ CREATE TABLE "current_stack" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR (255),
     "user_id" INT REFERENCES "user"(id)
+
 );
 
 
