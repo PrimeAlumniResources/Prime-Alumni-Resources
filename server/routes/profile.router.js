@@ -50,9 +50,9 @@ router.put('/', rejectUnauthenticated, (req,res) => {
 
 router.get('/all', rejectUnauthenticated, (req, res) => {
     const sqlText = `SELECT "user".id, first_name || ' ' || last_name as profile_name, pronouns, 
-    job_title, cohort.name as cohort_name, campus.name as campus_name
+    position, current_work as company, cohort.name as cohort_name, campus.name as campus_name
     FROM "user" 
-    JOIN "cohort" on cohort.id="user".ccohort_id 
+    JOIN "cohort" on cohort.id="user".cohort_id 
     JOIN campus on cohort.campus_id=campus.id;
     `
 

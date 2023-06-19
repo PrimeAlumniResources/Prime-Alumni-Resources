@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/all',  (req, res) => {
     
     pool.query(`
-    SELECT id,name FROM  "cohort";
+    SELECT id,name FROM "cohort";
     `)
     .then((results) => {
         res.send(results.rows)

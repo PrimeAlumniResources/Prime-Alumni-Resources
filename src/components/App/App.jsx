@@ -101,7 +101,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          </Route>
+          
 
           <Route
             path="/alumni-search"
@@ -112,15 +112,15 @@ function App() {
             }
           />
 
- <Route
+          <Route
           path="/resource"
           element={
             <ProtectedRoute user={user}>
               <ResourcesPage />
             </ProtectedRoute>
           }
-        />
-
+          />
+      </Route>
       </Routes>
 
   );

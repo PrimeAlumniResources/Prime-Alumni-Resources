@@ -48,11 +48,11 @@ function ResourcesPage() {
     return (
         <div>
 
-            <center>
+            <center className="">
                 <h1>Welcome to all resources!</h1>
                 <aside className='aside'>
                     
-                    <div className='tag-container fixed'>
+                    <div className='resource-tag-container fixed'>
                         <div className='mt-3 mb-3 font-bold'>Tags</div>
 
                         <div className='mb-4'>

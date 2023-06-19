@@ -24,11 +24,8 @@ function* fetchProfile() {
     } catch (error) {
         console.log('error inside fetch profile saga-->',error);
     }
-}
+}   
 
-
-    
-    yield takeLatest('PUT_PROFILE_INFO',updateProfile )
 function* fetchAllProfiles() {
     try {
         const results = yield axios.get('/api/profile/all');
@@ -40,7 +37,8 @@ function* fetchAllProfiles() {
 }
 
 export default function* profileSaga () {
-    yield takeLatest('POST_PROFILE',postProfile )
-    yield takeLatest('FETCH_PROFILE',fetchProfile)
+    // yield takeLatest('POST_PROFILE', postProfile) <----- MOST LIKELY DELETING
+    yield takeLatest('FETCH_PROFILE', fetchProfile)
     yield takeLatest('FETCH_ALL_PROFILES', fetchAllProfiles)
+    yield takeLatest('PUT_PROFILE_INFO', updateProfile )
 }

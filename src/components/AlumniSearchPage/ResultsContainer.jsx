@@ -13,7 +13,7 @@ function ResultsContainer(props) {
                 {props.profiles.map(profile => {
                     return(
                     <li>
-                        {profile.profile_name} {profile.pronouns} {profile.job_title} {profile.cohort_name} {profile.campus_name}
+                        {profile.profile_name} {profile.pronouns} {profile.position} {profile.company} {profile.cohort_name} {profile.campus_name}
                         
                     </li>
                     )

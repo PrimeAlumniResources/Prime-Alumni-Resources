@@ -26,7 +26,8 @@ function AlumniSearchPage() {
 
   //Redux Stores
   const profiles = useSelector((store) => store.allProfiles);
-  const campuses = useSelector((store) => store.campus)
+  console.log(profiles[0])
+  const campuses = useSelector((store) => store.allCampuses)
 
   //searchChange sets the state as the input changes and then sets isSearching in order to conditionally render the ResultsContainer
   const searchChange = (event) => {
@@ -62,7 +63,7 @@ function AlumniSearchPage() {
       case "Name":
         return filterProfiles("profile_name");
       case "Workplace":
-        return filterProfiles("company_name");
+        return filterProfiles("company");
       case "Cohort":
         return filterProfiles("cohort_name");
     }

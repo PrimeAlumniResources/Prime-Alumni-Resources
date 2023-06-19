@@ -3,16 +3,12 @@ import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import profileSaga from './profile.saga';
-
 import addResourceSaga from './addResources.saga';
 import getResourceSaga from './getResource.saga';
 import getResourceTagsSaga from './getResourceTags.saga';
-
 import techSaga from './tech.saga';
 import cohortSaga from './cohort.saga';
-
 import jobsSaga from './job.saga';
-
 import campusSaga from './campus.saga';
 
 

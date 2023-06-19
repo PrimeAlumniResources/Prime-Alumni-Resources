@@ -1,79 +1,73 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { select } from 'redux-saga/effects';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { select } from "redux-saga/effects";
 
 function RegisterForm() {
-  const [firstname, setFirstName] = useState('');
-  const [lastname, setLastName] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [cohort, setCohort] = useState('');
+  const [cohort, setCohort] = useState("");
 
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
-
     dispatch({
-      type: 'FETCH_COHORTS'
-    })
+      type: "FETCH_COHORTS",
+    });
+  }, []);
 
-  }, [])
+  const cohorts = useSelector((store) => store.cohort);
 
-  const cohorts = useSelector(store => store.cohort)
+  /* -----------------LOGIC USED TO MAP OUT COHORTS--------------------- */
 
-/* -----------------LOGIC USED TO MAP OUT COHORTS--------------------- */ 
-
-  let cohortsArray = []
+  let cohortsArray = [];
 
   for (let each of cohorts) {
     if (cohortsArray.length === 0) {
       for (let cohort of each) {
         console.log(cohort.name);
 
-        cohortsArray.push(cohort.name)
+        cohortsArray.push(cohort.name);
       }
     }
   }
-  const [finalCohort, setFinalCohort] = useState()
-  let finalCohortObject = []
-  
+  const [finalCohort, setFinalCohort] = useState();
+  let finalCohortObject = [];
+
   const handleCohort = (event) => {
     event.preventDefault();
-    console.log('hi');
+    console.log("hi");
     for (let each of cohorts) {
-
       for (let coho of each) {
-
         if (coho.name === cohort) {
-          finalCohortObject.push(coho)
+          finalCohortObject.push(coho);
         } else {
-          console.log('this is cohoooooo--->', coho.name, cohort);
+          console.log("this is cohoooooo--->", coho.name, cohort);
         }
-
       }
     }
-    console.log('this is final in handle-->', finalCohort);
-    registerUser()
-  }
+    console.log("this is final in handle-->", finalCohort);
+    registerUser();
+  };
 
-/* -----------------REGISTRATION FUNCTION--------------------- */ 
+  /* -----------------REGISTRATION FUNCTION--------------------- */
 
   const registerUser = (event) => {
     // event.preventDefault();
 
-    console.log('this is the final cohort--->', finalCohortObject[0].id);
+    console.log("this is the final cohort--->", finalCohortObject[0].id);
     dispatch({
-      type: 'REGISTER',
+      type: "REGISTER",
       payload: {
         username: username,
         password: password,
         firstname: firstname,
         lastname: lastname,
-        cohort: finalCohortObject[0].id
+        cohort: finalCohortObject[0].id,
       },
     });
   }; // end registerUser
@@ -123,25 +117,22 @@ function RegisterForm() {
         </label>
       </div>
 
-      <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-      <select onChange={(event) => setCohort(event.target.value)} id="countries" class=" w-40 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <label
+        for="countries"
+        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >
+        Select an option
+      </label>
+      <select
+        onChange={(event) => setCohort(event.target.value)}
+        id="countries"
+        className=" w-40 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
         <option selected>Choose a cohort</option>
-        {
-
-          cohortsArray?.map(coho => {
-            return (
-
-
-              <option value={coho}>{coho}</option>
-
-
-
-            )
-          })
-
-        }
+        {cohortsArray?.map((coho) => {
+          return <option value={coho}>{coho}</option>;
+        })}
       </select>
- 
 
       <div>
         <label htmlFor="password">
