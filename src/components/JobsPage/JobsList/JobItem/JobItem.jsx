@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './JobItem.css';
+import building from './images/building.png';
 
 export default function JobItem({ job }) {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ export default function JobItem({ job }) {
     <div className="job-post-container">
 
       <div className='job-post-left'>
-        (Company Picture Here?)
+        <img className='w-20 mt-5 ml-5' src={building} alt="" />
       </div>
 
       <div className='job-post-mid'>
