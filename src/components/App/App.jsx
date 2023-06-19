@@ -17,6 +17,11 @@ import Layout from '../Layout/Layout';
 import EditProfilePage from '../profilePage/EditProfilePage';
 import ProfilePage from '../profilePage/ProfilePage';
 
+import JobsPage from '../JobsPage/JobsPage';
+
+import AlumniSearchPage from '../AlumniSearchPage/AlumniSearchPage';
+
+
 import './App.css';
 
 function App() {
@@ -30,16 +35,19 @@ function App() {
 
   return (
       <Routes>
+
         <Route element={<Layout />}>
           <Route path ="/" element={<Navigate to="/home" />} />
           <Route
             path="/home"
             element={user.id ? <Navigate to="/user" /> : <LandingPage />}
           />
+
           <Route
             path="/registration"
             element={user.id ? <Navigate to="/user" /> : <RegisterPage />}
           />
+
           <Route
             path="/login"
             element={user.id ? <Navigate to="/user" /> : <LoginPage />}
@@ -63,6 +71,10 @@ function App() {
             }
           />
           
+          {/* <Route
+            path="/alumni-search"
+            element={user.id ? <Navigate to="/alumni-search" /> : <LoginPage />}
+          /> */}
 
           <Route
             path="/user"
@@ -72,8 +84,28 @@ function App() {
               </ProtectedRoute>
             }
           />
-        </Route>
-        
+
+
+          {/* ESTABLISH ROUTE */}
+          <Route
+            path="/jobs"
+            element={
+              <ProtectedRoute user={user}>
+                <JobsPage />
+              </ProtectedRoute>
+            }
+          />
+          </Route>
+
+          <Route
+            path="/alumni-search"
+            element={
+              <ProtectedRoute user={user}>
+                <AlumniSearchPage />
+              </ProtectedRoute>
+            }
+          />
+
       </Routes>
   );
 }

@@ -114,7 +114,7 @@ CREATE TABLE "cohort" (
     "start_date" DATE NOT NULL,
     "end_Date" DATE NOT NULL,
     "class_medium" VARCHAR (64),
-    "type" INTEGER,
+    "type" VARCHAR (256),
     "campus_id" INTEGER,
     FOREIGN KEY (campus_id) REFERENCES "campus" (id)
 );
@@ -124,7 +124,7 @@ CREATE TABLE "campus" (
     "name" VARCHAR (255) NOT NULL,
 	"city" VARCHAR (255) NOT NULL,
 	"state" VARCHAR (255) NOT NULL
-);
+);d
 
 
 
