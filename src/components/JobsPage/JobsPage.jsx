@@ -8,6 +8,13 @@ export default function JobsPage() {
     dispatch({ type: 'GET_JOBS' });
   }, []);
 
+  // SEARCH
+  const [search, setSearch] = useState('');
+  // console.log(search);
+
+  // FILTER
+  const [selectedTag, setSelectedTag] = useState('');
+
   // MODAL
   const [modal, setModal] = useState(false);
 
@@ -25,6 +32,7 @@ export default function JobsPage() {
   const dispatch = useDispatch();
 
   const [positionInput, setPositionInput] = useState('');
+  const [positionInput2, setPositionInput2] = useState('');
   const [companyInput, setCompanyInput] = useState('');
   const [linkInput, setLinkInput] = useState('');
 
@@ -41,7 +49,7 @@ export default function JobsPage() {
     dispatch({ 
       type: 'POST_JOBS', 
       payload: {
-        position: positionInput,
+        position: positionInput || positionInput2,
         company: companyInput,
         link: linkInput,
         timestamp: timestamp.toISOString()
@@ -56,20 +64,30 @@ export default function JobsPage() {
     // console.log('it;s working'); WORKS
   }
 
+
+
   return (
     <div className='job-page-container'>
       <div>
         <div className='flex'>
 
-          <div className='top-container fixed flex'>
-            <div className='top-title text-2l mb-3 mt-3'>Job Postings</div>
+          <div className='top-container fixed'>
+
+            <input 
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              className="search-bar" 
+              type="text" 
+              placeholder="Search"/>
+
 
             <button 
             onClick={toggleModal}
-            className='top-btn'
+            className='add-btn'
             >
               Add Jobs
             </button>
+
           </div>
           
 
@@ -86,19 +104,27 @@ export default function JobsPage() {
                 
                 <div>Position</div>
                   <select 
+                    className='select-container'
                     value={positionInput}
                     onChange={(event) => setPositionInput(event.target.value)}>
                     <option value="" disabled>Select your option</option>
-                    <option value="Software Engineer">Full Stack Engineer</option>
+                    <option value="Software Engineer">Software Engineer</option>
+                    <option value="Full Stack Engineer">Full Stack Engineer</option>
                     <option value="Front End Developer">Front End Developer</option>
                     <option value="Back End Developer">Back End Developer</option>
                     <option value="Data Engineer">Data Engineer</option>
-                    <option value="Security Engineer">Security Engineer</option>
                     <option value="QA Engineer">QA Engineer</option>
                     <option value="DevOps Engineer">DevOps Engineer</option>
                     <option value="Cloud Architect">Cloud Architect</option>
-                    <option value="Other">Other</option>
+                    <option value="Security Engineer">Security Engineer</option>
+                    <option value="Mobile Developer">Mobile Developer</option>
                   </select>
+                
+                <div>or</div>
+                  <input 
+                    type="text"
+                    value={positionInput2}
+                    onChange={event => setPositionInput2(event.target.value)} />
 
                 <div>Company</div>
                   <input 
@@ -130,37 +156,44 @@ export default function JobsPage() {
 
         <div className='flex'>
 
-          <JobsList/>
+          <JobsList selectedTag={selectedTag} search={search}/>
 
+          {/* TAG MENU */}
           <div className='tag-container fixed'>
             <div className='mt-3 mb-3 font-bold'>Tags</div>
 
             <div className='mb-4'>
-              <button className='filter-options'>Javascript</button>
+              <button className='filter-options' onClick={() => setSelectedTag('')}>All</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Java</button>
+              <button className='filter-options' onClick={() => setSelectedTag('Software Engineer')}>Software Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>PHP</button>
+              <button className='filter-options' onClick={() => setSelectedTag('Full Stack Engineer')}>Full Stack Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>C#</button>
+              <button className='filter-options' onClick={() => setSelectedTag('Front End Developer')}>Front End Developer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Python</button>
+              <button className='filter-options' onClick={() => setSelectedTag('Back End Developer')}>Back End Developer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Typescript</button>
+              <button className='filter-options' onClick={() => setSelectedTag('Data Engineer')}>Data Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>C</button>
+              <button className='filter-options' onClick={() => setSelectedTag('QA Engineer')}>QA Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>Ruby</button>
+              <button className='filter-options' onClick={() => setSelectedTag('DevOps Engineer')}>DevOps Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options'>MongoDB</button>
+              <button className='filter-options' onClick={() => setSelectedTag('Cloud Architect')}>Cloud Architect</button>
+            </div>
+            <div className='mb-4'>
+              <button className='filter-options' onClick={() => setSelectedTag('Security Engineer')}>Security Engineer</button>
+            </div>
+            <div className='mb-4'>
+              <button className='filter-options' onClick={() => setSelectedTag('Mobile Developer')}>Mobile Developer</button>
             </div>
           </div>
 

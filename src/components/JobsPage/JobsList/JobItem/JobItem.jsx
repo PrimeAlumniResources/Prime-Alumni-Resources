@@ -12,8 +12,6 @@ export default function JobItem({ job }) {
 
   const formattedDate = `${timestamp.getMonth() + 1}-${timestamp.getDate()}-${timestamp.getFullYear()}`; // Format the date
 
-  console.log('company:', company);
-
   return (
     <div className="job-post-container">
 

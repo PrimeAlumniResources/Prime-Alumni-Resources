@@ -13,6 +13,10 @@ body.active-modal {
   position: fixed;
 }
 
+.modal {
+  z-index: 1;
+}
+
 .overlay {
   background: rgba(49, 49, 49, 0.8);
 }
@@ -55,12 +59,26 @@ body.active-modal {
   border-bottom: 1px solid rgb(183, 183, 183);
 }
 
-.top-title {
-  margin-left: 11%;
+.search-bar {
+  width: 300px;
+  height: 32px;
+  font-size: 16px;
+  border-style: none;
+  box-shadow: inset 1px 2px 3px rgba(0, 0, 0, .05);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 155px;
+  border-radius: 5px 5px 5px 5px;
+  padding-left: 40px;
+  background-color: #eef3f8;
+  background-image: url('./images/search.png');
+  background-position: 10px 7px;
+  background-repeat: no-repeat;
+  background-size: 18px;
 }
 
-.top-btn {
-  margin-left: 49%;
+.add-btn {
+  margin-left: 500px;
 }
 
 .tag-container {
