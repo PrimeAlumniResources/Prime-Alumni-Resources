@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { select } from "redux-saga/effects";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 
 function RegisterForm() {
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [cohort, setCohort] = useState("");
@@ -59,11 +61,28 @@ function RegisterForm() {
   const registerUser = (event) => {
     // event.preventDefault();
 
+    const auth = getAuth();
+    console.log(auth);
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const fb_user = userCredential.user;
+      console.log("🚀 ~ file: RegisterForm.jsx:69 ~ .then ~ fb_user:", fb_user)
+      
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+  });
+
     console.log("this is the final cohort--->", finalCohortObject[0].id);
     dispatch({
       type: "REGISTER",
       payload: {
-        username: username,
+        email: email,
         password: password,
         firstname: firstname,
         lastname: lastname,
@@ -105,14 +124,14 @@ function RegisterForm() {
         </label>
       </div>
       <div>
-        <label htmlFor="username">
-          Username:
+        <label htmlFor="email">
+          Email:
           <input
             type="text"
-            name="username"
-            value={username}
+            name="email"
+            value={email}
             required
-            onChange={(event) => setUsername(event.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
           />
         </label>
       </div>

@@ -23,7 +23,7 @@ import jobs from './jobs.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user,
-  profile, // will have an id and username if someone is logged in
+  profile, // will have an id and email if someone is logged in
   resources,
   resourceTags,
   currentStacks,

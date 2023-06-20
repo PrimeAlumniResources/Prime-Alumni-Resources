@@ -1,3 +1,5 @@
+import { Link, NavLink } from "react-router-dom";
+
 function ResultsContainer(props) {
     console.log(props.profiles);
 
@@ -8,13 +10,18 @@ function ResultsContainer(props) {
 
     return(
         <div>
-            <button type="submit" className="border" onClick={handleBack}>Back</button>
+            <div className="flex justify-end">
+                <button type="submit" className="border" onClick={handleBack}>Back</button>
+            </div>
             <ul>
                 {props.profiles.map(profile => {
                     return(
                     <li>
-                        {profile.profile_name} {profile.pronouns} {profile.position} {profile.company} {profile.cohort_name} {profile.campus_name}
-                        
+                        <div className=" w-full mt-4 border p-4 px-8">
+                            <p>{profile.profile_name} <span className="text-sm">{profile.pronouns}</span></p>
+                            {profile.position && <p>{profile.position} at {profile.company}</p>}
+                            <p>{profile.cohort_name} | {profile.campus_name}</p>
+                        </div>
                     </li>
                     )
                 })}
