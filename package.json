@@ -11,6 +11,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/joy": "^5.0.0-alpha.84",
     "@mui/material": "^5.13.5",
+    "aws-sdk": "^2.1401.0",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "cloudinary-react": "^1.8.1",

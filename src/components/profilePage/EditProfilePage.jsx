@@ -2,6 +2,7 @@ import Navigate from "react-router-dom"
 import Datepicker from 'flowbite-datepicker/Datepicker';
 import DateRangePicker from 'flowbite-datepicker/DateRangePicker';
 import { useDropzone } from "react-dropzone"
+import AWS from 'aws-sdk';
 
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -12,6 +13,8 @@ import TechCurrent from "../Tech/TechCurrent";
 import TechKnown from "../Tech/TechKnown";
 
 function editProfilePage() {
+
+
 
     {/* ------------------ALL THE CONST NEEDED FOR THIS PAGE--------------------- */ }
 
@@ -37,7 +40,7 @@ function editProfilePage() {
 
     const user = useSelector((store) => store.user);
 
-   
+
 
     const [uploadedImageUrl, setUploadedImageUrl] = useState('');
 
@@ -45,9 +48,9 @@ function editProfilePage() {
 
     const onDrop = (acceptedFiles) => {
 
-
-        const image = URL.createObjectURL(acceptedFiles[0])
-        setUploadedImageUrl(image)
+          
+       
+        setUploadedImageUrl(acceptedFiles[0])
         console.log('this is the uploaded file', uploadedFile);
 
 
@@ -60,7 +63,10 @@ function editProfilePage() {
         console.log('changed');
         dispatch({
             type: 'MODIFY_UPLOADED_FILE',
-            payload: uploadedImageUrl
+            payload: {
+                image:uploadedImageUrl,
+                username: user.username
+            }
         })
     }, [uploadedImageUrl]);
 
