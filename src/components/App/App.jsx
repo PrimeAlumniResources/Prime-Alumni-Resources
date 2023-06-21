@@ -43,7 +43,7 @@ function App() {
 
           <Route
             path="/registration"
-            element={user.id ? <Navigate to="/user" /> : <RegisterPage />}
+            element={user.id ? <Navigate to="/editprofile" /> : <RegisterPage />}
           />
 
           <Route

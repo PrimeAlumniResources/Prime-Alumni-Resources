@@ -1,0 +1,65 @@
+"filename", "language", "JavaScript", "JavaScript JSX", "CSS", "SQL", "JSON", "Properties", "comment", "blank", "total"
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/.env", "Properties", 0, 0, 0, 0, 0, 7, 0, 3, 10
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/database.sql", "SQL", 0, 0, 0, 45, 0, 0, -17, -10, 18
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/dist/output.css", "CSS", 0, 0, 345, 0, 0, 0, 155, 72, 572
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/package-lock.json", "JSON", 0, 0, 0, 0, -306, 0, 0, 0, -306
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/package.json", "JSON", 0, 0, 0, 0, 11, 0, 0, 0, 11
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/modules/pool.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/campus.router.js", "JavaScript", 20, 0, 0, 0, 0, 0, 0, 4, 24
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/cohort.router.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 7, 43
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/jobs.router.js", "JavaScript", 46, 0, 0, 0, 0, 0, 3, 13, 62
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/profile.router.js", "JavaScript", 28, 0, 0, 0, 0, 0, 0, 3, 31
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/resource.router.js", "JavaScript", 55, 0, 0, 0, 0, 0, 0, 14, 69
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/tech.router.js", "JavaScript", 106, 0, 0, 0, 0, 0, 0, 24, 130
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/user.router.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 5, 6
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/server.js", "JavaScript", 10, 0, 0, 0, 0, 0, 0, 17, 27
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/AlumniSearchPage/AlumniSearchPage.jsx", "JavaScript JSX", 0, 125, 0, 0, 0, 0, 9, 14, 148
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/AlumniSearchPage/ResultsContainer.jsx", "JavaScript JSX", 0, 29, 0, 0, 0, 0, 0, 4, 33
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/App/App.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/App/App.jsx", "JavaScript JSX", 0, 37, 0, 0, 0, 0, 9, 11, 57
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ChatPage/ChatMessage.jsx", "JavaScript JSX", 0, 11, 0, 0, 0, 0, 0, 4, 15
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ChatPage/ChatPage.jsx", "JavaScript JSX", 0, 30, 0, 0, 0, 0, 3, 10, 43
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/JobsPage/JobsList/JobItem/JobItem.css", "CSS", 0, 0, 28, 0, 0, 0, 0, 5, 33
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/JobsPage/JobsList/JobItem/JobItem.jsx", "JavaScript JSX", 0, 36, 0, 0, 0, 0, 0, 14, 50
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/JobsPage/JobsList/JobsList.css", "CSS", 0, 0, 13, 0, 0, 0, 0, 0, 13
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/JobsPage/JobsList/JobsList.jsx", "JavaScript JSX", 0, 29, 0, 0, 0, 0, 2, 4, 35
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/JobsPage/JobsPage.css", "CSS", 0, 0, 91, 0, 0, 0, 0, 13, 104
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/JobsPage/JobsPage.jsx", "JavaScript JSX", 0, 154, 0, 0, 0, 0, 14, 42, 210
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/LandingPage/LandingPage.jsx", "JavaScript JSX", 0, -31, 0, 0, 0, 0, 0, -1, -32
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/LoginForm/LoginForm.jsx", "JavaScript JSX", 0, 12, 0, 0, 0, 0, 0, 4, 16
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/NavBar/NavBar.jsx", "JavaScript JSX", 0, 117, 0, 0, 0, 0, 1, 9, 127
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/RegisterForm/RegisterForm.jsx", "JavaScript JSX", 0, 66, 0, 0, 0, 0, 5, 15, 86
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ResourcesPage/AddResource.jsx", "JavaScript JSX", 0, 140, 0, 0, 0, 0, 0, 20, 160
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ResourcesPage/ResourceItem.jsx", "JavaScript JSX", 0, 12, 0, 0, 0, 0, 0, 1, 13
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ResourcesPage/ResourcesPage.css", "CSS", 0, 0, 37, 0, 0, 0, 0, 6, 43
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ResourcesPage/ResourcesPage.jsx", "JavaScript JSX", 0, 85, 0, 0, 0, 0, 0, 13, 98
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/Tech/TechCurrent.jsx", "JavaScript JSX", 0, 25, 0, 0, 0, 0, 5, 18, 48
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/Tech/TechKnown.jsx", "JavaScript JSX", 0, 31, 0, 0, 0, 0, 5, 21, 57
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/UserPage/UserPage.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 0, 2, 2
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/profilePage/EditProfilePage.jsx", "JavaScript JSX", 0, 192, 0, 0, 0, 0, 268, 46, 506
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/profilePage/ProfilePage.jsx", "JavaScript JSX", 0, 150, 0, 0, 0, 0, 11, 28, 189
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/config/firebase.js", "JavaScript", 15, 0, 0, 0, 0, 0, 3, 3, 21
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/index.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, -1, 0
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/_root.reducer.js", "JavaScript", 18, 0, 0, 0, 0, 0, 0, 2, 20
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/allCampuses.reducer.js", "JavaScript", 10, 0, 0, 0, 0, 0, 0, 1, 11
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/allProfiles.reducer.js", "JavaScript", 10, 0, 0, 0, 0, 0, 0, 1, 11
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/campus.reducer.js", "JavaScript", 12, 0, 0, 0, 0, 0, 0, 2, 14
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/cohort.reducer.js", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 2, 11
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/currentStack.reducer.js", "JavaScript", 17, 0, 0, 0, 0, 0, 0, 6, 23
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/jobs.reducer.js", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 2, 11
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/knownStack.reducer.js", "JavaScript", 16, 0, 0, 0, 0, 0, 0, 6, 22
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/profile.reducer.js", "JavaScript", 27, 0, 0, 0, 0, 0, 3, 0, 30
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/resource.reducer.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 2, 9
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/resourceTags.reducer.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 2, 9
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/_root.saga.js", "JavaScript", 14, 0, 0, 0, 0, 0, 1, 4, 19
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/addResources.saga.js", "JavaScript", 15, 0, 0, 0, 0, 0, 0, 4, 19
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/campus.saga.js", "JavaScript", 13, 0, 0, 0, 0, 0, 0, 2, 15
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/cohort.saga.js", "JavaScript", 24, 0, 0, 0, 0, 0, 2, 9, 35
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/getResource.saga.js", "JavaScript", 17, 0, 0, 0, 0, 0, 0, 7, 24
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/getResourceTags.saga.js", "JavaScript", 19, 0, 0, 0, 0, 0, 0, 6, 25
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/job.saga.js", "JavaScript", 27, 0, 0, 0, 0, 0, 3, 5, 35
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/login.saga.js", "JavaScript", 2, 0, 0, 0, 0, 0, 0, 0, 2
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/profile.saga.js", "JavaScript", 10, 0, 0, 0, 0, 0, 3, 3, 16
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/registration.saga.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 0, 1
+"/Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/tech.saga.js", "JavaScript", 64, 0, 0, 0, 0, 0, 6, 16, 86
+"Total", "-", 666, 1250, 514, 45, -295, 7, 494, 541, 3222

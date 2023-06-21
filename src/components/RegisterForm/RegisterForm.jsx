@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { select } from "redux-saga/effects";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 
 function RegisterForm() {
@@ -10,11 +11,11 @@ function RegisterForm() {
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [cohort, setCohort] = useState("");
 
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch({
@@ -62,7 +63,7 @@ function RegisterForm() {
     // event.preventDefault();
 
     const auth = getAuth();
-    console.log(auth);
+    
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
@@ -89,6 +90,8 @@ function RegisterForm() {
         cohort: finalCohortObject[0].id,
       },
     });
+
+    navigate('/editprofile');
   }; // end registerUser
 
   return (
