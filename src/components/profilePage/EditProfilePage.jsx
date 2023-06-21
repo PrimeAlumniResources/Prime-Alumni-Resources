@@ -14,7 +14,15 @@ import TechKnown from "../Tech/TechKnown";
 
 function editProfilePage() {
 
+    const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY
+    const SECRET_ACCESS_KEY = process.env.REACT_APP_SECRET_ACCESS_KEY
+    
 
+    AWS.config.update({
+        accessKeyId:ACCESS_KEY ,
+        secretAccessKey: SECRET_ACCESS_KEY,
+        region: 'us-east-2'
+      });
 
     {/* ------------------ALL THE CONST NEEDED FOR THIS PAGE--------------------- */ }
 
@@ -40,7 +48,7 @@ function editProfilePage() {
 
     const user = useSelector((store) => store.user);
 
-
+    const s3 = new AWS.S3();
 
     const [uploadedImageUrl, setUploadedImageUrl] = useState('');
 
@@ -48,27 +56,47 @@ function editProfilePage() {
 
     const onDrop = (acceptedFiles) => {
 
+        
+        console.log('this is user.username',user.username);
+        const params = {
+            Bucket: 'profilepic3',
+            Key: user.username,
+            ContentType: 'image/jpeg', // Adjust the content type based on your image type
+            Body: acceptedFiles[0] // 'file' is the File object obtained from an input element
+          };
+
+          s3.upload(params, (err, data) => {
+            if (err) {
+              console.log(err, err.stack);
+            } else {
+              
+              setUploadedImageUrl(data.Location)
+              console.log('Image uploaded successfully.', data.Location);
+                
+            }
+            
+            
+          });
           
-       
-        setUploadedImageUrl(acceptedFiles[0])
-        console.log('this is the uploaded file', uploadedFile);
+        
+          
 
-
-        displayImage()
+        
     };
 
     {/* --------------------------USE EFFECTS FOR NECCESARY DATA--------------------- */ }
 
     useEffect(() => {
-        console.log('changed');
+        console.log('changed',uploadedImageUrl);
         dispatch({
             type: 'MODIFY_UPLOADED_FILE',
-            payload: {
-                image:uploadedImageUrl,
-                username: user.username
-            }
+            payload: uploadedImageUrl
         })
+        displayImage()
+
     }, [uploadedImageUrl]);
+
+    
 
     const { getRootProps, getInputProps } = useDropzone({ onDrop });
     useEffect(() => {
@@ -95,7 +123,7 @@ function editProfilePage() {
 
     {/* --------------------------DISPLAY IMAGES CONDITIONAL RENDER--------------------- */ }
 
-    const displayImage = () => {
+    const displayImage = (img) => {
 
         if (profile.uploaded_file != undefined) {
             return (
