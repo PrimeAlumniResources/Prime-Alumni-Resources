@@ -32,6 +32,7 @@ function AlumniSearchPage() {
   //searchChange sets the state as the input changes and then sets isSearching in order to conditionally render the ResultsContainer
   const searchChange = (event) => {
     setSearchInput(event.target.value);
+    setIsBrowsing(false);
     if (searchInput.length < 2) {
       return setIsSearching(false);
     } else {
@@ -126,15 +127,17 @@ function AlumniSearchPage() {
           profiles={dynamicSearch()}
         />
       ) : (
-        <div>
+        <div className="w-3/4">
           <p className="text-center">Browse</p>
-          <ul>
-            {campuses.map(campus => {
-                return(
-                    <li className="underline" onClick={(event) => handleBrowse(campus.name)}>{campus.name}</li>
-                )
-            })}
-          </ul>
+          <div>
+            <ul>
+                {campuses.map(campus => {
+                    return(
+                        <li className="underline text-center" onClick={(event) => handleBrowse(campus.name)}>{campus.name}</li>
+                    )
+                })}
+            </ul>
+        </div>
         </div>
       )}
     </div>

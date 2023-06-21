@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
-
 import { useDispatch, useSelector } from 'react-redux';
-
-import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
+import ChatPage from '../ChatPage/ChatPage';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
@@ -14,17 +12,11 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Layout from '../Layout/Layout';
-
 import ResourcesPage from '../ResourcesPage/ResourcesPage';
-
-
 import EditProfilePage from '../profilePage/EditProfilePage';
 import ProfilePage from '../profilePage/ProfilePage';
-
 import JobsPage from '../JobsPage/JobsPage';
-
 import AlumniSearchPage from '../AlumniSearchPage/AlumniSearchPage';
-
 
 
 import './App.css';
@@ -46,12 +38,12 @@ function App() {
           <Route path ="/" element={<Navigate to="/home" />} />
           <Route
             path="/home"
-            element={user.id ? <Navigate to="/user" /> : <LandingPage />}
+            element={user.id ? <ChatPage /> : <LandingPage />}
           />
 
           <Route
             path="/registration"
-            element={user.id ? <Navigate to="/user" /> : <RegisterPage />}
+            element={user.id ? <Navigate to="/editprofile" /> : <RegisterPage />}
           />
 
           <Route
@@ -76,20 +68,15 @@ function App() {
               </ProtectedRoute>
             }
           />
-          
-          {/* <Route
-            path="/alumni-search"
-            element={user.id ? <Navigate to="/alumni-search" /> : <LoginPage />}
-          /> */}
 
-          <Route
+          {/* <Route
             path="/user"
             element={
               <ProtectedRoute user={user}>
                 <UserPage />
               </ProtectedRoute>
             }
-          />
+          /> */}
 
 
           {/* ESTABLISH ROUTE */}

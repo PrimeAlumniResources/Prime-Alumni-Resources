@@ -3,6 +3,7 @@ import axios from 'axios';
 
 // worker Saga: will be fired on "LOGIN" actions
 function* loginUser(action) {
+  console.log(action.payload)
   try {
     // clear any existing error on the login page
     yield put({ type: 'CLEAR_LOGIN_ERROR' });
@@ -25,7 +26,7 @@ function* loginUser(action) {
     if (error.response.status === 401) {
       // The 401 is the error status sent from passport
       // if user isn't in the database or
-      // if the username and password don't match in the database
+      // if the email and password don't match in the database
       yield put({ type: 'LOGIN_FAILED' });
     } else {
       // Got an error that wasn't a 401
