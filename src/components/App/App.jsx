@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
@@ -25,20 +25,28 @@ function App() {
   const dispatch = useDispatch();
 
   const user = useSelector(store => store.user);
+  const location = useLocation();
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
 
   return (
-
       <Routes>
 
-        <Route element={<Layout />}>
-          <Route path ="/" element={<Navigate to="/home" />} />
+        <Route path ="/" element={<Navigate to="/home" />} />
+
+        <Route path="/home" element={<LandingPage />} />
+
+          <Route element={<Layout />}>
+
           <Route
             path="/home"
-            element={user.id ? <ChatPage /> : <LandingPage />}
+            element={
+              <ProtectedRoute user={user}>
+                <ChatPage />
+              </ProtectedRoute>
+            }
           />
 
           <Route
@@ -107,7 +115,7 @@ function App() {
             </ProtectedRoute>
           }
           />
-      </Route>
+        </Route>
       </Routes>
 
   );
