@@ -2,6 +2,7 @@ import Navigate from "react-router-dom"
 import Datepicker from 'flowbite-datepicker/Datepicker';
 import DateRangePicker from 'flowbite-datepicker/DateRangePicker';
 import { useDropzone } from "react-dropzone"
+import AWS from 'aws-sdk';
 
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -12,6 +13,16 @@ import TechCurrent from "../Tech/TechCurrent";
 import TechKnown from "../Tech/TechKnown";
 
 function editProfilePage() {
+
+    const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY
+    const SECRET_ACCESS_KEY = process.env.REACT_APP_SECRET_ACCESS_KEY
+    
+
+    AWS.config.update({
+        accessKeyId:ACCESS_KEY ,
+        secretAccessKey: SECRET_ACCESS_KEY,
+        region: 'us-east-2'
+      });
 
     {/* ------------------ALL THE CONST NEEDED FOR THIS PAGE--------------------- */ }
 
@@ -37,7 +48,7 @@ function editProfilePage() {
 
     const user = useSelector((store) => store.user);
 
-   
+    const s3 = new AWS.S3();
 
     const [uploadedImageUrl, setUploadedImageUrl] = useState('');
 
@@ -45,24 +56,47 @@ function editProfilePage() {
 
     const onDrop = (acceptedFiles) => {
 
+        
+        console.log('this is user.username',user.username);
+        const params = {
+            Bucket: 'profilepic3',
+            Key: user.username,
+            ContentType: 'image/jpeg', // Adjust the content type based on your image type
+            Body: acceptedFiles[0] // 'file' is the File object obtained from an input element
+          };
 
-        const image = URL.createObjectURL(acceptedFiles[0])
-        setUploadedImageUrl(image)
-        console.log('this is the uploaded file', uploadedFile);
+          s3.upload(params, (err, data) => {
+            if (err) {
+              console.log(err, err.stack);
+            } else {
+              
+              setUploadedImageUrl(data.Location)
+              console.log('Image uploaded successfully.', data.Location);
+                
+            }
+            
+            
+          });
+          
+        
+          
 
-
-        displayImage()
+        
     };
 
     {/* --------------------------USE EFFECTS FOR NECCESARY DATA--------------------- */ }
 
     useEffect(() => {
-        console.log('changed');
+        console.log('changed',uploadedImageUrl);
         dispatch({
             type: 'MODIFY_UPLOADED_FILE',
             payload: uploadedImageUrl
         })
+        displayImage()
+
     }, [uploadedImageUrl]);
+
+    
 
     const { getRootProps, getInputProps } = useDropzone({ onDrop });
     useEffect(() => {
@@ -89,7 +123,7 @@ function editProfilePage() {
 
     {/* --------------------------DISPLAY IMAGES CONDITIONAL RENDER--------------------- */ }
 
-    const displayImage = () => {
+    const displayImage = (img) => {
 
         if (profile.uploaded_file != undefined) {
             return (
