@@ -29,7 +29,7 @@ Steps to Using Firebase in PAR.
    in firebase.js to get access to the "getFirestore" and "getAuth" services.
    NOTE: Must initializeApp first before getting access to services.
    NOTE2: { getAuth } is a service that checks for user login before getting access to FireBase In-App Messaging.
-   NOTE3: { getFirestore } is a flexible, scalable NoSQL cloud database service to store and sync data for client- and server-side development.**
+   NOTE3: { getFirestore } is a flexible, scalable NoSQL cloud database service to store and sync data for client- and server-side development. DO NOT GET IT CONFUSED WITH FIREBASE REALTIME DATABASE**
    **https://firebase.google.com/docs/firestore?authuser=0
 
 5. When firebaseConfig is filled out, put the constant variable into the initializeApp() function and assign it to the variable "app":
@@ -75,4 +75,32 @@ Steps to Using Firebase in PAR.
 
    const auth = getAuth(firebaseConfig);
 
-9. 
+9. Go to App.jsx and on line 41, create a conditional using ternary stating that if the user.id exists then the path "/home" will take you to <ChatPage>, if not then it will take you to <LandingPage> and assign it to element:
+  
+  element={user.id ? <ChatPage /> : <LandingPage />} 
+
+  NOTE: remember to import ChatPage from '../ChatPage/ChatPage';
+
+10. Create a ChatPage file component and create ChatPage.jsx;
+
+11. *Go to your project that you created on Firebase and click on Firestore Database and click on Create Database.
+    * Recommend going to https://firebase.google.com/docs/firestore/quickstart?authuser=0 and watch video as reference.
+  
+  11a. Click on start in test mode and select your database location closest to where you live. Go back to your ChatPage.jsx.
+
+12. *We will be importing React from react, auth and firestore from config/firestore.
+     import React from "react";
+     import auth, { firestore } from "../../config/firebase";
+    
+13. We will be importing 
+    import {
+      collection,
+      docRef,
+      getDocs,
+      query,
+      orderBy,
+      limit,
+      addDoc,
+      serverTimestamp
+    } from "firebase/firestore";
+

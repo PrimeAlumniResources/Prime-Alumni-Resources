@@ -23,6 +23,8 @@ function ChatPage() {
   const user = useSelector(store => store.user);
   const fb_user = auth.currentUser;
 
+  console.log("AUTH:", fb_user);
+  
   const fetchMessages = async () => {
     const messagesRef = collection(firestore, "messages");
     const q = query(messagesRef, orderBy('timestamp'), limit(50));
