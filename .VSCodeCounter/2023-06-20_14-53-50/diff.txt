@@ -1,0 +1,121 @@
+Date : 2023-06-20 14:53:50
+Directory : /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources
+Total : 63 files,  2187 codes, 494 comments, 541 blanks, all 3222 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| JavaScript JSX |         20 |      1,250 |        332 |        279 |      1,861 |
+| JavaScript     |         33 |        666 |         24 |        172 |        862 |
+| CSS            |          6 |        514 |        155 |         97 |        766 |
+| SQL            |          1 |         45 |        -17 |        -10 |         18 |
+| Properties     |          1 |          7 |          0 |          3 |         10 |
+| JSON           |          2 |       -295 |          0 |          0 |       -295 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                          | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                             |         63 |      2,187 |        494 |        541 |      3,222 |
+| . (Files)                                                                                                     |          4 |       -243 |        -17 |         -7 |       -267 |
+| dist                                                                                                          |          1 |        345 |        155 |         72 |        572 |
+| server                                                                                                        |          9 |        302 |          3 |         88 |        393 |
+| server (Files)                                                                                                |          1 |         10 |          0 |         17 |         27 |
+| server/modules                                                                                                |          1 |          0 |          0 |          1 |          1 |
+| server/routes                                                                                                 |          7 |        292 |          3 |         70 |        365 |
+| src                                                                                                           |         49 |      1,783 |        353 |        388 |      2,524 |
+| src (Files)                                                                                                   |          1 |          1 |          0 |         -1 |          0 |
+| src/components                                                                                                |         25 |      1,419 |        332 |        304 |      2,055 |
+| src/components/AlumniSearchPage                                                                               |          2 |        154 |          9 |         18 |        181 |
+| src/components/App                                                                                            |          2 |         37 |          9 |         12 |         58 |
+| src/components/ChatPage                                                                                       |          2 |         41 |          3 |         14 |         58 |
+| src/components/JobsPage                                                                                       |          6 |        351 |         16 |         78 |        445 |
+| src/components/JobsPage (Files)                                                                               |          2 |        245 |         14 |         55 |        314 |
+| src/components/JobsPage/JobsList                                                                              |          4 |        106 |          2 |         23 |        131 |
+| src/components/JobsPage/JobsList (Files)                                                                      |          2 |         42 |          2 |          4 |         48 |
+| src/components/JobsPage/JobsList/JobItem                                                                      |          2 |         64 |          0 |         19 |         83 |
+| src/components/LandingPage                                                                                    |          1 |        -31 |          0 |         -1 |        -32 |
+| src/components/LoginForm                                                                                      |          1 |         12 |          0 |          4 |         16 |
+| src/components/NavBar                                                                                         |          1 |        117 |          1 |          9 |        127 |
+| src/components/RegisterForm                                                                                   |          1 |         66 |          5 |         15 |         86 |
+| src/components/ResourcesPage                                                                                  |          4 |        274 |          0 |         40 |        314 |
+| src/components/Tech                                                                                           |          2 |         56 |         10 |         39 |        105 |
+| src/components/UserPage                                                                                       |          1 |          0 |          0 |          2 |          2 |
+| src/components/profilePage                                                                                    |          2 |        342 |        279 |         74 |        695 |
+| src/config                                                                                                    |          1 |         15 |          3 |          3 |         21 |
+| src/redux                                                                                                     |         22 |        348 |         18 |         82 |        448 |
+| src/redux/reducers                                                                                            |         11 |        142 |          3 |         26 |        171 |
+| src/redux/sagas                                                                                               |         11 |        206 |         15 |         56 |        277 |
++---------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                                                      | language       | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/.env                                                 | Properties     |          7 |          0 |          3 |         10 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/database.sql                                         | SQL            |         45 |        -17 |        -10 |         18 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/dist/output.css                                      | CSS            |        345 |        155 |         72 |        572 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/package-lock.json                                    | JSON           |       -306 |          0 |          0 |       -306 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/package.json                                         | JSON           |         11 |          0 |          0 |         11 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/modules/pool.js                               | JavaScript     |          0 |          0 |          1 |          1 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/campus.router.js                       | JavaScript     |         20 |          0 |          4 |         24 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/cohort.router.js                       | JavaScript     |         36 |          0 |          7 |         43 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/jobs.router.js                         | JavaScript     |         46 |          3 |         13 |         62 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/profile.router.js                      | JavaScript     |         28 |          0 |          3 |         31 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/resource.router.js                     | JavaScript     |         55 |          0 |         14 |         69 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/tech.router.js                         | JavaScript     |        106 |          0 |         24 |        130 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/user.router.js                         | JavaScript     |          1 |          0 |          5 |          6 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/server.js                                     | JavaScript     |         10 |          0 |         17 |         27 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/AlumniSearchPage/AlumniSearchPage.jsx | JavaScript JSX |        125 |          9 |         14 |        148 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/AlumniSearchPage/ResultsContainer.jsx | JavaScript JSX |         29 |          0 |          4 |         33 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/App/App.css                           | CSS            |          0 |          0 |          1 |          1 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/App/App.jsx                           | JavaScript JSX |         37 |          9 |         11 |         57 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ChatPage/ChatMessage.jsx              | JavaScript JSX |         11 |          0 |          4 |         15 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ChatPage/ChatPage.jsx                 | JavaScript JSX |         30 |          3 |         10 |         43 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/JobsPage/JobsList/JobItem/JobItem.css | CSS            |         28 |          0 |          5 |         33 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/JobsPage/JobsList/JobItem/JobItem.jsx | JavaScript JSX |         36 |          0 |         14 |         50 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/JobsPage/JobsList/JobsList.css        | CSS            |         13 |          0 |          0 |         13 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/JobsPage/JobsList/JobsList.jsx        | JavaScript JSX |         29 |          2 |          4 |         35 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/JobsPage/JobsPage.css                 | CSS            |         91 |          0 |         13 |        104 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/JobsPage/JobsPage.jsx                 | JavaScript JSX |        154 |         14 |         42 |        210 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/LandingPage/LandingPage.jsx           | JavaScript JSX |        -31 |          0 |         -1 |        -32 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/LoginForm/LoginForm.jsx               | JavaScript JSX |         12 |          0 |          4 |         16 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/NavBar/NavBar.jsx                     | JavaScript JSX |        117 |          1 |          9 |        127 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/RegisterForm/RegisterForm.jsx         | JavaScript JSX |         66 |          5 |         15 |         86 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ResourcesPage/AddResource.jsx         | JavaScript JSX |        140 |          0 |         20 |        160 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ResourcesPage/ResourceItem.jsx        | JavaScript JSX |         12 |          0 |          1 |         13 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ResourcesPage/ResourcesPage.css       | CSS            |         37 |          0 |          6 |         43 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ResourcesPage/ResourcesPage.jsx       | JavaScript JSX |         85 |          0 |         13 |         98 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/Tech/TechCurrent.jsx                  | JavaScript JSX |         25 |          5 |         18 |         48 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/Tech/TechKnown.jsx                    | JavaScript JSX |         31 |          5 |         21 |         57 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/UserPage/UserPage.jsx                 | JavaScript JSX |          0 |          0 |          2 |          2 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/profilePage/EditProfilePage.jsx       | JavaScript JSX |        192 |        268 |         46 |        506 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/profilePage/ProfilePage.jsx           | JavaScript JSX |        150 |         11 |         28 |        189 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/config/firebase.js                               | JavaScript     |         15 |          3 |          3 |         21 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/index.js                                         | JavaScript     |          1 |          0 |         -1 |          0 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/_root.reducer.js                  | JavaScript     |         18 |          0 |          2 |         20 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/allCampuses.reducer.js            | JavaScript     |         10 |          0 |          1 |         11 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/allProfiles.reducer.js            | JavaScript     |         10 |          0 |          1 |         11 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/campus.reducer.js                 | JavaScript     |         12 |          0 |          2 |         14 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/cohort.reducer.js                 | JavaScript     |          9 |          0 |          2 |         11 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/currentStack.reducer.js           | JavaScript     |         17 |          0 |          6 |         23 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/jobs.reducer.js                   | JavaScript     |          9 |          0 |          2 |         11 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/knownStack.reducer.js             | JavaScript     |         16 |          0 |          6 |         22 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/profile.reducer.js                | JavaScript     |         27 |          3 |          0 |         30 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/resource.reducer.js               | JavaScript     |          7 |          0 |          2 |          9 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/resourceTags.reducer.js           | JavaScript     |          7 |          0 |          2 |          9 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/_root.saga.js                        | JavaScript     |         14 |          1 |          4 |         19 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/addResources.saga.js                 | JavaScript     |         15 |          0 |          4 |         19 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/campus.saga.js                       | JavaScript     |         13 |          0 |          2 |         15 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/cohort.saga.js                       | JavaScript     |         24 |          2 |          9 |         35 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/getResource.saga.js                  | JavaScript     |         17 |          0 |          7 |         24 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/getResourceTags.saga.js              | JavaScript     |         19 |          0 |          6 |         25 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/job.saga.js                          | JavaScript     |         27 |          3 |          5 |         35 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/login.saga.js                        | JavaScript     |          2 |          0 |          0 |          2 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/profile.saga.js                      | JavaScript     |         10 |          3 |          3 |         16 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/registration.saga.js                 | JavaScript     |          1 |          0 |          0 |          1 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/tech.saga.js                         | JavaScript     |         64 |          6 |         16 |         86 |
+| Total                                                                                                         |                |      2,187 |        494 |        541 |      3,222 |
++---------------------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+

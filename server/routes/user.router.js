@@ -18,36 +18,24 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted
 router.post('/register', (req, res, next) => {
-  const username = req.body.username;
+  const email = req.body.email;
   const password = encryptLib.encryptPassword(req.body.password);
   const firstname = req.body.firstname;
   const lastname = req.body.lastname;
   const cohort = req.body.cohort
-  const queryText = `INSERT INTO "user" (username, password, first_name, last_name,cohort_id)
-    VALUES ($1, $2, $3, $4,$5) RETURNING id`;
 
-   
-     
+  const queryText = `INSERT INTO "user" (email, password, first_name, last_name, cohort_id)
+    VALUES ($1, $2, $3, $4, $5) RETURNING id`;
 
   pool
-    .query(queryText, [username, password, firstname, lastname,cohort])
+    .query(queryText, [email, password, firstname, lastname,cohort])
     .then(() => res.sendStatus(201))
     .catch((err) => {
       console.log('User registration failed: ', err);
       res.sendStatus(500);
     });
 
-  // const  campusQueryText = `
-  // INSERT INTO "campus" (name) 
-  // VALUES ($1)
-  // `;
-  //   const queryCampusValues = [campus]
-  // pool.query(campusQueryText,queryCampusValues).
-  // then(() => res.sendStatus(201)).
-  // catch ((error) => {
-  //   console.log('error in user router campus post route-->',error);
-  //   res.sendStatus(500);
-  // })
+  
 
 });
   
@@ -56,6 +44,7 @@ router.post('/register', (req, res, next) => {
 // this middleware will run our POST if successful
 // this middleware will send a 404 if not successful
 router.post('/login', userStrategy.authenticate('local'), (req, res) => {
+  console.log(req.body);
   res.sendStatus(200);
 });
 
