@@ -62,6 +62,10 @@ function RegisterForm() {
   const registerUser = (event) => {
     // event.preventDefault();
 
+    if (password.length < 6) {
+      return alert('Password must be longer than 6 characters. Please try again.');
+    }
+
     const auth = getAuth();
     
     createUserWithEmailAndPassword(auth, email, password)
