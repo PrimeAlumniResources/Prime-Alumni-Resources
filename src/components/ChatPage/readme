@@ -1,2 +1,78 @@
 Steps to Using Firebase in PAR.
-1.In terminal "npm install firebase react-firebase-hooks"
+
+1. In terminal "npm install firebase"
+
+2. *In config, create a firebase.js where you can write an Import Statement (import { initializeApp } from "firebase  app";) to:
+  2a. Grab a function ( e.g. {initializeApp} ) from the firebase/app subpackage.
+  2b. Import {initializeApp} to create a Firebase App.
+
+3. *Below the Import Statement (see 2.), write the Firebase Configuration Object:
+  const firebaseConfig = {
+    //...
+  };
+  // TODO: Replace the following "//..." with your app's Firebase project configuration
+  * https://firebase.google.com/docs/web/setup
+
+  3a. Go to https://firebase.google.com/ and Click "Get Started" if already have an account.
+  3b. Click "Add project" to add your project on Firebase.
+    3bi. Give a name to your project, Enable Google Analytics, and create a new account or Default Account (doesn't matter).
+  3c. Page should automatically send you to your project's account. Go to Project Overview and click on the gear and click "project settings"
+  3d. Click on the "</>" if it's a webapp.
+  3e. On step 2, click on "Use npm" and add "npm install firebase" into the terminal. Feel free to copy/paste the Import Statements into firebase.js, but the MOST IMPORTANT thing is to copy the values inside the firebaseConfig.
+  3f. Paste the values in firebaseConfig to the Firebase Configuration Object in firebase.js.
+  3g. On step 3 of Add Firebase to your web app, you don't need to host your site with Firebase Hosting, so skip to next
+      step.
+  3h. No need for step 4 either and click on "Continue to console"
+
+4. write "import { getFirestore } from 'firebase/firestore';
+          import { getAuth } from "firebase/auth";"
+   in firebase.js to get access to the "getFirestore" and "getAuth" services.
+   NOTE: Must initializeApp first before getting access to services.
+   NOTE2: { getAuth } is a service that checks for user login before getting access to FireBase In-App Messaging.
+   NOTE3: { getFirestore } is a flexible, scalable NoSQL cloud database service to store and sync data for client- and server-side development.**
+   **https://firebase.google.com/docs/firestore?authuser=0
+
+5. When firebaseConfig is filled out, put the constant variable into the initializeApp() function and assign it to the variable "app":
+   const app = initializeApp(firebaseConfig);
+
+6. Pass "app" into the getAuth() function and assign it to the const variable, "auth". Now you can use "auth" for login authentication:
+   const auth = getAuth(app);
+
+7. Write export default auth so that it can be used in other files.
+
+8. You will also need Firestore so pass "app" (which containes the initializeApp(firebaseConfig)) into getFirestore() like so:
+   export const firestore = getFirestore(app);
+   
+   NOTE: You can, like auth, initialize the const firestore first before exporting like so:
+   const firestore = getFirestore(app);
+   export default firestore;
+
+   NOTE2: You can shorten firebaseConfig to auth by wrapping firebaseConfig's code block with initializeApp() like so:
+   
+   FROM
+   const firebaseConfig = {
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+   };
+
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+
+    TO
+    const firebaseConfig = initializeApp({
+      apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+      authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+      projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+      storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+      messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+      appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    });
+
+   const auth = getAuth(firebaseConfig);
+
+9. 
