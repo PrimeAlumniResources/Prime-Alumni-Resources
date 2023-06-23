@@ -56,11 +56,14 @@ function editProfilePage() {
 
     const onDrop = (acceptedFiles) => {
 
-        
+        dispatch({
+            type: 'RESET_PROFILE',
+        })
+
         console.log('this is user.username',user.username);
         const params = {
             Bucket: 'profilepic3',
-            Key: user.username,
+            Key: user.email,
             ContentType: 'image/jpeg', // Adjust the content type based on your image type
             Body: acceptedFiles[0] // 'file' is the File object obtained from an input element
           };
@@ -69,30 +72,29 @@ function editProfilePage() {
             if (err) {
               console.log(err, err.stack);
             } else {
-              
+
               setUploadedImageUrl(data.Location)
               console.log('Image uploaded successfully.', data.Location);
                 
             }
-            
+            refreshImage()
             
           });
-          
-        
-          
-
         
     };
 
     {/* --------------------------USE EFFECTS FOR NECCESARY DATA--------------------- */ }
-
-    useEffect(() => {
-        console.log('changed',uploadedImageUrl);
+    const refreshImage = () => {
         dispatch({
             type: 'MODIFY_UPLOADED_FILE',
             payload: uploadedImageUrl
         })
         displayImage()
+    }
+    
+    useEffect(() => {
+        console.log('changed',uploadedImageUrl);
+
 
     }, [uploadedImageUrl]);
 
