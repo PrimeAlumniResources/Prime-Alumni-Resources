@@ -34,9 +34,21 @@ function App() {
   return (
       <Routes>
 
-        <Route path ="/" element={<Navigate to="/home" />} />
+        <Route path ="/" element={<Navigate to="/landing-page" />} />
 
-        <Route path="/home" element={<LandingPage />} />
+        <Route
+            path="/registration"
+            element={user.id ? <Navigate to="/editprofile" /> : <RegisterPage />}
+        />
+
+        <Route
+            path="/login"
+            element={user.id ? <Navigate to="/home" /> : <LoginPage />}
+        />
+
+        <Route 
+            path="/landing-page" 
+            element={user.id ? <Navigate to="/home" /> : <LandingPage />} />
 
           <Route element={<Layout />}>
 
@@ -47,16 +59,6 @@ function App() {
                 <ChatPage />
               </ProtectedRoute>
             }
-          />
-
-          <Route
-            path="/registration"
-            element={user.id ? <Navigate to="/editprofile" /> : <RegisterPage />}
-          />
-
-          <Route
-            path="/login"
-            element={user.id ? <Navigate to="/home" /> : <LoginPage />}
           />
 
           <Route

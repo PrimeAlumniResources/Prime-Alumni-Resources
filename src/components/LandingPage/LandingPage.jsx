@@ -4,6 +4,7 @@ import './LandingPage.css';
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
+import LandingPageHeader from './LandingPageHeader';
 
 function LandingPage() {
   const [heading, setHeading] = useState('Welcome');
@@ -15,20 +16,20 @@ function LandingPage() {
 
   return (
     <div className="container">
-      <h2>{heading}</h2>
+      <LandingPageHeader />
 
-      <div className="grid">
+      <div className="grid place-items-end mt-16">
      
-        <div className="grid-col grid-col_4">
-          <RegisterForm />
-
-          <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
-            </button>
-          </center>
+        <div className="">
+          <RegisterForm />  
+            <div className="grid place-items-center">
+              <h4 className="text-center">Already a Member?</h4>
+              <button className="" onClick={onLogin}>
+                Login
+              </button>
+            </div>
         </div>
+
       </div>
     </div>
   );
