@@ -14,23 +14,27 @@ function LandingPage() {
   };
 
   return (
-    <div className="container">
+    <div className="w-screen border-solid border-2 border-red-500 ">
+      <div className="w-40 border-solid border-2 border-sky-500 ">
       <h2>{heading}</h2>
 
-      <div className="grid">
+        <div className="grid">
      
-        <div className="grid-col grid-col_4">
-          <RegisterForm />
+          <div className="">
+            <RegisterForm />
 
-          <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
-            </button>
-          </center>
+            <div className='border-solid border-2 border-red-500 '>
+              <h4>Already a Member?</h4>
+              <button className="btn btn_sizeSm" onClick={onLogin}>
+                Login
+              </button>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
+    
   );
 }
 

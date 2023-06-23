@@ -3,7 +3,6 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
 import ChatPage from '../ChatPage/ChatPage';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
