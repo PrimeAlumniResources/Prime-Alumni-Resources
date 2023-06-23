@@ -102,7 +102,7 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
-    <form className="formPanel w-fit border p-8" onSubmit={handleCohort}>
+    <form className="formPanel bg-white w-fit border p-8" onSubmit={handleCohort}>
       <h2 className="text-center">Register User</h2>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
@@ -113,7 +113,6 @@ function RegisterForm() {
         <label htmlFor="firstName">
           First Name:
           <input
-            // className="m-2"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             type="text"
             name="firstname"
@@ -127,7 +126,7 @@ function RegisterForm() {
         <label htmlFor="lastname">
           Last Name:
           <input
-          className="m-2"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             type="text"
             name="lastname"
             value={lastname}
@@ -140,7 +139,7 @@ function RegisterForm() {
         <label htmlFor="email">
           Email:
           <input
-          className="m-2"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             type="text"
             name="email"
             value={email}
@@ -171,7 +170,7 @@ function RegisterForm() {
         <label htmlFor="password">
           Password:
           <input
-          className="m-2"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-blue-500"
             type="password"
             name="password"
             value={password}
@@ -181,7 +180,7 @@ function RegisterForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
+        <input className="btn w-20 mt-4 bg-emerald-600 rounded-md p" type="submit" name="submit" value="Register" />
       </div>
     </form>
   );

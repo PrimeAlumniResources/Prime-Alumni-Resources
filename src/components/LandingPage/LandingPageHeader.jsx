@@ -1,7 +1,18 @@
+import PrimeLogo from './images/PrimeLogo.png';
+
 function LandingPageHeader() {
     return (
-        <div className="w-screen h-16 bg-[#55C0B6] flex items-center justify-center">
-            <p className="text-3xl">Prime</p>
+        <div className="w-screen h-16 bg-black flex items-center justify-center fixed">
+          <div className="image" 
+            style={{ 
+            backgroundImage: `url(${PrimeLogo})`,
+            backgroundSize: "200px",
+            backgroundPosition: "center", 
+          
+            }}>
+          
+          </div>
+            
         </div>
     )
 }
