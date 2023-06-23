@@ -46,7 +46,7 @@ function RegisterForm() {
 
   const handleCohort = (event) => {
     event.preventDefault();
-    console.log("hi");
+    // console.log("hi");
     for (let each of cohorts) {
       for (let coho of each) {
         if (coho.name === cohort) {
@@ -102,7 +102,7 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
-    <form className="formPanel bg-white w-fit border p-8" onSubmit={handleCohort}>
+    <form className="formPanel bg-gradient-to-r from-black to-transparent text-white w-fit pr-8 pl-8 pb-8 mt-20" onSubmit={handleCohort}>
       <h2 className="text-center">Register User</h2>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
