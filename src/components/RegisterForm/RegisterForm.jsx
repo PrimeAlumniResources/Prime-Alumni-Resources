@@ -102,8 +102,8 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
-    <form className="formPanel w-fit border p-8" onSubmit={handleCohort}>
-      <h2 className="text-center">Register User</h2>
+    <form className="formPanel w-full border p-8" onSubmit={handleCohort}>
+      <h2 className="text-center mb-4">Register User</h2>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
           {errors.registrationMessage}
@@ -114,7 +114,7 @@ function RegisterForm() {
           First Name:
           <input
             // className="m-2"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="m-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             type="text"
             name="firstname"
             value={firstname}
@@ -127,7 +127,7 @@ function RegisterForm() {
         <label htmlFor="lastname">
           Last Name:
           <input
-          className="m-2"
+          className="m-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             type="text"
             name="lastname"
             value={lastname}
@@ -140,7 +140,7 @@ function RegisterForm() {
         <label htmlFor="email">
           Email:
           <input
-          className="m-2"
+          className="m-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             type="text"
             name="email"
             value={email}
@@ -159,7 +159,7 @@ function RegisterForm() {
       <select
         onChange={(event) => setCohort(event.target.value)}
         id="countries"
-        className=" w-40 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        className="m-2 w-40 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
         <option selected>Choose a cohort</option>
         {cohortsArray?.map((coho) => {
@@ -171,7 +171,8 @@ function RegisterForm() {
         <label htmlFor="password">
           Password:
           <input
-          className="m-2"
+            className="m-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+
             type="password"
             name="password"
             value={password}
@@ -180,7 +181,7 @@ function RegisterForm() {
           />
         </label>
       </div>
-      <div>
+      <div className="flex justify-center">
         <input className="btn" type="submit" name="submit" value="Register" />
       </div>
     </form>

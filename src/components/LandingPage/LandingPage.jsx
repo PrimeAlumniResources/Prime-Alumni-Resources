@@ -20,9 +20,9 @@ function LandingPage() {
 
       <div className="grid place-items-end mt-16">
      
-        <div className="">
+        <div className="w-1/3">
           <RegisterForm />  
-            <div className="grid place-items-center">
+            <div className="grid place-items-center mt-4">
               <h4 className="text-center">Already a Member?</h4>
               <button className="" onClick={onLogin}>
                 Login
