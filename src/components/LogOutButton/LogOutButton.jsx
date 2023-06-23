@@ -1,8 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function LogOutButton(props) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <button
       // This button shows up in multiple locations and is styled differently

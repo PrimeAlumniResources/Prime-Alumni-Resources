@@ -28,18 +28,21 @@ function RegisterForm() {
   /* -----------------LOGIC USED TO MAP OUT COHORTS--------------------- */
 
   let cohortsArray = [];
+  const [finalCohort, setFinalCohort] = useState();
+  let finalCohortObject = [];
 
-  for (let each of cohorts) {
-    if (cohortsArray.length === 0) {
-      for (let cohort of each) {
-        console.log(cohort.name);
-
-        cohortsArray.push(cohort.name);
+  if (cohorts) {
+    for (let each of cohorts) {
+      if (cohortsArray.length === 0) {
+        for (let cohort of each) {
+          console.log(cohort.name);
+  
+          cohortsArray.push(cohort.name);
+        }
       }
     }
   }
-  const [finalCohort, setFinalCohort] = useState();
-  let finalCohortObject = [];
+  
 
   const handleCohort = (event) => {
     event.preventDefault();
