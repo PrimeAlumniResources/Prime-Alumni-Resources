@@ -11,6 +11,7 @@ import resourceTags from './resourceTags.reducer';
 import allProfiles from './allProfiles.reducer';
 import allCampuses from './allCampuses.reducer';
 import jobs from './jobs.reducer';
+// import allPics from './allPics.reducer';
 
 
 
@@ -33,6 +34,7 @@ const rootReducer = combineReducers({
   allProfiles,
   allCampuses,
   jobs
+  // allPics
 });
 
 export default rootReducer;
