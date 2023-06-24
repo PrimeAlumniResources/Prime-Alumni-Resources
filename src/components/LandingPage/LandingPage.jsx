@@ -46,8 +46,10 @@ function LandingPage() {
         <div className="login-container flex items-center justify-center text-white bg-gradient-to-r from-black to-transparent h-screen ml-5 w-64">
       
           <div className="">  
+
             {display()}
-              <div className="grid place-items-center mb-20 px-5 py-5">
+              <div className="grid border-0 place-items-center mb-20 px-5 py-5">
+
                 <h4 className="font-bold mt-3">Prime Alumni Resources</h4>
 
                 <div className="space-x-5 place-items-center mt-2">
