@@ -41,8 +41,8 @@ function LoginForm() {
   }; // end login
 
   return (
-    <form className="formPanel" onSubmit={login}>
-      <h2>Login</h2>
+    <form className="formPanelborder-0 text-white w-fit pr-8 pl-8 pb-8 mt-20" onSubmit={login}>
+      <h2 className="text-center font-bold">Login User</h2>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
@@ -52,6 +52,7 @@ function LoginForm() {
         <label htmlFor="email">
           Email:
           <input
+            className="mt-1 bg-transparent border-b border-gray-700 text-white text-md leading-tight focus:outline-none block w-full"
             type="text"
             name="email"
             required
@@ -64,6 +65,7 @@ function LoginForm() {
         <label htmlFor="password">
           Password:
           <input
+            className="mt-1 bg-transparent border-b border-gray-700 text-white text-md leading-tight focus:outline-none block w-full"
             type="password"
             name="password"
             required
@@ -73,7 +75,10 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+        <input className="btn w-24 mt-4 bg-black text-[rgba(7,170,158,1.0)] border-[rgba(7,170,158,1.0)] border   rounded-full cursor-pointer h-8"  
+               type="submit" 
+               name="submit" 
+               value="Log In" />
       </div>
     </form>
   );
