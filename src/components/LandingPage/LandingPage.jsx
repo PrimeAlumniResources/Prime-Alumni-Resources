@@ -75,15 +75,16 @@ function LandingPage() {
         </div>
 
          <div className="right-side text-white absolute right-20 top-[35%]">
-          <div className="connect text-5xl mb-10 font-400">
+          <div className="connect text-5xl mb-10 font-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">
             Connect.
           </div>
           <div className="collaborate text-5xl font-600">
-            <span className="bg-gradient-to-b from-white to-[#0bdbcc] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-b from-white to-[#0bdbcc] bg-clip-text text-transparent 
+            drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">
               Collaborate.
             </span>
           </div>
-          <div className="captivate text-5xl mt-10 text-[#0bdbcc] font-800">
+          <div className="captivate text-5xl mt-10 text-[#0bdbcc] font-800 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">
             Captivate.
           </div>
           {/* <div>
