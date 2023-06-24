@@ -84,6 +84,27 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 })
 
+// router.get('/specific',  (req, res) => {
+//     console.log('this is req.body-->',req.body.username);
+//     const username = req.query.username
+
+//     const sqlText = `
+            
+//     SELECT uploaded_file FROM "user"
+//     WHERE username= $1;
+//     `
+//     const sqlValue = [username]
+//     console.log('this is the sql values-->',sqlValue);
+//     pool.query(sqlText, sqlValue)
+//     .then((results) => {
+//         console.log('this is the results', results.rows);
+//         res.send(results.rows[0])
+//     }).catch((error) => {
+//         console.log('error in specific profile server get route:', error);
+//         res.sendStatus(500)
+//     })
+// })
+
  
 
 module.exports = router

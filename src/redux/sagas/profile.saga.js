@@ -36,8 +36,23 @@ function* fetchAllProfiles() {
     }
 }
 
+
+// function* fetchSpecific(action) {
+//     console.log('this is action.payload in saga-->',action.payload);
+//     const username = action.payload.username
+//     try {
+//         const results = yield axios.get('/api/profile/specific' ,  {
+//             params: { username }, });
+//         console.log('this is the results of the fetchSpecific saga --->', results.data)
+//         yield put({type:'SET_SPECIFIC_PROFILES', payload: results.data});
+//     } catch (error) {
+//         console.log('error inside fetch specific profiles saga-->', error);
+//     }
+// }
+
 export default function* profileSaga () {
     // yield takeLatest('POST_PROFILE', postProfile) <----- MOST LIKELY DELETING
+    // yield takeLatest('FETCH_SPECIFIC_PROFILE',fetchSpecific)
     yield takeLatest('FETCH_PROFILE', fetchProfile)
     yield takeLatest('FETCH_ALL_PROFILES', fetchAllProfiles)
     yield takeLatest('PUT_PROFILE_INFO', updateProfile )
