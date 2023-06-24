@@ -30,7 +30,7 @@ function ChatMessage(props) {
         </label>
 
         <div className={`message ${messageClass}`}>
-          <p className="text-emerald-400  ml-2 mt-2">{message}</p>
+          <p className="text-emerald-500  ml-2 mt-2">{message}</p>
         </div>
       </div>
     </div>

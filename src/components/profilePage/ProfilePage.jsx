@@ -51,8 +51,8 @@ function ProfilePage() {
     <div className=" bg-gray-50 shadow-md shadow-emerald-100 text-base pt-10 sm:text-5 md:text-md lg:text-md ">
       {/* --------------------------------------PROFILE IMAGE + FIRST & LAST CONTAINER----------------------------- */}
 
-      <a
-        href="#"
+      <div
+       
         target="_blank"
         className="bg-white flex items-center justify-center h-fit ml-10 flex-col w-11/12 -mt-6   rounded-lg md:flex-row "
       >
@@ -87,24 +87,24 @@ function ProfilePage() {
             <label className="block  text-sm font-medium text-gray-900 dark:text-black">
               Username:
             </label>
-            <h3 className="font-bold text-1xl flex text-emerald-400 rounded-lg bg-white   flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row " >{profile.username}</h3> <br />
+            <h3 className="font-bold  text-1xl  flex text-emerald-400 rounded-lg bg-white   flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row " >{profile.username}</h3> <br />
             <label className="-mt-2  block text-sm font-medium text-gray-900 dark:text-black">
               LinkedIn
             </label>
             <a
               target="_blank"
               href={profile.linked_in}
-              className="font-bold text-1xl flex text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row  "
+              className=" text-1xl font-bold  flex text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row  "
             >
               {profile.linked_in}
             </a>
-            <label className="block mt-4  text-sm font-medium text-gray-900 dark:text-black">
+            <label className="block mt-4 font-bold   text-sm font-medium text-gray-900 dark:text-black">
               Github:
             </label>
             <a
               target="_blank"
               href={profile.github}
-              className="font-bold text-1xl flex text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row "
+              className=" text-1xl flex font-bold text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row "
             >
               {profile.github}
             </a>{" "}
@@ -116,15 +116,15 @@ function ProfilePage() {
             <label className="block mt-3 text-sm font-medium text-gray-900 dark:text-black">
               Current Work:
             </label>
-            <h3 className="font-bold text-1xl flex text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row ">{profile.current_work}</h3>
-            <label className="block mt-4 text-sm font-medium text-gray-900 dark:text-black">
+            <h3 className=" text-1xl font-bold  flex text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row ">{profile.current_work}</h3>
+            <label className="block  mt-4 text-sm font-medium text-gray-900 dark:text-black">
               Position:
             </label>
-            <h3 className="font-bold text-1xl flex text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row ">{profile.position}</h3>
+            <h3 className=" text-1xl font-bold  flex text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row ">{profile.position}</h3>
             <label className="block mt-4 text-sm font-medium text-gray-900 dark:text-black">
               Start Date:
             </label>
-            <h3 className="font-bold text-1xl flex text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row  ">{moment(profile.start_date).format('MMMM Do, YYYY')}</h3>
+            <h3 className="font-bold  text-1xl flex text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row  ">{moment(profile.start_date).format('MMMM Do, YYYY')}</h3>
           </div>
 
           {/* --------------------------------------CONTAINER FOR COHORT INFO + PORTFOLIO------------------------------ */}
@@ -133,25 +133,25 @@ function ProfilePage() {
             <label className="block text-sm font-medium text-gray-900 dark:text-black">
               Cohort:
             </label>
-            <h3 className="font-bold text-1xl flex text-emerald-400 rounded-lg bg-white shadow-sm shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row " >{cohorts.name}</h3> <br />
+            <h3 className="font-bold  text-1xl flex text-emerald-400 rounded-lg bg-white shadow-sm shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row " >{cohorts.name}</h3> <br />
             <label className="block -mt-2 text-sm font-medium text-gray-900 dark:text-black">
               Cohort Start Date:
             </label>
-            <h5 className="font-bold text-1xl flex text-emerald-400 rounded-lg bg-white shadow-sm shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row  ">{moment(cohorts.start_date).format('MMMM Do, YYYY')}</h5>
+            <h5 className="font-bold  text-1xl flex text-emerald-400 rounded-lg bg-white shadow-sm shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row  ">{moment(cohorts.start_date).format('MMMM Do, YYYY')}</h5>
             <label className="block  mt-4 text-sm font-medium text-gray-900 dark:text-black">
               Cohort End Date:
             </label>
-            <h5 className="font-bold text-1xl flex text-emerald-400 rounded-lg bg-white shadow-sm shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row ">{moment(cohorts.end_date).format('MMMM Do, YYYY')}</h5>
+            <h5 className="font-bold  text-1xl flex text-emerald-400 rounded-lg bg-white shadow-sm shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row ">{moment(cohorts.end_date).format('MMMM Do, YYYY')}</h5>
 
             <br />
           </div>
         </div>
-      </a>
+      </div>
 
       {/* --------------------------------------CONTAINER FOR PROFILE BIO------------------------------ */}
-      <h3 className="mt-3 ml-20 text-left underline text-emerald-400 text-xl ">Biography</h3>
+      <h3 className="mt-3 ml-20 text-left mb-1 text-emerald-400 text-xl ">Biography</h3>
       
-      <div className=" ml-20 bg-white shadow-2xl shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-10/12 rounded-lg shadow md:flex-row flex text-emerald-400 rounded-lg  flex items-center justify-center h-fit  flex-col  p-2 rounded-lg shadow md:flex-row ">
+      <div className=" ml-20 bg-white shadow-2xl shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-10/12 rounded-lg shadow md:flex-row flex text-emerald-500 rounded-lg  flex items-center justify-center h-fit  flex-col  p-2 rounded-lg shadow md:flex-row ">
         
           <div>
             <p className="text-center  mt-2 p-2">{profile.bio}</p>
