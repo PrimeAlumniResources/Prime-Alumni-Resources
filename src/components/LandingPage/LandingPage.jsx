@@ -7,6 +7,12 @@ import RegisterForm from '../RegisterForm/RegisterForm';
 import LoginForm from '../LoginForm/LoginForm';
 import LandingPageHeader from './LandingPageHeader';
 
+// Font link: <link rel="preconnect" href="https://fonts.googleapis.com">
+// <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+// <link href="https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@100&display=swap" rel="stylesheet"></link>
+
+// font-family: 'Ysabeau SC', sans-serif;
+
 function LandingPage() {
   const [heading, setHeading] = useState('Welcome');
   const navigate = useNavigate();
@@ -34,36 +40,57 @@ function LandingPage() {
   }
 
   return (
-    <div className="content-container mb-5"
-         style={{ 
-            backgroundImage: "url('https://i.ibb.co/4W3s9jL/Artboard-1.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center", 
-            }}>
+    <div className="border relative">
+      <div className="content-container mb-5"
+            style={{ 
+              backgroundImage: "url('https://i.ibb.co/4W3s9jL/Artboard-1.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center", 
+              }}>
 
       <LandingPageHeader/>
 
-        <div className="login-container flex items-center justify-center text-white bg-gradient-to-r from-black to-transparent h-screen ml-5 w-64">
+        <div className="login-container flex items-center justify-center text-white bg-gradient-to-r from-black to-transparent h-screen w-5/12 overflow-hidden">
       
-          <div className="">  
+          <div className="left-side">  
 
             {display()}
-              <div className="grid border-0 place-items-center mb-20 px-5 py-5">
+              <div className="grid border-0 place-items-center mb-12 px-5 py-5">
 
-                <h4 className="font-bold mt-3">Prime Alumni Resources</h4>
+                {/* <h4 className="par font-900 mt-3">Prime Alumni Resources</h4> */}
 
                 <div className="space-x-5 place-items-center mt-2">
-                  <button className="" onClick={isFalse}>
-                    Register
+                  <button className="hover:underline" onClick={isTrue}>
+                    Sign in
                   </button>
-                  <button className="" onClick={isTrue}>
-                    Login
+                  <button className="bg-[#07877e] rounded-lg pl-5 pr-5 pt-2 pb-2 hover:underline" onClick={isFalse}>
+                    Sign up
                   </button>
                 </div>
                 
               </div>
+
           </div>
+
         </div>
+
+         <div className="right-side text-white absolute right-20 top-[35%]">
+          <div className="connect text-5xl mb-10 font-400">
+            Connect.
+          </div>
+          <div className="collaborate text-5xl font-600">
+            <span className="bg-gradient-to-b from-white to-[#0bdbcc] bg-clip-text text-transparent">
+              Collaborate.
+            </span>
+          </div>
+          <div className="captivate text-5xl mt-10 text-[#0bdbcc] font-800">
+            Captivate.
+          </div>
+          {/* <div>
+            Cultivate
+          </div> */}
+        </div>
+      </div>
     </div>
   );
 }
