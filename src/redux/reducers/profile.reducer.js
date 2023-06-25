@@ -30,6 +30,8 @@ const profile = ( state = {}, action) => {
         case 'MODIFY_POSITION' : return {...state,position:action.payload}
         break ;
         case 'RESET_PROFILE' : return {...state, uploaded_file: ''}
+        break;
+        // case 'SET_SPECIFIC_PROFILES' : return action.payload
         // case 'SET_CURRENT_STACK':  return [...state]  
         // break ;
         // case 'SET_KNOWN_STACK': return [ ...state]
