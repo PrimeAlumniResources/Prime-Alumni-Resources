@@ -14,11 +14,11 @@ body.active-modal {
 }
 
 .modal {
-  z-index: 200;
+  z-index: 500;
 }
 
 .overlay {
-  background: rgba(49, 49, 49, 0.8);
+  background: rgba(49, 49, 49, 0.7);
 }
 
 .modal-content {
@@ -28,14 +28,17 @@ body.active-modal {
   transform: translate(-50%, -50%);
   line-height: 1.4;
   background: #f1f1f1;
-  padding: 14px 28px;
-  border-radius: 3px;
-  max-height: 300px;
+  padding-top: 14px;
+  padding-bottom: 18px; 
+  padding-left: 28px;
+  padding-right: 28px;
+  border-radius: 10px;
+  max-height: 325px;
   max-width: 300px;
 }
 
 .modal-title {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .modal-textarea {
@@ -80,7 +83,7 @@ body.active-modal {
 }
 
 .add-btn {
-  margin-left: 475px;
+  margin-left: 470px;
 }
 
 .tag-container {
@@ -116,7 +119,7 @@ body.active-modal {
 }
 .add-job-btn:active {
   margin-top: 3px;
-  margin-right: 3px;
+  margin-right: 5px;
   color: white;
   box-shadow: none;
   background-color: rgba(128, 128, 128, 0.9)

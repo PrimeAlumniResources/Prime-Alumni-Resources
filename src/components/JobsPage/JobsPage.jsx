@@ -19,7 +19,8 @@ export default function JobsPage() {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
-    setModal(!modal)
+    setModal(!modal);
+    document.body.classList.toggle('overlay');
   }
 
   if(modal) {
@@ -93,16 +94,16 @@ export default function JobsPage() {
             <div className="modal">
               <div onClick={toggleModal} className="overlay"></div>
 
-              <div className="modal-content">
-                <div className='modal-title'>Add Job</div>
+              <div className="modal-content pb-5">
+                <h3 className='modal-title leading-6 font-semibold text-gray-900'>Add Job</h3>
 
-                <button className="close-modal" onClick={toggleModal}>
+                {/* <button className="close-modal hover:underline" onClick={toggleModal}>
                   X
-                </button>
+                </button> */}
                 
                 <div>Position</div>
                   <select 
-                    className='select-container'
+                    className='select-container focus:outline-none border w-44 pl-1 h-7 rounded-md'
                     value={positionInput}
                     onChange={(event) => setPositionInput(event.target.value)}>
                     <option value="" disabled>Select your option</option>
@@ -118,30 +119,33 @@ export default function JobsPage() {
                     <option value="Mobile Developer">Mobile Developer</option>
                   </select>
                 
-                <div>or</div>
-                  <input 
-                    type="text"
+                <div className="text-gray-400 font-light">or</div>
+                  <input
+                    className="focus:outline-none h-7 border w-44 pl-2 mb-3 rounded-md" 
+                    type="text focus:outline-none"
                     value={positionInput2}
                     onChange={event => setPositionInput2(event.target.value)} />
 
                 <div>Company</div>
                   <input 
+                    className="focus:outline-none h-7 border w-44 pl-2 mb-3 rounded-md"
                     type="text"
                     value={companyInput}
                     onChange={event => setCompanyInput(event.target.value)} />
 
                 <div>Link</div>
-                  <div className="modal-drop">
-                    <input 
+                  <div className="modal-drop focus:outline-none">
+                    <input
+                    className="focus:outline-none h-7 border w-44 pl-2 rounded-md" 
                     type="text"
                     value={linkInput}
                     onChange={event => setLinkInput(event.target.value)} />
                   </div>
                 
-                <div className='flex justify-center mt-4 mb-4'>
+                <div className='flex justify-end mt-3 mb-1'>
                   <button
                     onClick={handleClick}
-                    className='add-job-btn h-10 w-14 rounded-md shadow-lg 10px 10px 10px -15px rgba(0, 0, 0, 0.1) bg-gray-200 hover:text-gray-200 hover:bg-gray-500 cursor-pointer'>
+                    className='add-job-btn h-8 w-14 rounded-md bg-gray-300 hover:text-gray-200 hover:bg-gray-400 cursor-pointer'>
                     Add
                   </button>
                 </div>
