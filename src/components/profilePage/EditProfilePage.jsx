@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import TechCurrent from "../Tech/TechCurrent";
 import TechKnown from "../Tech/TechKnown";
@@ -16,7 +17,7 @@ function editProfilePage() {
 
     const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY
     const SECRET_ACCESS_KEY = process.env.REACT_APP_SECRET_ACCESS_KEY
-
+    const navigate = useNavigate();
 
     AWS.config.update({
         accessKeyId: ACCESS_KEY,
@@ -41,6 +42,8 @@ function editProfilePage() {
     const currentStacks = useSelector((store) => store.currentStacks)
 
     const profile = useSelector(store => store.profile)
+
+    console.log(profile)
 
     const cohort = useSelector(store => store.cohort);
 
@@ -113,7 +116,6 @@ function editProfilePage() {
             type: 'FETCH_KNOWN_TECH',
         })
     }, []);
-
 
     useEffect(() => {
         dispatch({
@@ -282,6 +284,8 @@ function editProfilePage() {
             type: 'PUT_PROFILE_INFO',
             payload: profile
         })
+
+        navigate('/profile')
     }
 
     return (
@@ -333,7 +337,7 @@ function editProfilePage() {
                                                     onChange={handleFirstName}
                                                 />
                                             </div>
-                                            <div className=" mt-2 -mt-10 mb-10  ml-7">
+                                            <div className=" my-2 ml-7">
                                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Last Name</label>
                                                 <input
                                                     type="text"
@@ -362,12 +366,12 @@ function editProfilePage() {
                                             </div>
 
                                             <div className=" mt-2 mb-2 ml-7">
-                                                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Current Work</label>
+                                                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Pronouns</label>
                                                 <input
                                                     type="text"
                                                     id="default-input"
                                                     className="font-bold text-1xl flex text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row"
-                                                    value={profile.current_work}
+                                                    value={profile.pronouns}
                                                     onChange={handlePronouns}
                                                 />
                                             </div>
@@ -414,13 +418,13 @@ function editProfilePage() {
                     <div className="flex justify-evenly">
                         <div>
                             <div className=" mt-12 mb-2 ml-7">
-                                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Pronouns</label>
+                                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Position</label>
                                 <input
                                     type="text"
                                     id="default-input"
                                     className="font-bold text-1xl flex text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row"
-                                    value={profile.pronouns}
-                                    onChange={handlePronouns}
+                                    value={profile.position}
+                                    onChange={handlePosition}
                                 />
                             </div>
                             {/*----------------PRONOUNS----------------------  */}
@@ -431,13 +435,13 @@ function editProfilePage() {
 
                             {/* -------------POSITION INPUT-------------- */}
                             <div className="  mb-2">
-                                <label className="block ml-7  mb-2 text-sm font-medium text-gray-900 dark:text-black">Position</label>
+                                <label className="block ml-7  mb-2 text-sm font-medium text-gray-900 dark:text-black">Workplace</label>
                                 <input
                                     type="text"
                                     id="default-input"
                                     className="font-bold ml-7  text-1xl flex text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row"
-                                    value={profile.position}
-                                    onChange={handlePosition}
+                                    value={profile.current_work}
+                                    onChange={handleCurrentWork}
                                 />
                             </div>
                             {/* -------------POSITION INPUT-------------- */}
@@ -519,7 +523,7 @@ function editProfilePage() {
                             .<div>
                                 <div className="flex justify-center">
                                     <div className="mr-60 inline">
-                                        <label className="ml-10 block mb-2 text-sm font-medium text-gray-900 dark:text-black">Current Stack</label>
+                                        <label className="ml-10 block mb-2 text-sm font-medium text-gray-900 dark:text-black">Current Tech</label>
                                         <input
                                             type="text"
                                             id="default-input"
@@ -540,7 +544,7 @@ function editProfilePage() {
                                     </div>
 
                                     <div className=" inline">
-                                        <label className="ml-10 block mb-2 text-sm font-medium text-gray-900 dark:text-black">Known Stack</label>
+                                        <label className="ml-10 block mb-2 text-sm font-medium text-gray-900 dark:text-black">Known Tech</label>
                                         <input
                                             type="text"
                                             id="default-input"
@@ -565,9 +569,9 @@ function editProfilePage() {
 
                                 {/* --------------------------SUBMIT BUTTON--------------------- */}
 
-                                <div className=" flex justify-end mr-3">
-                                    <button onClick={sendProfileInfo} className=" justify-end  inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
-                                        <span className=" px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                <div className=" flex justify-end mt-4">
+                                    <button onClick={sendProfileInfo} className=" justify-end  inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-white bg-emerald-400 hover:bg-emerald-600 rounded-lg group bg-gradient-to-br">
+                                        <span className=" px-5 py-2.5 transition-all ease-in duration-75 text-white rounded-md group-hover:bg-opacity-0">
                                             Submit
                                         </span>
                                     </button>

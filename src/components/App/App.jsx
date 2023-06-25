@@ -17,7 +17,7 @@ import EditProfilePage from '../profilePage/EditProfilePage';
 import ProfilePage from '../profilePage/ProfilePage';
 import JobsPage from '../JobsPage/JobsPage';
 import AlumniSearchPage from '../AlumniSearchPage/AlumniSearchPage';
-
+import OtherProfilePage from '../profilePage/OtherProfilePage';
 
 import './App.css';
 
@@ -43,12 +43,14 @@ function App() {
 
         <Route
             path="/login"
-            element={user.id ? <Navigate to="/home" /> : <LoginPage />}
+            element={user.id ? <Navigate to="/alumni-search" /> : <LoginPage />}
         />
 
         <Route 
             path="/landing-page" 
-            element={user.id ? <Navigate to="/home" /> : <LandingPage />} />
+            element={user.username ? 
+                        user.id ? <Navigate to="/home" /> : <LandingPage /> :
+                        user.id ? <Navigate to="/editprofile" /> : <LandingPage />} />
 
           <Route element={<Layout />}>
 
@@ -79,14 +81,14 @@ function App() {
             }
           />
 
-          {/* <Route
-            path="/user"
+          <Route
+            path="/profile/:username"
             element={
               <ProtectedRoute user={user}>
-                <UserPage />
+                <OtherProfilePage />
               </ProtectedRoute>
             }
-          /> */}
+          />
 
 
           {/* ESTABLISH ROUTE */}

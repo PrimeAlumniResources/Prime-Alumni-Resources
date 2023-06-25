@@ -20,9 +20,6 @@ function* registerUser(action) {
 
     yield put({ type: 'LOGIN', payload: payload });
 
-    // set to 'login' mode so they see the login screen
-    // after registration or after they log out
-    yield put({ type: 'SET_TO_LOGIN_MODE' });
   } catch (error) {
     
     console.log('Error with user registration:', error);

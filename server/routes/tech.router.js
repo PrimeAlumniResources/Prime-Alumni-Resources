@@ -86,6 +86,48 @@ router.get('/known', rejectUnauthenticated, (req, res) => {
     })
 })
 
+router.get('/current/:id', rejectUnauthenticated, (req, res) => {
+    const userId = req.params.id;
+    console.log(userId);
+
+    const sqlText = `
+            
+    SELECT name FROM "current_stack"
+    WHERE user_id= $1;
+    `
+    const sqlValue = [userId]
+    console.log('this is user.id',sqlValue);
+    pool.query(sqlText, sqlValue)
+    .then((results) => {
+        console.log('this is results.rows in get current known',results.rows);
+        res.send(results.rows)
+    }).catch((error) => {
+        console.log('error in known server get route:', error);
+        res.sendStatus(500)
+    })
+})
+
+router.get('/known/:id', rejectUnauthenticated, (req, res) => {
+    const userId = req.params.id;
+    console.log(userId);
+
+    const sqlText = `
+            
+    SELECT name FROM "known_stack"
+    WHERE user_id= $1;
+    `
+    const sqlValue = [userId]
+    console.log('this is user.id',sqlValue);
+    pool.query(sqlText, sqlValue)
+    .then((results) => {
+        console.log('this is results.rows in get specific known',results.rows);
+        res.send(results.rows)
+    }).catch((error) => {
+        console.log('error in known server get route:', error);
+        res.sendStatus(500)
+    })
+})
+
 router.delete('/deletecurrent/:name', rejectUnauthenticated, (req, res) => {
     
     const name = req.params.name

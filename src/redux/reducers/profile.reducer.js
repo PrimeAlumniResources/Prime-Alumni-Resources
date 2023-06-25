@@ -31,6 +31,7 @@ const profile = ( state = {}, action) => {
         break ;
         case 'RESET_PROFILE' : return {...state, uploaded_file: ''}
         break;
+        case 'UNSET_PROFILE' : return {};
         // case 'SET_SPECIFIC_PROFILES' : return action.payload
         // case 'SET_CURRENT_STACK':  return [...state]  
         // break ;

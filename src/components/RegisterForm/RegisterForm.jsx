@@ -23,21 +23,21 @@ function RegisterForm() {
     });
   }, []);
 
-  const cohorts = useSelector((store) => store.cohort);
+  const allCohorts = useSelector((store) => store.allCohorts);
 
   /* -----------------LOGIC USED TO MAP OUT COHORTS--------------------- */
 
-  let cohortsArray = [];
+  let allCohortsArray = [];
   const [finalCohort, setFinalCohort] = useState();
   let finalCohortObject = [];
 
-  if (cohorts) {
-    for (let each of cohorts) {
-      if (cohortsArray.length === 0) {
+  if (allCohorts) {
+    for (let each of allCohorts) {
+      if (allCohortsArray.length === 0) {
         for (let cohort of each) {
           console.log(cohort.name);
   
-          cohortsArray.push(cohort.name);
+          allCohortsArray.push(cohort.name);
         }
       }
     }
@@ -47,7 +47,7 @@ function RegisterForm() {
   const handleCohort = (event) => {
     event.preventDefault();
     // console.log("hi");
-    for (let each of cohorts) {
+    for (let each of allCohorts) {
       for (let coho of each) {
         if (coho.name === cohort) {
           finalCohortObject.push(coho);
@@ -98,6 +98,7 @@ function RegisterForm() {
       },
     });
 
+    console.log('got this far');
     navigate('/editprofile');
   }; // end registerUser
 
@@ -163,7 +164,7 @@ function RegisterForm() {
         className="mt-1 mb-2 bg-transparent border-b border-gray-700 text-white text-md leading-tight focus:outline-none block w-full"
       >
         <option selected className="text-[#242424]">Choose a cohort</option>
-        {cohortsArray?.map((coho) => {
+        {allCohortsArray?.map((coho) => {
           return <option value={coho} className="text-[#242424]">{coho}</option>;
         })}
       </select>

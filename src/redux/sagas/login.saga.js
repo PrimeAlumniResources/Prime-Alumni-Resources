@@ -53,6 +53,7 @@ function* logoutUser(action) {
     // now that the session has ended on the server
     // remove the client-side user object to let
     // the client-side code know the user is logged out
+    yield put({ type: 'UNSET_PROFILE'})
     yield put({ type: 'UNSET_USER' });
   } catch (error) {
     console.log('Error with user logout:', error);

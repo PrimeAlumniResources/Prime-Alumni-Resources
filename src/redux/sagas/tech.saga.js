@@ -76,6 +76,26 @@ function* fetchKnown() {
     }
 }
 
+function* fetchSpecificKnown(action) {
+    try {
+        const results = yield axios.get(`/api/tech/known/${action.payload}`)
+        console.log('this is the results of the specific fetch known saga-->',results.data);
+        yield put ({type:'SET_SPECIFIC_KNOWN_TECH', payload: results.data})
+    } catch (error) {
+        console.log('error inside fetch tech saga-->',error);
+    }
+}
+
+function* fetchSpecificCurrent(action) {
+    try {
+        const results = yield axios.get(`/api/tech/current/${action.payload}`)
+        console.log('this is the results of the specific current known saga-->',results.data);
+        yield put ({type:'SET_SPECIFIC_CURRENT_TECH', payload: results.data})
+    } catch (error) {
+        console.log('error inside fetch tech saga-->',error);
+    }
+}
+
 export default function* techSaga () {
     yield takeLatest('DELETE_CURRENT_TECH',deleteCurrent)
     yield takeLatest('DELETE_KNOWN_TECH',deleteKnown)
@@ -83,4 +103,6 @@ export default function* techSaga () {
     yield takeLatest('UPDATE_KNOWN_TECH',postKnown)
     yield takeLatest('FETCH_CURRENT_TECH',fetchCurrent)
     yield takeLatest('FETCH_KNOWN_TECH',fetchKnown)
+    yield takeLatest('FETCH_SPECIFIC_KNOWN_TECH', fetchSpecificKnown);
+    yield takeLatest('FETCH_SPECIFIC_CURRENT_TECH', fetchSpecificCurrent);
 }

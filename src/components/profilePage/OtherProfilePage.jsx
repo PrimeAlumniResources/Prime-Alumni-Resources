@@ -1,50 +1,49 @@
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch} from "react-redux";
+import { useLocation } from "react-router-dom";
 import moment from 'moment';
 
-function ProfilePage() {
+function OtherProfilePage() {
   {
     /* --------------------------USE SELECTOR DECLARATIONS------------------------------ */
   }
   
   const dispatch = useDispatch();
+  const location = useLocation();
+  console.log(location)
+  const username_prop = location.state.username;
+  const user_id_prop = location.state.user_id;
+  
+  useEffect(() => {
+    dispatch({
+        type: 'FETCH_SPECIFIC_PROFILE',
+        payload: username_prop
+    })
+  }, [])
 
-  const KnownStack = useSelector((store) => store.KnownStack);
+  useEffect(() => {
+    dispatch({
+        type: 'FETCH_SPECIFIC_KNOWN_TECH',
+        payload: user_id_prop
+    })
+  }, [])
 
-  const currentStacks = useSelector((store) => store.currentStacks);
+  useEffect(() => {
+    dispatch({
+        type: 'FETCH_SPECIFIC_CURRENT_TECH',
+        payload: user_id_prop
+    })
+  }, [])
 
-  const profile = useSelector((store) => store.profile);
+  const profile = useSelector(store => store.specificProfile)[0];
+  const currentStacks = useSelector(store => store.specificCurrentTech);
+  const KnownStack = useSelector(store => store.specificKnownTech);
   console.log(profile);
+  console.log(currentStacks);
+  console.log(KnownStack);
 
-  const cohorts = useSelector((store) => store.cohort);
 
-  {
-    /* --------------------------USE EFFECTS FOR ALL THE NECCESSARY DATA------------------------------ */
-  }
-
-  useEffect(() => {
-    dispatch({
-      type: "FETCH_MY_COHORT",
-    });
-  }, []);
-
-  useEffect(() => {
-    dispatch({
-      type: "FETCH_PROFILE",
-    });
-  }, []);
-
-  useEffect(() => {
-    dispatch({
-      type: "FETCH_KNOWN_TECH",
-    });
-  }, []);
-
-  useEffect(() => {
-    dispatch({
-      type: "FETCH_CURRENT_TECH",
-    });
-  }, []);
+  
 
   return (
     /* --------------------------------------PROFILE CONTAINER----------------------------- */
@@ -134,15 +133,15 @@ function ProfilePage() {
             <label className="block text-sm font-medium text-gray-900 dark:text-black">
               Cohort:
             </label>
-            <h3 className="font-bold  text-1xl flex text-emerald-400 rounded-lg bg-white shadow-sm shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row " >{cohorts.name}</h3> <br />
+            <h3 className="font-bold  text-1xl flex text-emerald-400 rounded-lg bg-white shadow-sm shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row " >{profile.cohort_name}</h3> <br />
             <label className="block -mt-2 text-sm font-medium text-gray-900 dark:text-black">
               Cohort Start Date:
             </label>
-            <h5 className="font-bold  text-1xl flex text-emerald-400 rounded-lg bg-white shadow-sm shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row  ">{moment(cohorts.start_date).format('MMMM Do, YYYY')}</h5>
+            <h5 className="font-bold  text-1xl flex text-emerald-400 rounded-lg bg-white shadow-sm shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row  ">{moment(profile.cohort_start_date).format('MMMM Do, YYYY')}</h5>
             <label className="block  mt-4 text-sm font-medium text-gray-900 dark:text-black">
               Cohort End Date:
             </label>
-            <h5 className="font-bold  text-1xl flex text-emerald-400 rounded-lg bg-white shadow-sm shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row ">{moment(cohorts.end_date).format('MMMM Do, YYYY')}</h5>
+            <h5 className="font-bold  text-1xl flex text-emerald-400 rounded-lg bg-white shadow-sm shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row ">{moment(profile.cohort_end_date).format('MMMM Do, YYYY')}</h5>
 
             <br />
           </div>
@@ -207,4 +206,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default OtherProfilePage;
