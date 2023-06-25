@@ -26,7 +26,9 @@ function AlumniSearchPage() {
 
   //Redux Stores
   const profiles = useSelector((store) => store.allProfiles);
-  const campuses = useSelector((store) => store.allCampuses)
+  const campuses = useSelector((store) => store.allCampuses);
+
+  console.log(profiles)
 
   //searchChange sets the state as the input changes and then sets isSearching in order to conditionally render the ResultsContainer
   const searchChange = (event) => {
@@ -44,7 +46,7 @@ function AlumniSearchPage() {
   const filterProfiles = (type) => {
     const data = profiles.map((profile) => profile[type]);
     const preFilterData = data.filter((item) =>
-      item.toLowerCase().includes(searchInput.toLowerCase())
+      item?.toLowerCase().includes(searchInput.toLowerCase())
     );
     const filteredData = profiles.filter((profile) =>
       preFilterData.includes(profile[type])
@@ -84,8 +86,8 @@ function AlumniSearchPage() {
   }
 
   return (
-    <div className="grid grid-cols-2 place-items-center mt-12">
-      <div className="grid grid-cols-1 place-items-center">
+    <div className="grid grid-cols-2 mt-12 ">
+      <div className="flex justify-center">
         <form>
           <p className="text-center">Search</p>
           <div>
@@ -98,7 +100,7 @@ function AlumniSearchPage() {
               onChange={searchChange}
             />
           </div>
-          <div>
+          <div className="">
             <div
               className="grid grid-cols-1"
               onChange={(e) => setSearchType(e.target.value)}
@@ -126,13 +128,13 @@ function AlumniSearchPage() {
           profiles={dynamicSearch()}
         />
       ) : (
-        <div className="w-3/4">
+        <div className="w-3/4 overflow-auto">
           <p className="text-center">Browse</p>
-          <div>
+          <div className="">
             <ul>
                 {campuses.map(campus => {
                     return(
-                        <li className="underline text-center" onClick={(event) => handleBrowse(campus.name)}>{campus.name}</li>
+                        <li className="underline text-center" key={campus.id} onClick={(event) => handleBrowse(campus.name)}>{campus.name}</li>
                     )
                 })}
             </ul>

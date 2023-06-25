@@ -49,7 +49,7 @@ router.put('/', rejectUnauthenticated, (req,res) => {
 })
 
 router.get('/all', rejectUnauthenticated, (req, res) => {
-    const sqlText = `SELECT "user".id, first_name || ' ' || last_name as profile_name, pronouns, 
+    const sqlText = `SELECT "user".id, username, first_name || ' ' || last_name as profile_name, pronouns, 
     position, current_work as company, cohort.name as cohort_name, campus.name as campus_name
     FROM "user" 
     JOIN "cohort" on cohort.id="user".cohort_id 
@@ -83,6 +83,24 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         res.sendStatus(500)
     })
 })
+
+router.get('/:username', rejectUnauthenticated, (req, res) => {
+    const username = req.params.username;
+    console.log(username)
+    const sqlText = `SELECT username, first_name, last_name, pronouns, bio, current_work, position, "user".start_date, portfolio_url, github, linked_in, uploaded_file, cohort.name as cohort_name, cohort.start_date as cohort_start_date, cohort.end_date as cohort_end_date  FROM "user" 
+                        JOIN cohort ON "user".cohort_id=cohort.id
+                        WHERE username = $1;`
+
+    const sqlValues = [username];
+
+    pool.query(sqlText, sqlValues)
+    .then((results) => {
+        res.send(results.rows);
+    })
+    .catch((error) => {
+        console.log('error in specific profile get route', error)
+    })
+});
 
 // router.get('/specific',  (req, res) => {
 //     console.log('this is req.body-->',req.body.username);

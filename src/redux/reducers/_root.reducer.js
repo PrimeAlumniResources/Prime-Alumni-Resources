@@ -11,6 +11,10 @@ import resourceTags from './resourceTags.reducer';
 import allProfiles from './allProfiles.reducer';
 import allCampuses from './allCampuses.reducer';
 import jobs from './jobs.reducer';
+import allCohorts from './allCohorts.reducer';
+import specificProfile from './specificProfile.reducer';
+import specificCurrentTech from './specificCurrentTech.reducer';
+import specificKnownTech from './specificKnownTech.reducer';
 // import allPics from './allPics.reducer';
 
 
@@ -24,7 +28,8 @@ import jobs from './jobs.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user,
-  profile, // will have an id and email if someone is logged in
+  profile,
+  specificProfile, 
   resources,
   resourceTags,
   currentStacks,
@@ -33,7 +38,10 @@ const rootReducer = combineReducers({
   KnownStack,
   allProfiles,
   allCampuses,
-  jobs
+  allCohorts,
+  jobs,
+  specificCurrentTech,
+  specificKnownTech
   // allPics
 });
 

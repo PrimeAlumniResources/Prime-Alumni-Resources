@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import ChatMessage from "./ChatMessage";
 import { useSelector } from "react-redux";
@@ -19,12 +20,13 @@ import { useDispatch} from "react-redux";
 
 function ChatPage() {
 
-  const dispatch =useDispatch()
+  const dispatch = useDispatch()
 
   const [messages, setMessages] = useState([]);
   const [messageInput, setMessageInput] = useState([]);
 
   const user = useSelector(store => store.user);
+  const profile = useSelector(store => store.profile)
   const fb_user = auth.currentUser;
 
   const fetchMessages = async () => {
@@ -38,13 +40,6 @@ function ChatPage() {
       }))
       setMessages(newData);
       console.log(messages);
-      // for (let each of messages) {
-      //   console.log(each.username);
-      // dispatch({
-      //   type: "FETCH_SPECIFIC_PROFILE",
-      //   payload:{
-      //     username:each.username}
-      // });}
     })
   };
 
@@ -55,7 +50,7 @@ function ChatPage() {
       message: messageInput,
       timestamp: serverTimestamp(),
       uid: fb_user.uid,
-      username: user.username
+      username: profile.username
     });
 
     setMessageInput('')
@@ -63,12 +58,14 @@ function ChatPage() {
   }
 
   useEffect(() => {
-    fetchMessages();
+    dispatch({ type: 'FETCH_PROFILE' });
   }, []);
 
   useEffect(() => {
-  
+    fetchMessages();
   }, []);
+
+
 
   return (
     <div className=" bg-gray-50 pt-10 h-screen ">
@@ -78,7 +75,7 @@ function ChatPage() {
           <ChatMessage key={msg.id} message={msg} />)}
       </div>
 
-      <form className="mt-10">
+      <form className="mt-10" onSubmit={postMessage}>
         <label for="chat" className=" sr-only">
           Your message
         </label>
@@ -95,7 +92,7 @@ function ChatPage() {
           <button
             type="submit"
             className="inline-flex justify-center p-2 text-emerald-300 rounded-full cursor-pointer hover:bg-emerald-300 dark:text-emerald-300 "
-            onClick={postMessage}
+            
           >
             <svg
               aria-hidden="true"
