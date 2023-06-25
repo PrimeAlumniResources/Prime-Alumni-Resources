@@ -11,7 +11,7 @@ function LandingPageHeader() {
           backgroundRepeat: "no-repeat",
           }}>
             <div className='landing-title text-xl text-[#8a8a8a] flex justify-center text-white mt-16 mx-auto'>
-              Alumni Resources
+              Alumni Database
             </div>
         </div>
     )

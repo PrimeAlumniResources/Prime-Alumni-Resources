@@ -104,8 +104,8 @@ function RegisterForm() {
   // "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 
   return (
-    <form className="formPanel text-white w-fit pr-8 pl-8 pb-8 mt-28" onSubmit={handleCohort}>
-      <h2 className="text-center font-bold">Register</h2>
+    <form className="formPanel text-white w-fit pr-8 pl-8 pb-8 mt-40" onSubmit={handleCohort}>
+      {/* <h2 className="text-center font-bold">Register</h2> */}
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
           {errors.registrationMessage}
