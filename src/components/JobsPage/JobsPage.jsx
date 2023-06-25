@@ -83,9 +83,9 @@ export default function JobsPage() {
 
             <button 
             onClick={toggleModal}
-            className='add-btn'
+            className='add-btn pb-1 pt-1 pl-2 pr-2 rounded-md hover:bg-gray-200'
             >
-              Add Jobs
+              Add Jobs +
             </button>
 
           </div>
