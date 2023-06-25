@@ -42,7 +42,7 @@ function LoginForm() {
 
   return (
     <form className="formPanelborder-0 text-white w-fit pr-8 pl-8 pb-8 mt-20" onSubmit={login}>
-      <h2 className="text-center font-bold">Login User</h2>
+      <h2 className="text-center font-bold">Login</h2>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}

@@ -6,6 +6,7 @@ import './LandingPage.css';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import LoginForm from '../LoginForm/LoginForm';
 import LandingPageHeader from './LandingPageHeader';
+import Quotes from './Quotes';
 
 // Font link: <link rel="preconnect" href="https://fonts.googleapis.com">
 // <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +32,7 @@ function LandingPage() {
 
   const display = () => {
     if (theTruth === undefined) {
-      return (null);
+      return (<Quotes/>);
     } else if (theTruth === true) {
       return <LoginForm/>
     } else if (theTruth === false) {
@@ -54,17 +55,16 @@ function LandingPage() {
       
           <div className="left-side">  
 
-            {display()}
-              <div className="grid border-0 place-items-center mb-12 px-5 py-5">
+              <div className="grid place-items-center mb-36 px-5">
 
-                {/* <h4 className="par font-900 mt-3">Prime Alumni Resources</h4> */}
+                {display()}
 
-                <div className="space-x-5 place-items-center mt-2">
+                <div className="top-10 space-x-5 place-items-center">
                   <button className="hover:underline" onClick={isTrue}>
-                    Sign in
+                    Login
                   </button>
                   <button className="bg-[#07877e] rounded-lg pl-5 pr-5 pt-2 pb-2 hover:underline" onClick={isFalse}>
-                    Sign up
+                    Register
                   </button>
                 </div>
                 
