@@ -30,8 +30,8 @@ body.active-modal {
   background: #f1f1f1;
   padding: 14px 28px;
   border-radius: 3px;
-  max-width: 600px;
-  min-width: 300px;
+  max-height: 300px;
+  max-width: 300px;
 }
 
 .modal-title {
@@ -109,5 +109,15 @@ body.active-modal {
 }
 
 .add-job-btn {
-  box-shadow: ;
+  box-shadow: -3px 3px 5px rgba(0, 0, 0, .4);
+}
+.add-job-btn:hover {
+  box-shadow: -3px 3px 5px rgba(0, 0, 0, .4);
+}
+.add-job-btn:active {
+  margin-top: 3px;
+  margin-right: 3px;
+  color: white;
+  box-shadow: none;
+  background-color: rgba(128, 128, 128, 0.9)
 }

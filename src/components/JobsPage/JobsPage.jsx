@@ -64,8 +64,6 @@ export default function JobsPage() {
     // console.log('it;s working'); WORKS
   }
 
-
-
   return (
     <div className='job-page-container bg-gray-50'>
       <div>
@@ -140,10 +138,10 @@ export default function JobsPage() {
                     onChange={event => setLinkInput(event.target.value)} />
                   </div>
                 
-                <div className='flex justify-center mt-4'>
+                <div className='flex justify-center mt-4 mb-4'>
                   <button
                     onClick={handleClick}
-                    className='add-job-btn h-10 w-14 rounded-md shadow-md bg-gray-200 hover:shadow-md hover:text-gray-200 hover:bg-gray-600 cursor-pointer'>
+                    className='add-job-btn h-10 w-14 rounded-md shadow-lg 10px 10px 10px -15px rgba(0, 0, 0, 0.1) bg-gray-200 hover:text-gray-200 hover:bg-gray-500 cursor-pointer'>
                     Add
                   </button>
                 </div>
