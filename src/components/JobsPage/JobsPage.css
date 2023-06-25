@@ -14,7 +14,7 @@ body.active-modal {
 }
 
 .modal {
-  z-index: 1;
+  z-index: 200;
 }
 
 .overlay {
@@ -49,14 +49,16 @@ body.active-modal {
   padding: 5px 7px;
 }
 
-.job-page-container {
+/* .job-page-container {
   background-color: rgb(244, 244, 244);
-}
+} */
 
 .top-container {
   background-color: white;
   width: 100%;
-  border-bottom: 1px solid rgb(183, 183, 183);
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .search-bar {
@@ -88,10 +90,13 @@ body.active-modal {
   margin-right: 1%;
   width: 150px;
   height: 49vh;
-  border: 1px rgb(183, 183, 183) solid;
+  /* border: 1px rgb(183, 183, 183) solid; */
   border-radius: 10px;
   text-align: center;
   background-color: white;
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .filter-options {
@@ -101,4 +106,8 @@ body.active-modal {
   border: 1px solid #dbdbdb;
   text-transform: capitalize;
   color: #242424;
+}
+
+.add-job-btn {
+  box-shadow: ;
 }

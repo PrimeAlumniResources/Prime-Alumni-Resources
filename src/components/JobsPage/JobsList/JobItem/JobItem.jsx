@@ -41,7 +41,6 @@ export default function JobItem({ job }) {
       </div>
 
       <div className='job-post-right'>
-        (Save Icon?)
       </div>
 
     </div>
