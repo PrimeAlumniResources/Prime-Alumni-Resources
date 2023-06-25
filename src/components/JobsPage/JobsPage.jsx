@@ -163,7 +163,7 @@ export default function JobsPage() {
             <div className='mt-3 mb-3 font-bold'>Tags</div>
 
             <div className='mb-4'>
-              <button className='filter-options' onClick={() => setSelectedTag('')}>All</button>
+              <button className='filter-options' onClick={() => setSelectedTag('')}>Show All</button>
             </div>
             <div className='mb-4'>
               <button className='filter-options' onClick={() => setSelectedTag('Software Engineer')}>Software Engineer</button>
