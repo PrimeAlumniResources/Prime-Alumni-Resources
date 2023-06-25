@@ -1,12 +1,9 @@
-
 .aside {
     float: right;
     height: 100%;
     width: 20%;
     background-color: gray;
 }
-
-
 
 .resources:hover {
     opacity: 0.5;
