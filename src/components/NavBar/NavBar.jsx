@@ -23,7 +23,7 @@ function NavBar() {
               <li>
               <NavLink
               to="/home"
-              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-emerald-200 dark:hover:bg-emerald-200"
             >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ function NavBar() {
             <li>
               <NavLink
                 to="/profile"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-emerald-200 dark:hover:bg-emerald-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -65,16 +65,16 @@ function NavBar() {
                 </svg>
 
                 <span className="flex-1 ml-3 whitespace-nowrap">Profile</span>
-                <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300"></span>
+                <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full hover:bg-emerald-200 dark:hover:bg-emerald-200"></span>
               </NavLink>
             </li>
 
             <li>
               <NavLink
                 to="/editprofile"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-emerald-200 dark:hover:bg-emerald-200"
               >
-                <svg
+                {/* <svg
                   aria-hidden="true"
                   className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                   fill="currentColor"
@@ -87,7 +87,8 @@ function NavBar() {
                     d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
                     clip-rule="evenodd"
                   ></path>
-                </svg>
+                </svg> */} 
+                <img className="w-6 h-6 ml-1" src="https://i.ibb.co/G09Rt9c/edit-2.png" alt="edit-2" border="0"/>
 
                 <span className="flex-1 ml-3 whitespace-nowrap">
                   Edit Profile
@@ -99,7 +100,7 @@ function NavBar() {
             <li>
               <NavLink
                 to="/resource"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-emerald-200 dark:hover:bg-emerald-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +130,7 @@ function NavBar() {
               <NavLink to="/jobs">
                 <a
                   href="#"
-                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-emerald-200 dark:hover:bg-emerald-200"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +156,7 @@ function NavBar() {
               <NavLink
                 to="alumni-search"
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-emerald-200 dark:hover:bg-emerald-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +181,7 @@ function NavBar() {
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-emerald-200 dark:hover:bg-emerald-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -208,7 +209,7 @@ function NavBar() {
             <li onClick={() => dispatch({ type: "LOGOUT" })}>
               <a
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-emerald-200 dark:hover:bg-emerald-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

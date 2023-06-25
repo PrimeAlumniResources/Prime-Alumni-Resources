@@ -6,14 +6,7 @@
     background-color: gray;
 }
 
-.resources {
-    margin: 20px;
-    background-color: bisque;
-    padding: 10px;
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width: 75%;
-}
+
 
 .resources:hover {
     opacity: 0.5;
@@ -40,4 +33,11 @@
 
 .filter-options:hover {
     opacity: 0.5;
+}
+
+.formControl {
+    background-color: white;
+    box-shadow: #64ffda;
+    
+
 }

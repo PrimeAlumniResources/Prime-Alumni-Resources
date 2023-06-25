@@ -6,9 +6,11 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { useSelector, useDispatch } from 'react-redux';
+import { teal, cyan } from '@mui/material/colors';
 
 function ResourcesPage() {
-
+    const primary = teal['A200']; 
+   
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -46,32 +48,15 @@ function ResourcesPage() {
     };
 
     return (
-        <div>
-
-            <center className="">
-                <h1>Welcome to all resources!</h1>
-                <aside className='aside'>
-                    
-                    <div className='resource-tag-container fixed'>
-                        <div className='mt-3 mb-3 font-bold'>Tags</div>
-
-                        <div className='mb-4'>
-                            <button onClick={() => { setFilter('') }} className='filter-options'>Show All</button>
-                        </div>
-
-                        {
-                            resourcesTags.map(tag => {
-                                return (
-                                    <div key={tag.id} className='mb-4'>
-                                        <button onClick={(e) => tagFilter(e)} className='filter-options'>{tag.tag}</button>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                </aside>
-            </center>
-            <Button onClick={handleOpen}>ADD RESOURCE +</Button>
+        <div >
+          
+            <div className='ml-7 mt-4'>
+            <Button sx={{color: primary}}  onClick={handleOpen}>ADD RESOURCE +</Button>
+            </div>
+            <div className='flex'>
+           
+            <div className='w-8/12 '>
+          
             {
                 resources.map(resource => {
                     if (filter === resource.tag) {
@@ -91,6 +76,33 @@ function ResourcesPage() {
                     <AddResource handleClose={handleClose} />
                 </Box>
             </Modal>
+            </div>
+            <div className=' w-3/12 ml-4 shadow-2xl opacity-90 shadow-emerald-100  mt-3  flex-col items-center pb-10  p-4  mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-white dark:text-green-400'>
+            <center >
+                
+                <aside >
+                    
+                    <div >
+                        <div className='mt-3 mb-3 font-bold'>Tags</div>
+
+                        <div >
+                            <button onClick={() => { setFilter('') }} className=' w-fit ml-4 shadow-2xl opacity-90 shadow-emerald-100  mt-3  flex-col items-center   p-4  mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-white dark:text-green-400'>Show All</button>
+                        </div>
+
+                        {
+                            resourcesTags.map(tag => {
+                                return (
+                                    <div key={tag.id} className='mb-4'>
+                                        <button onClick={(e) => tagFilter(e)} className='w-fit ml-4 shadow-2xl opacity-90 shadow-emerald-100  mt-3  flex-col items-center   p-4  mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-white dark:text-green-400'>{tag.tag}</button>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </aside>
+            </center>
+            </div>
+            </div>
         </div>
     )
 }
