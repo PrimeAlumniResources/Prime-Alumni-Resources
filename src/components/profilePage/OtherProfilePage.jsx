@@ -10,10 +10,16 @@ function OtherProfilePage() {
   
   const dispatch = useDispatch();
   const location = useLocation();
-  console.log(location)
   const username_prop = location.state.username;
   const user_id_prop = location.state.user_id;
   
+  const profile = useSelector(store => store.specificProfile);
+  const currentStacks = useSelector(store => store.specificCurrentTech);
+  const KnownStack = useSelector(store => store.specificKnownTech);
+  console.log(profile);
+  console.log(currentStacks);
+  console.log(KnownStack);
+
   useEffect(() => {
     dispatch({
         type: 'FETCH_SPECIFIC_PROFILE',
@@ -35,19 +41,14 @@ function OtherProfilePage() {
     })
   }, [])
 
-  const profile = useSelector(store => store.specificProfile)[0];
-  const currentStacks = useSelector(store => store.specificCurrentTech);
-  const KnownStack = useSelector(store => store.specificKnownTech);
-  console.log(profile);
-  console.log(currentStacks);
-  console.log(KnownStack);
+
 
 
   
 
   return (
     /* --------------------------------------PROFILE CONTAINER----------------------------- */
-
+   
     <div className=" bg-gray-50 shadow-sm shadow-emerald-100 text-base pt-10 sm:text-5 md:text-md lg:text-md ">
       {/* --------------------------------------PROFILE IMAGE + FIRST & LAST CONTAINER----------------------------- */}
 
@@ -70,7 +71,7 @@ function OtherProfilePage() {
               alt=""
             />
          
-          <h2 class="ml-5 mt-1 font-bold text-emerald-500 text-2xl">{profile.first_name} {profile.last_name}</h2>
+          <h2 class="ml-5 mt-1 font-bold text-emerald-500 text-2xl">{profile?.first_name} {profile?.last_name}</h2>
          
 
         </div>

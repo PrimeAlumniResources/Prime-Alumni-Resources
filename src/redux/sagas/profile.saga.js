@@ -61,8 +61,6 @@ function* fetchSpecificProfile(action) {
 // }
 
 export default function* profileSaga () {
-    // yield takeLatest('POST_PROFILE', postProfile) <----- MOST LIKELY DELETING
-    // yield takeLatest('FETCH_SPECIFIC_PROFILE',fetchSpecific)
     yield takeLatest('FETCH_PROFILE', fetchProfile)
     yield takeLatest('FETCH_ALL_PROFILES', fetchAllProfiles)
     yield takeLatest('PUT_PROFILE_INFO', updateProfile )
