@@ -9,7 +9,15 @@ function NavBar() {
   const toProfile = () => {
     return navigate("/profile");
   };
-  
+
+  const handleLogout = () => {
+    dispatch({
+      type: "LOGOUT",
+    });
+
+    return navigate("/landing-page");
+  };
+
   return (
     <>
       <aside
@@ -19,30 +27,29 @@ function NavBar() {
       >
         <div className=" h-full px-3 py-4 overflow-y-auto  bg-emerald-300">
           <ul className="space-y-2 font-medium">
-            
-              <li>
+            <li>
               <NavLink
-              to="/home"
-              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-emerald-200 dark:hover:bg-emerald-200"
-            >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-                    />
-                  </svg>
+                to="/home"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-emerald-200 dark:hover:bg-emerald-200"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"
+                  />
+                </svg>
 
-                  <span className="ml-3">Home</span>
-                </NavLink>
-              </li>
+                <span className="ml-3">Chat</span>
+              </NavLink>
+            </li>
 
             <li>
               <NavLink
@@ -87,8 +94,13 @@ function NavBar() {
                     d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
                     clip-rule="evenodd"
                   ></path>
-                </svg> */} 
-                <img className="w-6 h-6 ml-1" src="https://i.ibb.co/G09Rt9c/edit-2.png" alt="edit-2" border="0"/>
+                </svg> */}
+                <img
+                  className="w-6 h-6 ml-1"
+                  src="https://i.ibb.co/G09Rt9c/edit-2.png"
+                  alt="edit-2"
+                  border="0"
+                />
 
                 <span className="flex-1 ml-3 whitespace-nowrap">
                   Edit Profile
@@ -178,7 +190,7 @@ function NavBar() {
                 </span>
               </NavLink>
             </li>
-            
+
             <li onClick={() => dispatch({ type: "LOGOUT" })}>
               <a
                 href="#"
@@ -199,7 +211,12 @@ function NavBar() {
                   />
                 </svg>
 
-                <span className="flex-1 ml-3 whitespace-nowrap" onClick={() => dispatch({ type: 'LOGOUT' })}>Log Out</span>
+                <span
+                  className="flex-1 ml-3 whitespace-nowrap"
+                  onClick={handleLogout}
+                >
+                  Log Out
+                </span>
               </a>
             </li>
           </ul>

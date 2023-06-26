@@ -66,7 +66,7 @@ function OtherProfilePage() {
           
             <img
               className=" mt-5 mr-5 w-24 h-24 mb-3 rounded-lg shadow-lg object-cover ml-5 w-48 h-48  max-w-4 sm:max-w-sm md:max-w-64 lg:max-w-64 xl:max-w-64 2xl:max-w-64"
-              src={profile.uploaded_file}
+              src={profile?.uploaded_file}
               alt=""
             />
          

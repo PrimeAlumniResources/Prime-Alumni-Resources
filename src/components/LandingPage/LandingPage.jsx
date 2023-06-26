@@ -29,6 +29,7 @@ function LandingPage() {
     setTheTruth(false);
     display(); 
   }
+  
 
   const display = () => {
     if (theTruth === undefined) {
