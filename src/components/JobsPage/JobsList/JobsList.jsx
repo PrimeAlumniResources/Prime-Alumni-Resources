@@ -25,7 +25,7 @@ export default function JobsList({ selectedTag, search }) {
   });
 
   return (
-    <div className="job-posts-container">
+    <div className="job-posts-container ">
       {filteredJobs.map((job) => (
         <JobItem key={job.id} job={job} />
       ))}

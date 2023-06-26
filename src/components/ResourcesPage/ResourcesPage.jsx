@@ -49,7 +49,7 @@ function ResourcesPage() {
     };
 
     return (
-        <div className='bg-gray-50' >
+        <div className='bg-gray-50 h-screen pt-5' >
           
             <div className='ml-7 mt-4'>
             <Button sx={{
