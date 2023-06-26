@@ -52,7 +52,7 @@ function editProfilePage() {
     const user = useSelector((store) => store.user);
 
     const s3 = new AWS.S3();
-
+    const [doneUpload, setDoneUpload] = useState('')
     const [uploadedImageUrl, setUploadedImageUrl] = useState('');
 
     {/* --------------FUNCTION USED TO RETRIEVE FILE UPLOADED ON IMAGE INPUT--------------------- */ }
@@ -80,10 +80,12 @@ function editProfilePage() {
                 console.log('Image uploaded successfully.', data.Location);
 
             }
-            refreshImage()
+            if (uploadedImageUrl!=""){
+                refreshImage()
+            } 
 
         });
-
+      
     };
 
     {/* --------------------------USE EFFECTS FOR NECCESARY DATA--------------------- */ }
@@ -97,9 +99,14 @@ function editProfilePage() {
 
     useEffect(() => {
         console.log('changed', uploadedImageUrl);
-
-
+        dispatch({
+            type: 'MODIFY_UPLOADED_FILE',
+            payload: uploadedImageUrl
+        })
+       
     }, [uploadedImageUrl]);
+
+  
 
 
 

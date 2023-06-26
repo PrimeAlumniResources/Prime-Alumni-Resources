@@ -14,7 +14,7 @@ export default function JobItem({ job }) {
   const formattedDate = `${timestamp.getMonth() + 1}-${timestamp.getDate()}-${timestamp.getFullYear()}`; // Format the date
 
   return (
-    <div className="job-post-container">
+    <div className="job-post-container ">
 
       <div className='job-post-left'>
         <img className='w-20 mt-5 ml-5' src={building} alt="" />
