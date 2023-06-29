@@ -15,7 +15,7 @@ function NavBar() {
       type: "LOGOUT",
     });
 
-    return navigate("/landing-page");
+    // return navigate("/landing-page");
   };
 
   return (

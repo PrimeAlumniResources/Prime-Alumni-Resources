@@ -23,7 +23,7 @@ function ChatPage() {
   const dispatch = useDispatch()
 
   const [messages, setMessages] = useState([]);
-  const [messageInput, setMessageInput] = useState([]);
+  const [messageInput, setMessageInput] = useState(['Hi Elijah, sounds like an amazing opportunity!']);
 
   const user = useSelector(store => store.user);
   const profile = useSelector(store => store.profile)
@@ -69,7 +69,7 @@ function ChatPage() {
 
   return (
     <div className=" bg-gray-50 pt-10 h-screen ">
-      <div className=" h-3/4 w-10/12  ml-16 border border-gray-200 rounded-lg shadow shadow-2xl opacity-90 shadow-emerald-100 bg-white pt-10 overflow-auto">
+      <div className=" h-3/4 w-10/12  ml-16 border border-gray-200 rounded-lg shadow shadow-2xl opacity-90 shadow-emerald-100 bg-emerald-100 pt-10 overflow-auto">
         {messages && messages.map((msg) =>
 
           <ChatMessage key={msg.id} message={msg} />)}
@@ -84,7 +84,7 @@ function ChatPage() {
           <textarea
             id="chat"
             rows="1"
-            className=" shadow-1xl opacity-90 shadow-emerald-200 bg-white block m-2 p-2.5 w-full text-sm focus:ring-emerald-300 text-emerald-400 focus:border-emerald-300 bg-white rounded-lg   focus:ring-emerald-400   dark:placeholder-gray-400 dark:focus:border-emerald-500 dark:focus:ring-emerald-300 dark:text-emerald-300 "
+            className=" shadow-1xl opacity-90 shadow-emerald-200 block m-2 p-2.5 w-full text-sm focus:ring-emerald-300 text-emerald-700 focus:border-emerald-300 bg-white rounded-lg   focus:ring-emerald-400   dark:placeholder-gray-400 dark:focus:border-emerald-500 dark:focus:ring-emerald-300 dark:text-emerald-700 "
             placeholder="Your message..."
             value={messageInput}
             onChange={(event) => setMessageInput(event.target.value)}
