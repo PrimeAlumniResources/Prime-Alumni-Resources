@@ -5,18 +5,24 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+// This component is what gets rendered inside the modal from the ResourcePage
 
 function AddResource(props) {
 
+    // Here we get all the resource tags from the redux store to used in material ui's
+    // Select component 
     const resourcesTags = useSelector(store => store.resourceTags);
 
     const dispatch = useDispatch()
 
+    // The following 5 useState variables are uses for the data entered in its respective input fields
     const [title, setTitle] = useState('')
     const [link, setLink] = useState('')
     const [description, setDescription] = useState('')
     const [tag, setTag] = useState('')
     const [newTag, setNewTag] = useState('')
+
+    // dataPackage takes all the values in all inputs to be sent to the server
     const dataPackage = {
         title: title,
         link: link,
@@ -25,10 +31,14 @@ function AddResource(props) {
         newTag: newTag
     }
 
+    // handleChange is used for the Select component to change the state of tag to what the user select
+    // from the menu options
     const handleChange = (event) => {
         setTag(event.target.value);
     };
 
+    // This is the function responsible for sending the dataPackage to the server and closing the modal
+    // upon submission
     const saveResource = () => {
         dispatch({
             type: 'SAGA/ADD_RESOURCE',
@@ -125,6 +135,7 @@ function AddResource(props) {
 
                                             </Select>
                                         </FormControl>
+                                        {/* this input field renders if user selects 'other' from menu option */}
                                         {
                                             tag === 'other' &&
                                             <div className="col-span-full">
