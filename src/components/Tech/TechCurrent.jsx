@@ -26,7 +26,7 @@ function TechCurrent (props) {
 
         /* --------------------CURRENT LANGUAGES CONTAINER--------------------- */
 
-        <div key={stack.id} id="alert-3" className="flex text-center text-emerald-600 item-center justify-center  pt-1 pb-1 mt-4 mb-4 w-36 ml-4   rounded-lg bg-white shadow-sm shadow-emerald-100 dark:text-emerald-600" role="alert">
+        <div key={stack.id} id="alert-3" className="flex text-center text-emerald-400 item-center justify-center  pt-1 pb-1 mt-4 mb-4 w-36 ml-4   rounded-lg bg-white shadow-sm shadow-emerald-100 dark:text-emerald-400" role="alert">
 
          {/* --------------------CURRENT LANGUAGES NAME--------------------- */}
 
@@ -44,5 +44,11 @@ function TechCurrent (props) {
     </div>
     )
 }
+
+/**
+* This file acts as the component for current techs 
+* @author LuckieBah
+*  6/28/2023
+*/
 
 export default TechCurrent;

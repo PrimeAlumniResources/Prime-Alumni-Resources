@@ -304,25 +304,20 @@ function editProfilePage() {
                             <div
 
                                 target="_blank"
-                                className="bg-white flex items-center justify-center h-fit ml-10 flex-col w-11/12 -mt-6   rounded-lg md:flex-row "
+                                className="bg-zinc-100 flex items-center justify-center h-fit ml-10 flex-col w-11/12 -mt-6   rounded-lg md:flex-row "
                             >
-                                {/* <img
-          className="object-cover ml-5 w-48 rounded-t-lg h-48  md:rounded-none md:rounded-l-lg max-w-4 sm:max-w-sm md:max-w-64 lg:max-w-64 xl:max-w-64 2xl:max-w-64"
-          src={profile.uploaded_file}
-          alt=""
-        /> */}
-
+                                    {/*----------------IMAGE UPLOAD----------------------  */}
                                 <div class="shadow-2xl -ml-48 opacity-90 shadow-emerald-100  mt-10 flex flex-col items-center pb-5 flex p-4 mt-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-white dark:text-green-400">
 
                                     <div {...getRootProps()} className=" -mt-2 mr-4">
                                         {displayImage()}
                                     </div>
 
-
+                                 
 
 
                                 </div>
-
+                                    {/*----------------IMAGE UPLOAD----------------------  */}
 
 
                                 {/* --------------------------------------CONTAINER FOR SOCIALS + USERNAME------------------------------ */}
@@ -371,7 +366,9 @@ function editProfilePage() {
                                                     placeholder={profile.username}
                                                 />
                                             </div>
+                                              {/*----------------USER NAME----------------------  */}
 
+                                                {/*----------------Pronouns----------------------  */}
                                             <div className=" mt-2 mb-2 ml-7">
                                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Pronouns</label>
                                                 <input
@@ -382,43 +379,19 @@ function editProfilePage() {
                                                     onChange={handlePronouns}
                                                 />
                                             </div>
-
+                                            {/*----------------Pronouns----------------------  */}
 
                                         </div>
-                                        {/* --------------------------------------CONTAINER FOR WORK INFO------------------------------ */}
 
-
-
-                                        {/* --------------------------------------CONTAINER FOR COHORT INFO + PORTFOLIO------------------------------ */}
 
 
                                     </div>
                                 </div>
 
-                                {/*----------------USER NAME----------------------  */}
-
-                                {/*----------------FIRST NAME----------------------  */}
-
-                                {/*----------------FIRST NAME----------------------  */}
-
-
-                                {/*----------------LAST NAME----------------------  */}
-
-                                {/*----------------LAST NAME----------------------  */}
-
                             </div>
                         </div>
 
-                        {/*----------------BIO----------------------  */}
-
-                        {/*----------------BIO----------------------  */}
-
-                        {/*----------------IMAGE----------------------  */}
-                        {/* <img src={URL.createObjectURL(uploadedFile)} alt="" /> */}
-
-
-                        {/*----------------IMAGE----------------------  */}
-
+                     
                     </div>
 
                     {   /*----------------PRONOUNS----------------------  */}
@@ -453,6 +426,7 @@ function editProfilePage() {
                             </div>
                             {/* -------------POSITION INPUT-------------- */}
 
+
                             {/* -------------START DATE INPUT-------------- */}
                             <div className=" mr-5 relative  date-rangepicke datepicker-format=mm/dd/yyyy ">
 
@@ -485,7 +459,7 @@ function editProfilePage() {
                                 value={profile.linked_in}
                                 onChange={handleLinkedIn}
                             />
-
+                             {/*----------------SOCIAl STACK----------------------  */}
 
 
                             {/* -------------GITHUB INPUT-------------- */}
@@ -529,6 +503,9 @@ function editProfilePage() {
                             ></textarea>
                             .<div>
                                 <div className="flex justify-center">
+
+                                    {/*----------------CURRENT STACK----------------------  */}
+                                    
                                     <div className="mr-60 inline">
                                         <label className="ml-10 block mb-2 text-sm font-medium text-gray-900 dark:text-black">Current Tech</label>
                                         <input
@@ -549,6 +526,11 @@ function editProfilePage() {
                                             })
                                         }
                                     </div>
+
+                                            {/*----------------CURRENT STACK----------------------  */}
+
+
+                                        {/*----------------KNOWN STACK----------------------  */}
 
                                     <div className=" inline">
                                         <label className="ml-10 block mb-2 text-sm font-medium text-gray-900 dark:text-black">Known Tech</label>
@@ -572,6 +554,7 @@ function editProfilePage() {
                                         }
                                     </div>
 
+                                        {/*----------------KNOWN STACK----------------------  */}
                                 </div>
 
                                 {/* --------------------------SUBMIT BUTTON--------------------- */}
@@ -598,6 +581,12 @@ function editProfilePage() {
 
     )
 }
+
+/**
+* This file acts as the edit profile page
+* @author LuckieBah
+*  6/28/2023
+*/
 
 export default editProfilePage;
 
