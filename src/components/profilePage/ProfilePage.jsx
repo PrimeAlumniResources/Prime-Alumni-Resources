@@ -55,13 +55,8 @@ function ProfilePage() {
       <div
        
         target="_blank"
-        className="bg-white flex items-center justify-center h-fit ml-10 flex-col w-11/12 -mt-6   rounded-lg md:flex-row "
+        className="bg-zinc-100 flex items-center justify-center h-fit ml-10 flex-col w-11/12 -mt-6   rounded-lg md:flex-row "
       >
-        {/* <img
-          className="object-cover ml-5 w-48 rounded-t-lg h-48  md:rounded-none md:rounded-l-lg max-w-4 sm:max-w-sm md:max-w-64 lg:max-w-64 xl:max-w-64 2xl:max-w-64"
-          src={profile.uploaded_file}
-          alt=""
-        /> */}
 
         <div class="shadow-2xl opacity-90 shadow-emerald-100  mt-10 flex flex-col items-center pb-10 flex p-4 mt-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-white dark:text-green-400">
           
@@ -79,7 +74,7 @@ function ProfilePage() {
 
 
         {/* --------------------------------------CONTAINER FOR SOCIALS + USERNAME------------------------------ */}
-
+        
         <div className=" md:flex-row  justify-evenly w-fit h-fit flex ">
 
           {/* --------------------------------------CONTAINER FOR USER INFO------------------------------ */}
@@ -150,7 +145,8 @@ function ProfilePage() {
       </div>
 
       {/* --------------------------------------CONTAINER FOR PROFILE BIO------------------------------ */}
-      <h3 className="mt-3 ml-20 text-left mb-1 text-emerald-400 text-xl ">Biography</h3>
+      
+      <h3 className="mt-5 ml-20 text-left mb-1 text-emerald-300 text-xl ">Biography</h3>
       
       <div className=" ml-20 bg-white shadow-2xl shadow-emerald-100 flex items-center justify-center h-fit  flex-col w-10/12 rounded-lg shadow md:flex-row flex text-emerald-500 rounded-lg  flex items-center justify-center h-fit  flex-col  p-2 rounded-lg shadow md:flex-row ">
         
@@ -206,5 +202,11 @@ function ProfilePage() {
     </div>
   );
 }
+
+/**
+* This file acts as the profile page
+* @author LuckieBah
+*  6/28/2023
+*/
 
 export default ProfilePage;

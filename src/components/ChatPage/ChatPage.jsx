@@ -69,7 +69,7 @@ function ChatPage() {
 
   return (
     <div className=" bg-gray-50 pt-10 h-screen ">
-      <div className=" h-3/4 w-10/12  ml-16 border border-gray-200 rounded-lg shadow shadow-2xl opacity-90 shadow-emerald-100 bg-white pt-10 overflow-auto">
+      <div className=" h-3/4 w-10/12  ml-16 border border-gray-200 rounded-lg shadow shadow-2xl opacity-90 shadow-emerald-100 bg-zinc-100 pt-10 overflow-auto">
         {messages && messages.map((msg) =>
 
           <ChatMessage key={msg.id} message={msg} />)}
