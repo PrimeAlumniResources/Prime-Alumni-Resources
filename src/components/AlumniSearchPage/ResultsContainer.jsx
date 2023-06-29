@@ -1,7 +1,13 @@
+/**
+* This file acts as the Search Results containter component
+* @author elijahlawson
+* @version 6/28/2023
+*/
+
 import { Link, NavLink } from "react-router-dom";
 
 function ResultsContainer(props) {
-    console.log(props.profiles);
+    
     const handleBack = () => {
         props.setIsSearching(false);
         props.setIsBrowsing(false);

@@ -12,11 +12,11 @@ function AddResource(props) {
 
     const dispatch = useDispatch()
 
-    const [title, setTitle] = useState('Find Second Largest Element in an array')
-    const [link, setLink] = useState('https://h4rsha.hashnode.dev/find-second-largest-element-in-an-array')
-    const [description, setDescription] = useState('A quick tip for a cool trick!')
+    const [title, setTitle] = useState('')
+    const [link, setLink] = useState('')
+    const [description, setDescription] = useState('')
     const [tag, setTag] = useState('')
-    const [newTag, setNewTag] = useState('Javascript')
+    const [newTag, setNewTag] = useState('')
     const dataPackage = {
         title: title,
         link: link,

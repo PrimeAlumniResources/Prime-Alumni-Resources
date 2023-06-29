@@ -1,3 +1,9 @@
+/**
+* This file acts as the chatpage component
+* @author elijahlawson
+* @version 6/28/2023
+*/
+
 import React from "react";
 import auth, { firestore } from "../../config/firebase";
 import {
@@ -21,14 +27,19 @@ import { useDispatch} from "react-redux";
 function ChatPage() {
 
   const dispatch = useDispatch()
-
+  
+  //react UseState for messages list and messageInput text field
   const [messages, setMessages] = useState([]);
-  const [messageInput, setMessageInput] = useState(['Hi Elijah, sounds like an amazing opportunity!']);
-
-  const user = useSelector(store => store.user);
+  const [messageInput, setMessageInput] = useState([]);
+  
+  //Our profile and firebase user objects
   const profile = useSelector(store => store.profile)
   const fb_user = auth.currentUser;
 
+  //fetchMessages pulls a messagesRef to the messages collection from the Firebase Firestore
+  //Creates a query using the messageRef and limit and orders it
+  //executes the query through firebase getDocs function, then assigns it to a newData variable
+  //and sets the messages state to the newData
   const fetchMessages = async () => {
     const messagesRef = collection(firestore, "messages");
     const q = query(messagesRef, orderBy('timestamp'), limit(50));
@@ -43,6 +54,9 @@ function ChatPage() {
     })
   };
 
+  //postMessage creates a docRef, adding an object with the message input, timestamp, uid, and username.
+  // this addDoc function adds the object to the firestore 'messages' collection
+  //then refetches the messages through the fetchMessages() function
   const postMessage = async () => {
     event.preventDefault();
 
@@ -57,6 +71,7 @@ function ChatPage() {
     fetchMessages();
   }
 
+  //UseEffects to get profile and fetchMessages
   useEffect(() => {
     dispatch({ type: 'FETCH_PROFILE' });
   }, []);

@@ -1,3 +1,9 @@
+/**
+* This file acts as the component for the NavBar
+* @author elijahlawson
+* @version 6/28/2023
+*/
+
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
@@ -6,16 +12,10 @@ function NavBar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const toProfile = () => {
-    return navigate("/profile");
-  };
-
   const handleLogout = () => {
     dispatch({
       type: "LOGOUT",
     });
-
-    // return navigate("/landing-page");
   };
 
   return (

@@ -1,3 +1,9 @@
+/**
+* This file acts as the component page for visiting another user's profile page
+* @author elijahlawson
+* @version 6/28/2023
+*/
+
 import { useEffect } from "react";
 import { useSelector, useDispatch} from "react-redux";
 import { useLocation } from "react-router-dom";
@@ -8,18 +14,18 @@ function OtherProfilePage() {
     /* --------------------------USE SELECTOR DECLARATIONS------------------------------ */
   }
   
+  //dispatch and location are helper functions to access sagas and use state passed from 
   const dispatch = useDispatch();
   const location = useLocation();
   const username_prop = location.state.username;
   const user_id_prop = location.state.user_id;
   
+  //Redux stores
   const profile = useSelector(store => store.specificProfile);
   const currentStacks = useSelector(store => store.specificCurrentTech);
   const KnownStack = useSelector(store => store.specificKnownTech);
-  console.log(profile);
-  console.log(currentStacks);
-  console.log(KnownStack);
 
+  //useEffects for page load information
   useEffect(() => {
     dispatch({
         type: 'FETCH_SPECIFIC_PROFILE',
@@ -40,11 +46,6 @@ function OtherProfilePage() {
         payload: user_id_prop
     })
   }, [])
-
-
-
-
-  
 
   return (
     /* --------------------------------------PROFILE CONTAINER----------------------------- */

@@ -1,22 +1,16 @@
+/**
+* This file acts as the chatpage's chatmessage child component
+* @author elijahlawson
+* @version 6/28/2023
+*/
+
 import auth from "../../config/firebase";
-
-
 
 function ChatMessage(props) {
 
-
-
-  
-
-  
-
+  //spread out the props and then set messageClass
   const { timestamp, message, uid, username } = props.message;
-  console.log(timestamp);
   const messageClass = uid === auth.currentUser.uid ? "sent" : "received";
-
- 
-
-   
 
   return (
     <div className="flex" >

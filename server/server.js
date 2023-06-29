@@ -39,20 +39,11 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-
 app.use('/api/profile', profileRouter);
 app.use('/resourceRoute', resourceRoute);
-
-
-
 app.use('/api/jobs', jobsRouter);
-
 app.use('/api/campus', campusRouter)
-
-
-
 app.use('/api/tech' ,techRouter)
-
 app.use('/api/cohorts',cohort)
 
 // Serve static files

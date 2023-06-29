@@ -76,6 +76,8 @@ function* fetchKnown() {
     }
 }
 
+//-----------------------------FETCH SPECIFIC PROFILE KNOWN STACK SAGA--------------------------------------
+
 function* fetchSpecificKnown(action) {
     try {
         const results = yield axios.get(`/api/tech/known/${action.payload}`)
@@ -85,6 +87,8 @@ function* fetchSpecificKnown(action) {
         console.log('error inside fetch tech saga-->',error);
     }
 }
+
+//-----------------------------FETCH SPECIFIC PROFILE KNOWN STACK SAGA--------------------------------------
 
 function* fetchSpecificCurrent(action) {
     try {

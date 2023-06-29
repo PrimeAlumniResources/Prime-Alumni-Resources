@@ -33,9 +33,9 @@ export default function JobsPage() {
   const dispatch = useDispatch();
 
   const [positionInput, setPositionInput] = useState('');
-  const [positionInput2, setPositionInput2] = useState('Jr. UX/UI Developer');
-  const [companyInput, setCompanyInput] = useState('Grand Marketing Strategies');
-  const [linkInput, setLinkInput] = useState('https://www.linkedin.com/jobs/view/3616927604/?alternateChannel=search&refId=0vwzTQ42hf45g5Gsjttz4g%3D%3D&trackingId=kbGm91Qt2AqAX609hDjm7g%3D%3D');
+  const [positionInput2, setPositionInput2] = useState('');
+  const [companyInput, setCompanyInput] = useState('');
+  const [linkInput, setLinkInput] = useState('');
 
   const addJobs = () => {
     const timestamp = new Date(); // Get the current timestamp
