@@ -1,3 +1,5 @@
+
+// This component is for each resource item to make code cleaner
 function ResourceItem({ resource }) {
     return (
         <div className='shadow-2xl ml-7 w-11/12 opacity-90 shadow-emerald-100  mt-3 flex flex-col items-left pb-5 flex p-4  mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-white dark:text-green-400'>

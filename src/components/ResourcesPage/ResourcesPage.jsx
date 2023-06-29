@@ -14,6 +14,8 @@ function ResourcesPage() {
    
     const dispatch = useDispatch()
 
+    // This useEffect is simultaniouly getting all resources and all existing tags without repeats
+    // from the database
     useEffect(() => {
         dispatch({
             type: 'SAGA/GET_RESOURCE'
@@ -23,18 +25,28 @@ function ResourcesPage() {
         });
     }, []);
 
+    // resources is an array of objects from the redux store
     const resources = useSelector(store => store.resources);
+    // resourceTags is also an array of objects which holds all existing tags from the redux store
     const resourcesTags = useSelector(store => store.resourceTags);
 
-    const [filter, setFilter] = useState('')
+    // filter is changed depending on what tag gets clicked, if its empty strings then all
+    // resources will show, empty string is default
+    const [filter, setFilter] = useState('');
+
+    // The following useState and both functions are responsible for the modal rendering
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    // tagFilter is used to change filter state to be used to conditionally render the resourse pertaining
+    // to the tag that gets clicked 
     const tagFilter = (e) => {
         setFilter(e.target.innerHTML)
     }
 
+    // This style object is responsible for the modal styling and size. Because its a material ui
+    // modal, this is the way to style it
     const style = {
         position: 'absolute',
         top: '50%',
@@ -48,6 +60,7 @@ function ResourcesPage() {
         borderRadius: '25px'
     };
 
+    // class names relect on mostly tail wind usage responsible for styling
     return (
         <div className='bg-gray-50 h-screen pt-5' >
           
