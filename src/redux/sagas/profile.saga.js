@@ -26,6 +26,8 @@ function* fetchProfile() {
     }
 }   
 
+//-----------------------------FETCH ALL PROFILE SAGA--------------------------------------
+
 function* fetchAllProfiles() {
     try {
         const results = yield axios.get('/api/profile/all');
@@ -36,6 +38,9 @@ function* fetchAllProfiles() {
     }
 }
 
+//-----------------------------FETCH SPECIFIC PROFILE SAGA--------------------------------------
+
+
 function* fetchSpecificProfile(action) {
     try {
         const results = yield axios.get(`/api/profile/${action.payload}`);
@@ -45,20 +50,6 @@ function* fetchSpecificProfile(action) {
         console.log('error inside fetchSpecificProfile saga --->', error);
     }
 }
-
-
-// function* fetchSpecific(action) {
-//     console.log('this is action.payload in saga-->',action.payload);
-//     const username = action.payload.username
-//     try {
-//         const results = yield axios.get('/api/profile/specific' ,  {
-//             params: { username }, });
-//         console.log('this is the results of the fetchSpecific saga --->', results.data)
-//         yield put({type:'SET_SPECIFIC_PROFILES', payload: results.data});
-//     } catch (error) {
-//         console.log('error inside fetch specific profiles saga-->', error);
-//     }
-// }
 
 export default function* profileSaga () {
     yield takeLatest('FETCH_PROFILE', fetchProfile)

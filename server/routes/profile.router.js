@@ -84,9 +84,9 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 })
 
+//SpecificProfile get route using username as param
 router.get('/:username', rejectUnauthenticated, (req, res) => {
     const username = req.params.username;
-    console.log(username)
     const sqlText = `SELECT username, first_name, last_name, pronouns, bio, current_work, position, "user".start_date, portfolio_url, github, linked_in, uploaded_file, cohort.name as cohort_name, cohort.start_date as cohort_start_date, cohort.end_date as cohort_end_date  FROM "user" 
                         JOIN cohort ON "user".cohort_id=cohort.id
                         WHERE username = $1;`
@@ -101,28 +101,5 @@ router.get('/:username', rejectUnauthenticated, (req, res) => {
         console.log('error in specific profile get route', error)
     })
 });
-
-// router.get('/specific',  (req, res) => {
-//     console.log('this is req.body-->',req.body.username);
-//     const username = req.query.username
-
-//     const sqlText = `
-            
-//     SELECT uploaded_file FROM "user"
-//     WHERE username= $1;
-//     `
-//     const sqlValue = [username]
-//     console.log('this is the sql values-->',sqlValue);
-//     pool.query(sqlText, sqlValue)
-//     .then((results) => {
-//         console.log('this is the results', results.rows);
-//         res.send(results.rows[0])
-//     }).catch((error) => {
-//         console.log('error in specific profile server get route:', error);
-//         res.sendStatus(500)
-//     })
-// })
-
- 
 
 module.exports = router

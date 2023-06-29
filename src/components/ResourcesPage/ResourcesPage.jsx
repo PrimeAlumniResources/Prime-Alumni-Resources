@@ -86,7 +86,7 @@ function ResourcesPage() {
                 </Box>
             </Modal>
             </div>
-            <div className='tag w-2/12 ml-4 shadow-2xl opacity-90 shadow-emerald-100 mt-3 border-solid border flex-col items-center pb-10 p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-white dark:text-green-400'>
+            <div className='tag w-2/12 ml-4 shadow-2xl opacity-90 shadow-emerald-100 mt-3 border-solid border flex-col items-center pb-10 p-4 mb-4 text-emerald-700 rounded-lg bg-green-50 dark:bg-white '>
             <center >
                 
                 <aside >
@@ -95,14 +95,14 @@ function ResourcesPage() {
                         <div className='mt-3 mb-3 font-bold'>Tags</div>
 
                         <div >
-                            <button onClick={() => { setFilter('') }} className=' w-fit border shadow-2xl opacity-90 shadow-emerald-100  mt-3  flex-col items-center pr-5 pl-5 text-green-800 rounded-full bg-green-50 dark:bg-white dark:text-green-400'>Show All</button>
+                            <button onClick={() => { setFilter('') }} className=' w-fit border shadow-2xl opacity-90 shadow-emerald-100  mt-3  flex-col items-center pr-5 pl-5 text-emerald-700 rounded-full bg-green-50 dark:bg-white'>Show All</button>
                         </div>
 
                         {
                             resourcesTags.map(tag => {
                                 return (
                                     <div key={tag.id} className='mb-4'>
-                                        <button onClick={(e) => tagFilter(e)} className='w-fit ml-4 shadow-2xl opacity-90 shadow-emerald-100  mt-3  flex-col items-center p-4  mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-white dark:text-green-400'>{tag.tag}</button>
+                                        <button onClick={(e) => tagFilter(e)} className='w-fit ml-4 shadow-2xl opacity-90 shadow-emerald-100  mt-1  flex-col items-center p-4  mb-1 hover:border hover:border-emerald-700 rounded-lg bg-green-50 dark:bg-white text-emerald-700'>{tag.tag}</button>
                                     </div>
                                 )
                             })

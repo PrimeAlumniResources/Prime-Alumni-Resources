@@ -162,41 +162,41 @@ export default function JobsPage() {
           <JobsList selectedTag={selectedTag} search={search}/>
 
           {/* TAG MENU */}
-          <div className='tag-container fixed shadow shadow-sm shadow-emerald-400 '>
-            <div className='mt-3 mb-3 font-bold mt-3 ml-12 text-left mb-1 text-emerald-400 text-xl'>Tags</div>
+          <div className='tag-container ml-4 fixed shadow shadow-sm text-emerald-700 '>
+            <div className='mt-3 mb-3 font-bold mt-3 ml-12 text-left mb-1 text-emerald-700 text-xl'>Tags</div>
 
             <div className='mb-4'>
-              <button className='ml-7 text-1xl flex  text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('')}>Show All</button>
+              <button className='ml-7 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('')}>Show All</button>
             </div>
             <div className='mb-4'>
-              <button className='ml-5 text-1xl flex  text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Software Engineer')}>Software Engineer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Software Engineer')}>Software Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='ml-5 text-1xl flex  text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Full Stack Engineer')}>Full Stack Engineer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Full Stack Engineer')}>Full Stack Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='ml-5 text-1xl flex  text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Front End Developer')}>Front End Developer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Front End Developer')}>Front End Developer</button>
             </div>
             <div className='mb-4'>
-              <button className='ml-5 text-1xl flex  text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Back End Developer')}>Back End Developer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Back End Developer')}>Back End Developer</button>
             </div>
             <div className='mb-4'>
-              <button className='ml-5 text-1xl flex  text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Data Engineer')}>Data Engineer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Data Engineer')}>Data Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='ml-5 text-1xl flex  text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('QA Engineer')}>QA Engineer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('QA Engineer')}>QA Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='ml-5 text-1xl flex  text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('DevOps Engineer')}>DevOps Engineer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('DevOps Engineer')}>DevOps Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='ml-5 text-1xl flex  text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Cloud Architect')}>Cloud Architect</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Cloud Architect')}>Cloud Architect</button>
             </div>
             <div className='mb-4'>
-              <button className='ml-5 text-1xl flex  text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Security Engineer')}>Security Engineer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Security Engineer')}>Security Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='ml-5 text-1xl flex  text-emerald-400 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Mobile Developer')}>Mobile Developer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Mobile Developer')}>Mobile Developer</button>
             </div>
           </div>
 

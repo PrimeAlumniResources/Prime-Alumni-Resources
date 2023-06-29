@@ -1,3 +1,9 @@
+/**
+* This file acts as the chatpage component
+* @author elijahlawson
+* @version 6/28/2023
+*/
+
 import React from "react";
 import auth, { firestore } from "../../config/firebase";
 import {
@@ -21,14 +27,19 @@ import { useDispatch} from "react-redux";
 function ChatPage() {
 
   const dispatch = useDispatch()
-
+  
+  //react UseState for messages list and messageInput text field
   const [messages, setMessages] = useState([]);
   const [messageInput, setMessageInput] = useState([]);
-
-  const user = useSelector(store => store.user);
+  
+  //Our profile and firebase user objects
   const profile = useSelector(store => store.profile)
   const fb_user = auth.currentUser;
 
+  //fetchMessages pulls a messagesRef to the messages collection from the Firebase Firestore
+  //Creates a query using the messageRef and limit and orders it
+  //executes the query through firebase getDocs function, then assigns it to a newData variable
+  //and sets the messages state to the newData
   const fetchMessages = async () => {
     const messagesRef = collection(firestore, "messages");
     const q = query(messagesRef, orderBy('timestamp'), limit(50));
@@ -43,6 +54,9 @@ function ChatPage() {
     })
   };
 
+  //postMessage creates a docRef, adding an object with the message input, timestamp, uid, and username.
+  // this addDoc function adds the object to the firestore 'messages' collection
+  //then refetches the messages through the fetchMessages() function
   const postMessage = async () => {
     event.preventDefault();
 
@@ -57,6 +71,7 @@ function ChatPage() {
     fetchMessages();
   }
 
+  //UseEffects to get profile and fetchMessages
   useEffect(() => {
     dispatch({ type: 'FETCH_PROFILE' });
   }, []);
@@ -69,7 +84,7 @@ function ChatPage() {
 
   return (
     <div className=" bg-gray-50 pt-10 h-screen ">
-      <div className=" h-3/4 w-10/12  ml-16 border border-gray-200 rounded-lg shadow shadow-2xl opacity-90 shadow-emerald-100 bg-zinc-100 pt-10 overflow-auto">
+      <div className=" h-3/4 w-10/12  ml-16 border border-gray-200 rounded-lg shadow shadow-2xl opacity-90 shadow-emerald-100 bg-emerald-100 pt-10 overflow-auto">
         {messages && messages.map((msg) =>
 
           <ChatMessage key={msg.id} message={msg} />)}
@@ -84,7 +99,7 @@ function ChatPage() {
           <textarea
             id="chat"
             rows="1"
-            className=" shadow-1xl opacity-90 shadow-emerald-200 bg-white block m-2 p-2.5 w-full text-sm focus:ring-emerald-300 text-emerald-400 focus:border-emerald-300 bg-white rounded-lg   focus:ring-emerald-400   dark:placeholder-gray-400 dark:focus:border-emerald-500 dark:focus:ring-emerald-300 dark:text-emerald-300 "
+            className=" shadow-1xl opacity-90 shadow-emerald-200 block m-2 p-2.5 w-full text-sm focus:ring-emerald-300 text-emerald-700 focus:border-emerald-300 bg-white rounded-lg   focus:ring-emerald-400   dark:placeholder-gray-400 dark:focus:border-emerald-500 dark:focus:ring-emerald-300 dark:text-emerald-700 "
             placeholder="Your message..."
             value={messageInput}
             onChange={(event) => setMessageInput(event.target.value)}
