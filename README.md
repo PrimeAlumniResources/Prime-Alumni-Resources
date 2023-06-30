@@ -15,7 +15,6 @@ REACT_APP_ACCESS_KEY=AKIAQK5HXZXMMCOH5NFZ
 REACT_APP_SECRET_ACCESS_KEY=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
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/PrimeAlumniResources/Prime-Alumni-Resources)
-![Top Language](https://img.shields.io/badge/-ReactJs-61DAFB?style=flat)
 ![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/PrimeAlumniResources/Prime-Alumni-Resources/main)
 ![GitHub contributors](https://img.shields.io/github/contributors/PrimeAlumniResources/Prime-Alumni-Resources)
 
@@ -26,7 +25,6 @@ REACT_APP_SECRET_ACCESS_KEY=VW8w3J0cu28z80ptPPcY+XSZE6Mz0OZDDggWBe+M
 ## Table of Contents
 
 - [Description](#description)
-
 - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
@@ -36,6 +34,19 @@ REACT_APP_SECRET_ACCESS_KEY=VW8w3J0cu28z80ptPPcY+XSZE6Mz0OZDDggWBe+M
 ## Description
 
 Prime alumni database is an app to connect prime alumni. Pad gives primers the ability to share resources , job opportunities and to stay connected with the prime community.
+
+## Built With
+![Built With](https://img.shields.io/badge/-Javascript?style=flat)
+![Built With](https://img.shields.io/badge/-HTML-?style=flat)
+![Built With](https://img.shields.io/badge/-SQL?style=flat)
+![Built With](https://img.shields.io/badge/-CSS?style=flat)
+![Built With](https://img.shields.io/badge/-Tailwind?style=flat)
+![Built With](https://img.shields.io/badge/-MUIstyle=flat)
+![Built With](https://img.shields.io/badge/-ReactJs-61DAFB?style=flat)
+![Built With](https://img.shields.io/badge/-NodeJs?style=flat)
+![Built With](https://img.shields.io/badge/-Redux?style=flat)
+![Built With](https://img.shields.io/badge/-React_Saga?style=flat)
+![Built With](https://img.shields.io/badge/-postgreSQL?style=flat)
 
 ## Getting Started
 
