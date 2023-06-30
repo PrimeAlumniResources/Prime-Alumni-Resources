@@ -36,17 +36,17 @@ REACT_APP_SECRET_ACCESS_KEY=VW8w3J0cu28z80ptPPcY+XSZE6Mz0OZDDggWBe+M
 Prime alumni database is an app to connect prime alumni. Pad gives primers the ability to share resources , job opportunities and to stay connected with the prime community.
 
 ## Built With
-![Static Badge](https://img.shields.io/badge/JavaScript-yellow?style=plastic&logo=Javascript)
-![Static Badge](https://img.shields.io/badge/HTML-orange?style=plastic&logo=html5&logoColor=white)
-![Built With](https://img.shields.io/badge/SQL-black?style=plastic&logoColor=white)
-![Built With](https://img.shields.io/badge/HTML-orange?style=plastic&logo=css3&logoColor=white&color=blue)
+![Static Badge](https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge&logo=Javascript)
+![Static Badge](https://img.shields.io/badge/HTML-orange?style=for-the-badge&logo=html5&logoColor=white)
+![Built With](https://img.shields.io/badge/SQL-black?style=for-the-badge&logoColor=white)
+![Built With](https://img.shields.io/badge/HTML-orange?style=for-the-badge&logo=css3&logoColor=white&color=blue)
 ![Built With](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Built With](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white)
-![Built With](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![Built With](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=mui&logoColor=white)
 ![Built With](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Built With](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![Built With](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
-![Built With](https://img.shields.io/badge/Redux_Saga-8A2BE2?style=plastic&logo=redux-saga&logoColor=white)
+![Built With](https://img.shields.io/badge/Redux_Saga-8A2BE2?style=for-the-badge&logo=redux-saga&logoColor=white)
 ![Built With](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
 ## Getting Started
