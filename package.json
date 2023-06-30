@@ -15,6 +15,7 @@
     "@mui/material": "^5.13.5",
     "aws-sdk": "^2.1404.0",
     "axios": "^0.21.1",
+    "badge-maker": "^3.3.1",
     "bcryptjs": "^2.4.3",
     "cloudinary-react": "^1.8.1",
     "cookie-session": "^2.0.0",
