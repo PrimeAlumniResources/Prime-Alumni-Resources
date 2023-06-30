@@ -1,3 +1,9 @@
+/**
+* This file displays the Jobs Page when "Jobs" is selected on the NavBar. Includes component JobsList"
+* @author https://github.com/YuhBoh
+* @version 6/28/2023
+*/
+
 import './JobsPage.css';
 import { React, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -70,8 +76,10 @@ export default function JobsPage() {
       <div>
         <div className='flex '>
 
+          {/* TOP CONTAINER W/ SEARCH BAR AND "ADD JOBS +" BTN */}
           <div className='top-container fixed  '>
 
+            {/* SEARCH BAR */}
             <input 
               value={search}
               onChange={e => setSearch(e.target.value)}
@@ -79,7 +87,7 @@ export default function JobsPage() {
               type="text" 
               placeholder="Search"/>
 
-
+            {/* ADD JOBS + BTN */}
             <button 
             onClick={toggleModal}
             className='add-btn pb-1 pt-1 pl-2 pr-2 rounded-md hover:bg-gray-200'
@@ -89,17 +97,13 @@ export default function JobsPage() {
 
           </div>
           
-
+          {/* MODAL WHEN "ADD JOBS +" IS CLICKED */}
           {modal && (
             <div className="modal">
               <div onClick={toggleModal} className="overlay"></div>
 
               <div className="modal-content pb-5">
                 <h3 className='modal-title leading-6 font-semibold text-gray-900'>Add Job</h3>
-
-                {/* <button className="close-modal hover:underline" onClick={toggleModal}>
-                  X
-                </button> */}
                 
                 <div>Position</div>
                   <select 
@@ -157,6 +161,7 @@ export default function JobsPage() {
             <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
         </div>
 
+        {/* CONTAINER FOR LIST OF JOBS POSTED */}
         <div className='flex'>
 
           <JobsList selectedTag={selectedTag} search={search}/>
@@ -203,8 +208,6 @@ export default function JobsPage() {
         </div>
         
       </div>
-
-      
 
     </div> 
 

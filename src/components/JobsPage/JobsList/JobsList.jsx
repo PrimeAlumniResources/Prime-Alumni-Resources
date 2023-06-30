@@ -1,6 +1,10 @@
+/**
+* This file displays the list of Jobs added. Includes JobItem component"
+* @author https://github.com/YuhBoh
+* @version 6/28/2023
+*/
 import { React } from 'react';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import JobItem from './JobItem/JobItem';
 import './JobsList.css';
 
