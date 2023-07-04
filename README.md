@@ -1,19 +1,3 @@
-//Passport password secret
-SERVER_SESSION_SECRET=4UN%cXr?SJQ9Uax@6kq$
-
-//Firebase Config Keys
-REACT_APP_FIREBASE_API_KEY = "AIzaSyBksjE5Btr6Dq0i0q-7AgkBoZrq0jUl1Jc"
-REACT_APP_FIREBASE_AUTH_DOMAIN = "prime-alumni-database-c0a06.firebaseapp.com"
-REACT_APP_FIREBASE_PROJECT_ID = "prime-alumni-database-c0a06"
-REACT_APP_FIREBASE_STORAGE_BUCKET = "prime-alumni-database-c0a06.appspot.com"
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID = "682005228081"
-REACT_APP_FIREBASE_APP_ID = "1:682005228081:web:a4f98bfe5438332edd0310"
-
-//AWS Keys
-REACT_APP_BUCKET=profilepic3
-REACT_APP_ACCESS_KEY=AKIAQK5HXZXMMCOH5NFZ
-REACT_APP_SECRET_ACCESS_KEY=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
-
 ![GitHub repo size](https://img.shields.io/github/repo-size/PrimeAlumniResources/Prime-Alumni-Resources)
 ![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/PrimeAlumniResources/Prime-Alumni-Resources/main)
 ![GitHub contributors](https://img.shields.io/github/contributors/PrimeAlumniResources/Prime-Alumni-Resources)
