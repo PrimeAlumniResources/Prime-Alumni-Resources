@@ -36,3 +36,9 @@ export default function JobsList({ selectedTag, search }) {
     </div>
   );
 }
+
+/**
+* This file acts as the component for list of jobs 
+* @author Yuh-Boh Feng
+*  7/30/2023
+*/

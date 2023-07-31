@@ -213,3 +213,8 @@ export default function JobsPage() {
 
   );
 }
+/**
+* This file acts as the component for Jobs Page 
+* @author Yuh-Boh Feng
+*  7/30/2023
+*/
