@@ -1,9 +1,13 @@
-const campus = (state=[], action) => {
+
+const campus = (state = {} , action) => {
     switch (action.type) {
-        case 'SET_ALL_CAMPUS':
-            return action.payload;
-        default:
-            return state;
+        case 'MODIFY_CAMPUS_NAME' : return {name: action.payload}
+        break;
+        case 'MODIFY_CAMPUS_CITY' : return {city: action.payload}
+        break; 
+        case 'MODIFY_CAMPUS_STATE' : return {states: action.payload}
+        break;
+        default: return state;
     }
 }
 

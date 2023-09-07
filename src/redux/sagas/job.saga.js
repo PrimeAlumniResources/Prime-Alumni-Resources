@@ -5,6 +5,7 @@ function* postJobs(action) {
   // console.log("action.payload:", action.payload); works
   try {
     yield axios.post("/api/jobs", action.payload);
+    console.log(action.payload);
     yield put({type:'GET_JOBS'});
   } catch (err) {
     console.log("error in postJobs saga:", err);

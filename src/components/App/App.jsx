@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, Navigate } from "react-router-dom";
-
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-
-import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
+import ChatPage from '../ChatPage/ChatPage';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
@@ -14,11 +12,12 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Layout from '../Layout/Layout';
-
+import ResourcesPage from '../ResourcesPage/ResourcesPage';
+import EditProfilePage from '../profilePage/EditProfilePage';
+import ProfilePage from '../profilePage/ProfilePage';
 import JobsPage from '../JobsPage/JobsPage';
-
 import AlumniSearchPage from '../AlumniSearchPage/AlumniSearchPage';
-
+import OtherProfilePage from '../profilePage/OtherProfilePage';
 
 import './App.css';
 
@@ -26,6 +25,7 @@ function App() {
   const dispatch = useDispatch();
 
   const user = useSelector(store => store.user);
+  const location = useLocation();
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
@@ -34,33 +34,58 @@ function App() {
   return (
       <Routes>
 
-        <Route element={<Layout />}>
-          <Route path ="/" element={<Navigate to="/home" />} />
+        <Route path ="/" element={<Navigate to="/landing-page" />} />
+
+        <Route
+            path="/registration"
+            element={user.id ? <Navigate to="/editprofile" /> : <RegisterPage />}
+        />
+
+        <Route
+            path="/login"
+            element={user.id ? <Navigate to="/alumni-search" /> : <LoginPage />}
+        />
+
+        <Route 
+            path="/landing-page" 
+            element={user.username ? 
+                        user.id ? <Navigate to="/home" /> : <LandingPage /> :
+                        user.id ? <Navigate to="/editprofile" /> : <LandingPage />} />
+
+          <Route element={<Layout />}>
+
           <Route
             path="/home"
-            element={user.id ? <Navigate to="/user" /> : <LandingPage />}
-          />
-
-          <Route
-            path="/registration"
-            element={user.id ? <Navigate to="/user" /> : <RegisterPage />}
-          />
-
-          <Route
-            path="/login"
-            element={user.id ? <Navigate to="/user" /> : <LoginPage />}
-          />
-
-          {/* <Route
-            path="/alumni-search"
-            element={user.id ? <Navigate to="/alumni-search" /> : <LoginPage />}
-          /> */}
-
-          <Route
-            path="/user"
             element={
               <ProtectedRoute user={user}>
-                <UserPage />
+                <ChatPage />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/editprofile"
+            element={
+              <ProtectedRoute user={user}>
+                <EditProfilePage />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute user={user}>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/profile/:username"
+            element={
+              <ProtectedRoute user={user}>
+                <OtherProfilePage />
               </ProtectedRoute>
             }
           />
@@ -75,7 +100,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          </Route>
+          
 
           <Route
             path="/alumni-search"
@@ -86,7 +111,17 @@ function App() {
             }
           />
 
+          <Route
+          path="/resource"
+          element={
+            <ProtectedRoute user={user}>
+              <ResourcesPage />
+            </ProtectedRoute>
+          }
+          />
+        </Route>
       </Routes>
+
   );
 }
 

@@ -1,3 +1,9 @@
+/**
+* This file displays the Jobs Page when "Jobs" is selected on the NavBar. Includes component JobsList"
+* @author https://github.com/YuhBoh
+* @version 6/28/2023
+*/
+
 import './JobsPage.css';
 import { React, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -19,7 +25,8 @@ export default function JobsPage() {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
-    setModal(!modal)
+    setModal(!modal);
+    document.body.classList.toggle('overlay');
   }
 
   if(modal) {
@@ -64,15 +71,15 @@ export default function JobsPage() {
     // console.log('it;s working'); WORKS
   }
 
-
-
   return (
-    <div className='job-page-container'>
+    <div className='job-page-container bg-gray-50'>
       <div>
-        <div className='flex'>
+        <div className='flex '>
 
-          <div className='top-container fixed'>
+          {/* TOP CONTAINER W/ SEARCH BAR AND "ADD JOBS +" BTN */}
+          <div className='top-container fixed  '>
 
+            {/* SEARCH BAR */}
             <input 
               value={search}
               onChange={e => setSearch(e.target.value)}
@@ -80,31 +87,27 @@ export default function JobsPage() {
               type="text" 
               placeholder="Search"/>
 
-
+            {/* ADD JOBS + BTN */}
             <button 
             onClick={toggleModal}
-            className='add-btn'
+            className='add-btn pb-1 pt-1 pl-2 pr-2 rounded-md hover:bg-gray-200'
             >
-              Add Jobs
+              Add Jobs +
             </button>
 
           </div>
           
-
+          {/* MODAL WHEN "ADD JOBS +" IS CLICKED */}
           {modal && (
             <div className="modal">
               <div onClick={toggleModal} className="overlay"></div>
 
-              <div className="modal-content">
-                <div className='modal-title'>Add Job</div>
-
-                <button className="close-modal" onClick={toggleModal}>
-                  X
-                </button>
+              <div className="modal-content pb-5">
+                <h3 className='modal-title leading-6 font-semibold text-gray-900'>Add Job</h3>
                 
                 <div>Position</div>
                   <select 
-                    className='select-container'
+                    className='select-container focus:outline-none border w-44 pl-1 h-7 rounded-md'
                     value={positionInput}
                     onChange={(event) => setPositionInput(event.target.value)}>
                     <option value="" disabled>Select your option</option>
@@ -120,29 +123,33 @@ export default function JobsPage() {
                     <option value="Mobile Developer">Mobile Developer</option>
                   </select>
                 
-                <div>or</div>
-                  <input 
-                    type="text"
+                <div className="text-gray-400 font-light">or</div>
+                  <input
+                    className="focus:outline-none h-7 border w-44 pl-2 mb-3 rounded-md" 
+                    type="text focus:outline-none"
                     value={positionInput2}
                     onChange={event => setPositionInput2(event.target.value)} />
 
                 <div>Company</div>
                   <input 
+                    className="focus:outline-none h-7 border w-44 pl-2 mb-3 rounded-md"
                     type="text"
                     value={companyInput}
                     onChange={event => setCompanyInput(event.target.value)} />
 
                 <div>Link</div>
-                  <div className="modal-drop">
-                    <input 
+                  <div className="modal-drop focus:outline-none">
+                    <input
+                    className="focus:outline-none h-7 border w-44 pl-2 rounded-md" 
                     type="text"
                     value={linkInput}
                     onChange={event => setLinkInput(event.target.value)} />
                   </div>
                 
-                <div>
+                <div className='flex justify-end mt-3 mb-1'>
                   <button
-                    onClick={handleClick}>
+                    onClick={handleClick}
+                    className='add-job-btn h-8 w-14 rounded-md bg-gray-300 hover:text-gray-200 hover:bg-gray-400 cursor-pointer'>
                     Add
                   </button>
                 </div>
@@ -154,46 +161,47 @@ export default function JobsPage() {
             <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
         </div>
 
+        {/* CONTAINER FOR LIST OF JOBS POSTED */}
         <div className='flex'>
 
           <JobsList selectedTag={selectedTag} search={search}/>
 
           {/* TAG MENU */}
-          <div className='tag-container fixed'>
-            <div className='mt-3 mb-3 font-bold'>Tags</div>
+          <div className='tag-container ml-4 fixed shadow shadow-sm text-emerald-700 '>
+            <div className='mt-3 mb-3 font-bold mt-3 ml-12 text-left mb-1 text-emerald-700 text-xl'>Tags</div>
 
             <div className='mb-4'>
-              <button className='filter-options' onClick={() => setSelectedTag('')}>All</button>
+              <button className='ml-7 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-fit p-2 rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('')}>Show All</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options' onClick={() => setSelectedTag('Software Engineer')}>Software Engineer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Software Engineer')}>Software Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options' onClick={() => setSelectedTag('Full Stack Engineer')}>Full Stack Engineer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Full Stack Engineer')}>Full Stack Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options' onClick={() => setSelectedTag('Front End Developer')}>Front End Developer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Front End Developer')}>Front End Developer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options' onClick={() => setSelectedTag('Back End Developer')}>Back End Developer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Back End Developer')}>Back End Developer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options' onClick={() => setSelectedTag('Data Engineer')}>Data Engineer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Data Engineer')}>Data Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options' onClick={() => setSelectedTag('QA Engineer')}>QA Engineer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('QA Engineer')}>QA Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options' onClick={() => setSelectedTag('DevOps Engineer')}>DevOps Engineer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('DevOps Engineer')}>DevOps Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options' onClick={() => setSelectedTag('Cloud Architect')}>Cloud Architect</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Cloud Architect')}>Cloud Architect</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options' onClick={() => setSelectedTag('Security Engineer')}>Security Engineer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Security Engineer')}>Security Engineer</button>
             </div>
             <div className='mb-4'>
-              <button className='filter-options' onClick={() => setSelectedTag('Mobile Developer')}>Mobile Developer</button>
+              <button className='ml-5 text-1xl flex  text-emerald-700 rounded-lg bg-white  flex items-center justify-center h-fit  flex-col w-9/12  rounded-lg shadow md:flex-row ' onClick={() => setSelectedTag('Mobile Developer')}>Mobile Developer</button>
             </div>
           </div>
 
@@ -201,9 +209,12 @@ export default function JobsPage() {
         
       </div>
 
-      
-
     </div> 
 
   );
 }
+/**
+* This file acts as the component for Jobs Page 
+* @author Yuh-Boh Feng
+*  7/30/2023
+*/

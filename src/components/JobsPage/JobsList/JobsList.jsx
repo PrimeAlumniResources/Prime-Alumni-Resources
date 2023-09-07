@@ -1,3 +1,8 @@
+/**
+* This file displays the list of Jobs added. Includes JobItem component"
+* @author https://github.com/YuhBoh
+* @version 6/28/2023
+*/
 import { React } from 'react';
 import { useSelector } from 'react-redux';
 import JobItem from './JobItem/JobItem';
@@ -24,10 +29,16 @@ export default function JobsList({ selectedTag, search }) {
   });
 
   return (
-    <div className="job-posts-container">
+    <div className="job-posts-container ">
       {filteredJobs.map((job) => (
         <JobItem key={job.id} job={job} />
       ))}
     </div>
   );
 }
+
+/**
+* This file acts as the component for list of jobs 
+* @author Yuh-Boh Feng
+*  7/30/2023
+*/

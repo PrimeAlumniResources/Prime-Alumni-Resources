@@ -1,0 +1,58 @@
+Date : 2023-06-23 21:05:42
+Directory : /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources
+Total : 16 files,  243 codes, 26 comments, 12 blanks, all 281 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| JSON           |          2 |        141 |          0 |          0 |        141 |
+| JavaScript JSX |          8 |        105 |         24 |         15 |        144 |
+| JavaScript     |          5 |          4 |          2 |          0 |          6 |
+| Properties     |          1 |         -7 |          0 |         -3 |        -10 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                      | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                         |         16 |        243 |         26 |         12 |        281 |
+| . (Files)                                                                                                 |          3 |        134 |          0 |         -3 |        131 |
+| server                                                                                                    |          1 |          1 |          0 |         -1 |          0 |
+| server/routes                                                                                             |          1 |          1 |          0 |         -1 |          0 |
+| src                                                                                                       |         12 |        108 |         26 |         16 |        150 |
+| src/components                                                                                            |          8 |        105 |         24 |         15 |        144 |
+| src/components/App                                                                                        |          1 |          8 |          0 |          2 |         10 |
+| src/components/ChatPage                                                                                   |          2 |         64 |         -3 |          6 |         67 |
+| src/components/LandingPage                                                                                |          2 |         13 |          0 |          0 |         13 |
+| src/components/LogOutButton                                                                               |          1 |          2 |          0 |          0 |          2 |
+| src/components/RegisterForm                                                                               |          1 |         10 |          2 |          4 |         16 |
+| src/components/profilePage                                                                                |          1 |          8 |         25 |          3 |         36 |
+| src/config                                                                                                |          1 |          0 |          0 |         -1 |         -1 |
+| src/redux                                                                                                 |          3 |          3 |          2 |          2 |          7 |
+| src/redux/reducers                                                                                        |          1 |          1 |          0 |          0 |          1 |
+| src/redux/sagas                                                                                           |          2 |          2 |          2 |          2 |          6 |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                                                  | language       | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/.env                                             | Properties     |         -7 |          0 |         -3 |        -10 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/package-lock.json                                | JSON           |        136 |          0 |          0 |        136 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/package.json                                     | JSON           |          5 |          0 |          0 |          5 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/server/routes/user.router.js                     | JavaScript     |          1 |          0 |         -1 |          0 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/App/App.jsx                       | JavaScript JSX |          8 |          0 |          2 |         10 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ChatPage/ChatMessage.jsx          | JavaScript JSX |          6 |          0 |          1 |          7 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/ChatPage/ChatPage.jsx             | JavaScript JSX |         58 |         -3 |          5 |         60 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/LandingPage/LandingPage.jsx       | JavaScript JSX |          5 |          0 |         -1 |          4 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/LandingPage/LandingPageHeader.jsx | JavaScript JSX |          8 |          0 |          1 |          9 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/LogOutButton/LogOutButton.jsx     | JavaScript JSX |          2 |          0 |          0 |          2 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/RegisterForm/RegisterForm.jsx     | JavaScript JSX |         10 |          2 |          4 |         16 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/components/profilePage/EditProfilePage.jsx   | JavaScript JSX |          8 |         25 |          3 |         36 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/config/firebase.js                           | JavaScript     |          0 |          0 |         -1 |         -1 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/reducers/profile.reducer.js            | JavaScript     |          1 |          0 |          0 |          1 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/login.saga.js                    | JavaScript     |         -1 |          0 |          0 |         -1 |
+| /Users/elijahlawson/Desktop/Prime/Prime-Alumni-Resources/src/redux/sagas/registration.saga.js             | JavaScript     |          3 |          2 |          2 |          7 |
+| Total                                                                                                     |                |        243 |         26 |         12 |        281 |
++-----------------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
