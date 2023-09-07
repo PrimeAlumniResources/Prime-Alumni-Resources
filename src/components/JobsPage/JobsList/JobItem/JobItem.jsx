@@ -52,6 +52,7 @@ export default function JobItem({ job }) {
 
      {/* FUTURE FEATURE: SAVE BTN / T HUMBS UP THUMBS DOWN??? / DELETE JOBS? */}
       <div className='job-post-right'>
+
       </div>
 
     </div>
